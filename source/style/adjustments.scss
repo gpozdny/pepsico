@@ -1,0 +1,173 @@
+//responsive
+@function rem($px) {
+	@return $px / 16px + 0rem;
+}
+
+
+@mixin desktop {
+	@media screen and (max-width: 1300px) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media screen and (max-width: 992px) {
+		@content;
+	}
+}
+
+
+@mixin tablets {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+
+@mixin phones {
+	@media screen and (max-width: 480px) {
+		@content;
+	}
+}
+
+html {
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+	@include desktop	{
+		.container, .container--column	{
+			width: 970px;
+		}
+	}
+
+
+	@include laptop	{
+		font-size: 15px;
+		.container, .container--column	{
+			width: 100%;
+			padding: 0 20px;
+		}
+
+	}
+	@include tablets	{
+		font-size: 14px;
+		.container, .container--column	{
+			width: 100%;
+			padding: 0 20px;
+		}
+
+	}
+	@include phones	{
+		font-size: 12px;
+		.container, .container--column	{
+			width: 95%;
+			padding: 0 20px;
+		}
+	}
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	font-family: 'Rubik', sans-serif;
+	position: relative;
+	background-color: #F9FAFC;
+}
+
+body {
+	line-height: 1.42;
+	-webkit-font-smoothing: antialiased;
+}
+
+.wrapper { //fixed bottom footer
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.maincontent {
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.container  {
+    width: 1174px;  
+    display: flex;
+	flex-direction: row;
+	position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container--column  {
+    width: 1174px;  
+    display: flex;
+	flex-direction: column;
+	position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flex-center {
+	@include flex-align(center);
+}
+
+* {
+	box-sizing: border-box;
+	outline: none;
+}
+
+footer  {
+    position: relative;
+}
+
+li {
+	list-style: none;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+p  {
+	margin: 0;
+}
+
+button {
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+}
+
+.btn {
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	background-color: $bottom-colour;
+	padding: 15px 55px;
+	border: 2px solid white;
+	border-radius: 30px;
+	transition:all .3s ease;
+}
+
+.btn--active {
+	background-color: $main-colour;
+		&:hover {
+			box-shadow: 0 2px 4px 0 rgba(0, 76, 151, 0.5);
+		}
+		&:active {
+			background-color: #002568;
+		}
+}
+
+img {
+	max-width: 100%;
+}

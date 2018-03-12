@@ -1,0 +1,17 @@
+// vars
+
+$main-colour: #004C97;
+$main-white: #F9FAFC;
+$text-colour: #181818;
+$bottom-colour: #C4C9CD;
+$bg-colour: #131822;
+$stripe-colour: rgba(24, 24, 24, 0.1);
+
+// adjustments
+
+@import 'mixins.scss';
+@import 'adjustments.scss';
+
+// sections
+
+@import 'sections/auth';

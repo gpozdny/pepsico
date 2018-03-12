@@ -1,0 +1,74 @@
+.wrapper--auth-bg   {
+    background-image: url('../img/pics/bg-1@2x.jpg');
+    background-size: cover;
+    // background-position: center;
+}
+
+.form, .form-auth, .form__inputs-wrap, .form__password-reset {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    background-color: $main-colour;
+    padding: 30px 70px;
+    border-radius: 10px;
+    position: absolute;
+    left: 60%;
+    bottom: 30%;
+}
+
+.form__auth {
+    color: white;
+}
+
+.form__desc {
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 302px;
+    text-align: center;
+    margin-bottom: 29px;
+}
+
+.form__login, .form__password {
+    opacity: 0.8;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+        &:focus {
+            border: 1px solid black;
+        }
+}
+
+.form__appointment-desc {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form__appointment-wrap {
+    margin-bottom: 25px;
+}
+
+
+.form__appointment-label {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.form__password-desc {
+    color: white;
+    text-align: center;
+}
+
+.form__reset-link {
+    color: #f5913b;
+    text-decoration: underline;
+}
+
+.form__password-reset {
+    margin-top: 15px;
+}

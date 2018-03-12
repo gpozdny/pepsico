@@ -1,0 +1,19 @@
+extends ../_template
+block content
+  .wrapper.wrapper--auth-bg
+      section.form
+          form.form__auth(action="#" id="auth" method="get")
+            p.form__desc Для авторизации в системе введите логин и пароль
+            .form__inputs-wrap
+              input.form__login(placeholder='Ваш логин/e-mail' type='text')
+              input.form__password(placeholder='Пароль' type='password')
+            p.form__appointment-desc Ваше направление:
+            .form__appointment-wrap
+              input.form__appointment-input(type="radio" name="appointment" value="Маркетинг" id="marketing")
+              label.form__appointment-label(for="marketing") Маркетинг
+              input.form__appointment-input(type="radio" name="appointment" value="sales" id="sales")
+              label.form__appointment-label(for="sales") Продажи
+            button.btn(type='submit' form="auth") Войти в систему
+          .form__password-reset
+            span.form__password-desc Забыли пароль?
+            span.form__password-desc Восстановите его по <a class='form__reset-link' href='#'>ссылке</a>
