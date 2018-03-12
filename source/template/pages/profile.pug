@@ -2,3 +2,15 @@ extends ../_template
 block content
   .wrapper.wrapper--profile-bg
     include ../sections/header
+    main.profile
+        .container
+            ul.profile__list
+                li.profile__item
+                    h2.profile__item-title 1. Видеоинтервью
+                    .profile__item-wrap
+                        .profile__item-icon
+                    .profile__item-status
+                        button.btn--status Успешно!
+    .profile__progress-bar
+        .profile__progress-percentage
+        span.profile__progress-text Путь пройден на 50%         

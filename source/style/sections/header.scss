@@ -1,12 +1,12 @@
 .header {
     background-color: $main-colour;
-    padding: 9px 0;
-}
-
-.container--header {
+    padding: 9px 30px;
+    @include flex(row);
     justify-content: space-between;
     align-items: flex-end;
 }
+
+
 
 .header__logo {
     width: 140px;
