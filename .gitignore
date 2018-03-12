@@ -11,6 +11,7 @@
 *.swp
 *.vi
 *~
+package-lock.json
 
 # OS or Editor folders
 *.sublime-grunt.cache
