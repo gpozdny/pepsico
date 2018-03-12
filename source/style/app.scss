@@ -2,7 +2,7 @@
 
 $main-colour: #004C97;
 $main-white: #F9FAFC;
-$text-colour: #181818;
+$text-colour: #2b2b2b;
 $bottom-colour: #C4C9CD;
 $bg-colour: #131822;
 $stripe-colour: rgba(24, 24, 24, 0.1);
@@ -15,3 +15,5 @@ $stripe-colour: rgba(24, 24, 24, 0.1);
 // sections
 
 @import 'sections/auth';
+@import 'sections/header';
+@import 'sections/profile';

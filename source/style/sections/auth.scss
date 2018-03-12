@@ -4,18 +4,25 @@
     // background-position: center;
 }
 
-.form, .form-auth, .form__inputs-wrap, .form__password-reset {
+.form, .form__auth, .form__inputs-wrap, .form__password-reset {
     display: flex;
     flex-direction: column;
 }
 
 .form {
     background-color: $main-colour;
-    padding: 30px 70px;
+    padding: 30px 75px;
     border-radius: 10px;
     position: absolute;
     left: 60%;
     bottom: 30%;
+    margin-right: 40px;
+    @include desktop {
+        left: 50%;
+    }
+    @include laptop {
+        left: 30%;
+    }
 }
 
 .form__auth {
@@ -32,6 +39,8 @@
 
 .form__login, .form__password {
     opacity: 0.8;
+    color: $text-colour;
+    min-width: 320px;
     border-radius: 5px;
     background-color: #ffffff;
     padding: 10px 15px;
@@ -49,15 +58,29 @@
 
 .form__appointment-wrap {
     margin-bottom: 25px;
+    @include flex(row);
+    justify-content: space-around;
 }
 
+.form__appointment-input {
+    position: absolute;
+    left: -9999px;
+}
 
 .form__appointment-label {
     font-size: 20px;
     font-weight: bold;
+    border-bottom: solid 3px transparent;
+    transition: border .2s ease-out;
     cursor: pointer;
+        &:hover {
+            border-bottom: solid 3px #f5913b;
+        }
 }
 
+.form__appointment-input:checked + .form__appointment-label {
+    border-bottom: solid 3px #f5913b;
+}
 
 .form__password-desc {
     color: white;
@@ -71,4 +94,8 @@
 
 .form__password-reset {
     margin-top: 15px;
+}
+
+.form__auth-btn {
+    align-self: center;
 }

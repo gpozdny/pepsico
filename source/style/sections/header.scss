@@ -1,0 +1,38 @@
+.header {
+    background-color: $main-colour;
+    padding: 9px 0;
+}
+
+.container--header {
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.header__logo {
+    width: 140px;
+    height: auto;
+}
+
+.header__right {
+    @include flex(row);
+    @include flex-align(center);
+}
+
+.header__right-credentials {
+    @include flex(column);
+    padding-right: 20px;
+    position: relative;
+    border-right: 2px solid white;
+        span {
+            font-weight: bold;
+            color: #fff;
+        }
+    margin-right: 20px;
+
+}
+
+.header__logout {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    
+}
