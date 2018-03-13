@@ -5,8 +5,8 @@ block content
           form.form__auth(action="#" id="auth" method="get")
             p.form__desc Для авторизации в системе введите логин и пароль
             .form__inputs-wrap
-              input.form__login(placeholder='Ваш логин/e-mail' type='text')
-              input.form__password(placeholder='Пароль' type='password')
+              input.form__login(placeholder='Ваш логин/e-mail' type='text' required)
+              input.form__password(placeholder='Пароль' type='password' required)
             p.form__appointment-desc Ваше направление:
             .form__appointment-wrap
               input.form__appointment-input(type="radio" name="appointment" value="Маркетинг" id="marketing")

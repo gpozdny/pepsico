@@ -3,14 +3,38 @@ block content
   .wrapper.wrapper--profile-bg
     include ../sections/header
     main.profile
-        .container
+        .container.container--profile-list
             ul.profile__list
                 li.profile__item
-                    h2.profile__item-title 1. Видеоинтервью
+                    .profile__title-wrap
+                        h2.profile__item-title 1. Видеоинтервью
                     .profile__item-wrap
                         .profile__item-icon
                     .profile__item-status
                         button.btn--status Успешно!
+                li.profile__item
+                    .profile__title-wrap
+                        h2.profile__item-title 2. Бриф    
+                    .profile__item-wrap
+                        .profile__item-icon.profile__item-icon--idea
+                    .profile__item-status
+                        button.btn--status.btn--assessment На оценке!
+                    .profile__item-desc
+                            span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!    
+                li.profile__item
+                    .profile__title-wrap
+                        h2.profile__item-title 3. Презентация
+                    .profile__item-wrap
+                        .profile__item-icon.profile__item-icon--presentation
+                    .profile__item-status
+                        button.btn--inactive До 13 апреля
+                li.profile__item
+                    .profile__title-wrap
+                        h2.profile__item-title 4. Финалы
+                    .profile__item-wrap
+                        .profile__item-icon.profile__item-icon--finals
+                    .profile__item-status
+                        button.btn--inactive До 1 мая               
     .profile__progress-bar
         .profile__progress-percentage
         span.profile__progress-text Путь пройден на 50%         
