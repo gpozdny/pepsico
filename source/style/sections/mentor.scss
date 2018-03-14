@@ -1,0 +1,230 @@
+.wrapper--mentor {
+    background-color: #fff;
+}
+
+.content {
+    @include flex(row);
+}
+
+.content__left {
+    overflow: auto;
+    @include flex(column);
+    width: 30%;
+    @include flex-align(center);
+    border-right: 1px solid #d8d8d8;
+    overflow: auto;
+}
+
+.list__title__wrap {
+    @include flex(row);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    padding: 20px 20px;
+}
+
+.list__title {
+    text-align: center;
+    font-size: 20px;
+    color: $main-colour;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.list__filter {
+    background-image: url('../img/icons/filter.png');
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    margin-top: -13px;
+    cursor: pointer;
+}
+
+.participants-list {
+    width: 100%;
+    @include flex(column);
+}
+
+.participant {
+    @include flex(row); // height: 70px;
+    position: relative; // justify-content: space-between;
+    cursor: pointer;
+    padding: 10px 30px;
+    &:hover {
+        background-color: $main-colour;
+        .participant__icon {
+            color: $main-colour;
+        }
+        .participant__left {
+            background-color: #fff;
+        }
+        .participant__time,
+        .participant__name {
+            color: white;
+        }
+    }
+}
+
+.participant,
+.list__title__wrap {
+    border-bottom: 1px solid $main-colour;
+}
+
+.participant__left {
+    height: 40px;
+    width: 40px;
+    background-color: $main-colour;
+    border-radius: 10px;
+    display: flex;
+    @include flex-align(center);
+    margin-right: 20px;
+}
+
+.participant__icon {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.participant__middle {
+    @include flex(column);
+    align-items: flex-start;
+}
+
+.participant__name {
+    color: #3c3c3c;
+}
+
+.participant__tag {
+    cursor: pointer;
+    font-size: 10px;
+    background-color: #C4C9CD;
+    color: white;
+    text-align: center;
+    padding: 2px 5px;
+    border-radius: 20px;
+}
+
+.participant__right {
+    @include flex(column);
+    justify-content: flex-end;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+.participant__time {
+    font-size: 12px;
+    color: $main-colour;
+}
+
+.content__right {
+    @include flex(column);
+    width: 70%;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.participant-info {
+    @include flex(row);
+}
+
+.participant-info__left {
+    @include flex(row);
+    padding-right: 40px;
+    border-right: 1px solid #c4c9cd;
+    ;
+}
+
+.participant-info__picture {
+    width: 180px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.participant-info__desc,
+.participant-info__credentials {
+    @include flex(column);
+}
+
+.participant-info__credentials {
+    margin-bottom: 15px;
+}
+
+.participant-info__name,
+.participant-info__surname {
+    color: $main-colour;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.participant-info__city,
+.participant-info__education {
+    margin-bottom: 15px;
+    color: $text-colour;
+}
+
+.participant-info__city-label,
+.participant-info__education-label {
+    margin-right: 5px;
+}
+
+.participant-info__deadline {
+    color: $main-colour;
+    font-weight: bold;
+}
+
+.participant-info__right {
+    @include flex(column);
+    padding-left: 40px;
+}
+
+.participant-info__project {
+    @include flex(column);
+    color: white;
+    background-color:$main-colour;
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.participant-info__files-text {
+    margin: 20px 0;
+    color: $text-colour;
+}
+
+.participant-info__files {
+    @include flex(row);
+}
+
+.participant-info__files-image,
+.participant-info__files-presentation,
+.participant-info__files-docx {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+}
+
+.participant-info__files-presentation,
+.participant-info__files-docx {
+    @include flex(row);
+    @include flex-align(center);
+    background-color: #EEEFF0;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+.participant-info__files-image--file {
+    vertical-align:middle;
+    margin:0 auto;
+}
