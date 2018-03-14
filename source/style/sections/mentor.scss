@@ -7,12 +7,10 @@
 }
 
 .content__left {
-    overflow: auto;
     @include flex(column);
     width: 30%;
     @include flex-align(center);
     border-right: 1px solid #d8d8d8;
-    overflow: auto;
 }
 
 .list__title__wrap {
@@ -30,20 +28,163 @@
     color: $main-colour;
     text-transform: uppercase;
     margin: 0;
+    flex: 1;
 }
 
 .list__filter {
-    background-image: url('../img/icons/filter.png');
-    width: 25px;
-    height: 25px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    position: absolute;
-    left: 90%;
-    top: 50%;
-    margin-top: -13px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 24px;
+    position: relative;
+    z-index: 1;
     cursor: pointer;
+    &:before {
+        content: '';
+        position: absolute;
+        width: 90px;
+        height: 30px;
+        top: 10px;
+    }
+    &:hover {
+        .line1,
+        .line2,
+        .line3 {
+            background-color: #C4C9CD;
+        }
+        .filter__dropdown {
+            pointer-events: auto;
+            opacity: 1;
+        }
+    }
+}
+
+.filter__top-item {
+    position: relative;
+    &:hover {
+        .filter__label-checkmark {
+            background-color: #ccc;
+        }
+    }
+}
+
+.line1,
+.line2,
+.line3 {
+    background-color: #004C97;
+}
+
+.line1 {
+    height: 3px;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.line2 {
+    height: 3px;
+    width: 65%;
+    margin-bottom: 3px;
+}
+
+.line3 {
+    height: 3px;
+    width: 25%;
+}
+
+.filter__title {
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.filter__dropdown {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    @include flex(column);
+    width: 320px;
+    background-color: #fff;
+    top: 40px;
+    z-index: 1;
+    border-radius: 10px;
+    align-items: flex-start;
+    padding: 10px;
+    left: -149px;
+    box-shadow: 0 2px 8px 0 #004c97;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 10px solid #004c97;
+        border-color: transparent transparent white white;
+        transform-origin: 0 0;
+        transform: rotate(-225deg);
+        box-shadow: -3px 3px 3px 0 rgba(0, 76, 151, 0.2);
+        top: 0;
+        left: 175px;
+    }
+    transition: opacity 0.2s ease-in-out;
+}
+
+.filter__top-list {
+    border-bottom: 1px solid #c4c9cd;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.filter__top-item {
+    margin-bottom: 10px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.filter__checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.filter__label {
+    color: $text-colour;
+    font-size: 18px;
+    cursor: pointer;
+    display: block;
+    padding-left: 35px;
+}
+
+.filter__label-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #fff;
+    border: 2px solid $main-colour;
+    border-radius: 4px;
+    cursor: pointer;
+    &:after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 5px;
+        top: 0;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+    }
+}
+
+.filter__checkbox:checked~.filter__label-checkmark {
+    background-color: $main-colour;
+}
+
+.filter__checkbox:checked~.filter__label-checkmark:after {
+    display: block;
 }
 
 .participants-list {
@@ -265,9 +406,9 @@
     background-color: #E72E36;
     border-radius: 50%;
     margin-right: 10px;
-        &:last-child {
-            margin: 0;
-        }
+    &:last-child {
+        margin: 0;
+    }
 }
 
 .participant__assessment-info {
@@ -293,8 +434,8 @@
     border-radius: 10px;
     border: solid 1px #c4c9cd;
     padding: 15px 20px;
-        &:focus {
-            border: solid 1px #004c97;
-        }
+    &:focus {
+        border: solid 1px #004c97;
+    }
     margin-bottom: 30px;
 }

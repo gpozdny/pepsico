@@ -7,6 +7,41 @@ block content
                 .list__title__wrap
                     h2.list__title Участники
                     .list__filter
+                        .line1
+                        .line2
+                        .line3
+                        .filter__dropdown
+                            span.filter__title.title Фильтр
+                            ul.filter__top-list
+                                li.filter__top-item
+                                    label(for="main-appointment").filter__label Основное направление
+                                        input(type="checkbox" id="main-appointment" value="main-appointment" checked).filter__checkbox
+                                        .filter__label-checkmark
+                                li.filter__top-item
+                                    label(for="secondary-appointment").filter__label Дополнительное направление
+                                        input(type="checkbox" id="secondary-appointment" value="secondary-appointment").filter__checkbox
+                                        .filter__label-checkmark
+                            ul.filter__bottom-list
+                                li.filter__top-item
+                                    label(for="new").filter__label Только новые
+                                        input(type="checkbox" id="new" value="new").filter__checkbox
+                                        .filter__label-checkmark
+                                li.filter__top-item
+                                    label(for="only-marketing").filter__label Маркетинг
+                                        input(type="checkbox" id="only-marketing" value="only-marketing").filter__checkbox
+                                        .filter__label-checkmark
+                                li.filter__top-item
+                                    label(for="only-sales").filter__label Продажи
+                                        input(type="checkbox" id="only-sales" value="only-sales").filter__checkbox
+                                        .filter__label-checkmark
+                                li.filter__top-item
+                                    label(for="it").filter__label IT
+                                        input(type="checkbox" id="it" value="it").filter__checkbox
+                                        .filter__label-checkmark
+                                li.filter__top-item
+                                    label(for="insights").filter__label Insights
+                                        input(type="checkbox" id="insights" value="insights").filter__checkbox
+                                        .filter__label-checkmark      
                 ul.participants-list
                     li.participant
                         .participant__left
