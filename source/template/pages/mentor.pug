@@ -103,7 +103,23 @@ block content
                             span.participant__name Ардынцев Валентин
                             span.participant__tag Бриф 
                         .participant__right
-                            span.participant__time Осталось 4 дня                                                                  
+                            span.participant__time Осталось 4 дня
+                    li.participant
+                        .participant__left
+                            span.participant__icon МН
+                        .participant__middle
+                            span.participant__name Ардынцев Валентин
+                            span.participant__tag Бриф 
+                        .participant__right
+                            span.participant__time Осталось 4 дня
+                    li.participant
+                        .participant__left
+                            span.participant__icon МН
+                        .participant__middle
+                            span.participant__name Ардынцев Валентин
+                            span.participant__tag Бриф 
+                        .participant__right
+                            span.participant__time Осталось 4 дня                                                                                    
             section.content__right
                 .participant-info
                   .participant-info__left
@@ -121,15 +137,32 @@ block content
                             span.participant-info__education-name ВолгГАСУ
                         span.participant-info__deadline Осталось 4 дня на обработку     
                   .participant-info__right
-                    .participant-info__project
+                    .participant-info__project.title
                         span.participant-info__project-title Презентация
                         span.participant-info__project-name Проект DIGITAL 3.0
                     span.participant-info__files-text Документы проекта:    
                     .participant-info__files
                         a(href="#" download).participant-info__files-image
-                            img(src="assets/img/pics/participants/project-pic.jpg", alt="image").participant-info__files-image--file
                         a(href="#" download).participant-info__files-presentation .PPTX
                         a(href="#" download).participant-info__files-docx .DOCX
-                          
+                .participant__assessment
+                    .participant__assessment-title.title
+                        span.participant__assessment-text Оценка проекта
+                    ul.participant__assessment-desc
+                        li.participant__assessment-item
+                            .participant__assessment-circle
+                            span.participant__assessment-info 1-4 - Ниже среднего
+                        li.participant__assessment-item
+                            .participant__assessment-circle
+                            span.participant__assessment-info 5-7 - Среднее  
+                        li.participant__assessment-item
+                            .participant__assessment-circle
+                            span.participant__assessment-info 8-10 - Выше среднего
+                    .participant__assessment-rate
+                    .participant__assessment-comment
+                        .participant__assessment-title.title
+                            span.participant__assessment-text Комментарий
+                        form.participant__assessment-form(action="#" id="comment" method="get")
+                            input(type="text" placeholder="Оставьте ваш комментарий о работе").participant__assessment-input
+                            button.btn--inactive Отправить оценку
 
-        
