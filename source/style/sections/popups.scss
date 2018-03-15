@@ -1,0 +1,109 @@
+// overlay
+.profile__modals-overlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    position: absolute;
+    background-color: rgba($color: #ffffff, $alpha: 0.6);
+    display: none;
+}
+
+// blur effect
+
+.blur {
+    filter: blur(10px)
+}
+
+// attachments
+
+.profile__modals {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    display: none;
+}
+
+.profile__attachments {
+    background-color: #fff;
+    box-shadow: 0 2px 10px 0 #004c97;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 450px;
+    position: relative;
+}
+
+.profile__attachments-form {
+    @include flex(column);
+    // align-items: center;
+    align-items: center;
+}
+
+.profile__attachments-title {
+    text-align: center;
+}
+
+.profile__attachments-attach {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.profile__attachments-input {
+    width: 100%;
+    border-radius: 5px;
+    background-color: rgba(196, 201, 205, 0.3);
+    border: solid 1px #c4c9cd;
+    padding: 20px 15px;
+    margin: 20px 0;
+        &:focus {
+            border-color: $main-colour;
+        }
+}
+
+.profile__attachments-label {
+    cursor: pointer;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.profile__attachments-icon, .profile__attachments-desc {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.profile__attachments-icon {
+    background-image: url('../img/icons/plus.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 28px;
+    height: 28px;
+    margin-right: 15px;
+    color: #2b2b2b;
+}
+
+.profile__attachments-desc {
+    max-width: 300px;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.profile__modal-cross {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: $bottom-colour;
+        &:hover {
+            color: black;
+        }
+}
+

@@ -4,7 +4,7 @@ $main-colour: #004C97;
 $main-white: #F9FAFC;
 $text-colour: #2b2b2b;
 $bottom-colour: #C4C9CD;
-$bg-colour: #131822;
+$bg-colour: #EFF2F5;
 $stripe-colour: rgba(24, 24, 24, 0.1);
 
 // adjustments
@@ -18,3 +18,4 @@ $stripe-colour: rgba(24, 24, 24, 0.1);
 @import 'sections/header';
 @import 'sections/profile';
 @import 'sections/mentor';
+@import 'sections/popups';

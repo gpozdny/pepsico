@@ -2,7 +2,7 @@ extends ../_template
 block content
     .wrapper.wrapper--mentor
         include ../sections/header
-        .content
+        main.content
             section.content__left
                 .list__title__wrap
                     h2.list__title Участники
@@ -10,7 +10,7 @@ block content
                         .line1
                         .line2
                         .line3
-                        .filter__dropdown
+                    .filter__dropdown
                             span.filter__title.title Фильтр
                             ul.filter__top-list
                                 li.filter__top-item
@@ -91,7 +91,7 @@ block content
                             span.participant__tag Бриф 
                         .participant__right
                             span.participant__time Осталось 4 дня
-                    li.participant
+                    li.participant.participant--active
                         .participant__left
                             span.participant__icon МН
                         .participant__middle
@@ -146,15 +146,7 @@ block content
                             span.participant__name Ардынцев Валентин
                             span.participant__tag Бриф 
                         .participant__right
-                            span.participant__time Осталось 4 дня
-                    li.participant
-                        .participant__left
-                            span.participant__icon МН
-                        .participant__middle
-                            span.participant__name Ардынцев Валентин
-                            span.participant__tag Бриф 
-                        .participant__right
-                            span.participant__time Осталось 4 дня                                                                                    
+                            span.participant__time Осталось 4 дня                                                                                   
             section.content__right
                 .participant-info
                   .participant-info__left
@@ -193,11 +185,24 @@ block content
                         li.participant__assessment-item
                             .participant__assessment-circle
                             span.participant__assessment-info 8-10 - Выше среднего
-                    .participant__assessment-rate
-                    .participant__assessment-comment
-                        .participant__assessment-title.title
-                            span.participant__assessment-text Комментарий
-                        form.participant__assessment-form(action="#" id="comment" method="get")
-                            input(type="text" placeholder="Оставьте ваш комментарий о работе").participant__assessment-input
-                            button.btn--inactive Отправить оценку
+                    .participant__rate
+                        ul.participant__rate-list
+                            li.participant__rate-item
+                                span.participant__rate-title Ориентированность на будущее
+                                .participant__rate-circle
+                            li.participant__rate-item
+                                span.participant__rate-title Креативность
+                                .participant__rate-circle
+                            li.participant__rate-item
+                                span.participant__rate-title Продающая история
+                                .participant__rate-circle
+                            li.participant__rate-item
+                                span.participant__rate-title Уровень анализа
+                                .participant__rate-circle                             
+                .participant__assessment-comment
+                    .participant__assessment-title.title
+                        span.participant__assessment-text Комментарий
+                    form.participant__assessment-form(action="#" id="comment" method="get")
+                        input(type="text" placeholder="Оставьте ваш комментарий о работе").participant__assessment-input
+                        button.btn--inactive Отправить оценку
 
