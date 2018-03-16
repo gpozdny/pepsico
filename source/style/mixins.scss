@@ -65,6 +65,17 @@
 	@return $px / 16px + 0rem;
 }
 
+@mixin forK {
+	@media screen and (max-width: 2400px) {
+		@content;
+	}
+}
+
+@mixin laptop-l {
+	@media screen and (max-width: 1440px) {
+		@content;
+	}
+}
 
 @mixin desktop {
 	@media screen and (max-width: 1300px) {

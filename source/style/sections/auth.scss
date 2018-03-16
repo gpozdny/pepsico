@@ -1,13 +1,22 @@
-.wrapper--auth-bg   {
+.wrapper--auth-bg {
     background-image: url('../img/pics/bg-1@2x.jpg');
     background-size: cover;
-    // background-position: center;
-        @include laptop {
-            @include flex-align(center);
-        }
+    background-position: center -35px;
+    @include forK {
+        background-position: center;
+    }
+    @include desktop {
+        @include flex-align(center);
+    }
+    @include laptop-l {
+        background-position: initial;
+    }
 }
 
-.form, .form__auth, .form__inputs-wrap, .form__password-reset {
+.form,
+.form__auth,
+.form__inputs-wrap,
+.form__password-reset {
     display: flex;
     flex-direction: column;
 }
@@ -21,9 +30,6 @@
     bottom: 30%;
     margin-right: 40px;
     @include desktop {
-        left: 50%;
-    }
-    @include laptop {
         position: static;
         margin: 0;
     }
@@ -41,7 +47,8 @@
     margin-bottom: 29px;
 }
 
-.form__login, .form__password {
+.form__login,
+.form__password {
     opacity: 0.8;
     color: $text-colour;
     min-width: 320px;
@@ -50,9 +57,9 @@
     padding: 10px 15px;
     margin-bottom: 15px;
     border: 1px solid transparent;
-        &:focus {
-            border: 1px solid black;
-        }
+    &:focus {
+        border: 1px solid black;
+    }
 }
 
 .form__appointment-desc {
@@ -77,12 +84,12 @@
     border-bottom: solid 3px transparent;
     transition: border .2s ease-out;
     cursor: pointer;
-        &:hover {
-            border-bottom: solid 3px #f5913b;
-        }
+    &:hover {
+        border-bottom: solid 3px #f5913b;
+    }
 }
 
-.form__appointment-input:checked + .form__appointment-label {
+.form__appointment-input:checked+.form__appointment-label {
     border-bottom: solid 3px #f5913b;
 }
 
