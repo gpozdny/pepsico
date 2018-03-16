@@ -416,7 +416,6 @@
 .participant__assessment {
     @include flex(column);
     align-items: flex-start;
-    margin-top: 10px;
 }
 
 .participant__assessment-desc {
@@ -463,8 +462,8 @@
 .participant__assessment-comment {
     @include flex(column);
     align-items: flex-start;
-    margin-top: 10px;
     width: 100%;
+    padding-top: 0;
 }
 
 .participant__assessment-form {
@@ -498,7 +497,7 @@
 
 .participant__rate-item {
     @include flex(column);
-    margin-right: 40px;
+    margin-right: 20px;
         &:last-child{
             margin: 0;
         }
@@ -509,4 +508,17 @@
     font-size: 18px;
     color: $main-colour;
     font-weight: bold;
+    max-width: 195px;
+    min-height: 50px;
+    margin-bottom: 15px;
+}
+
+.participant__rate-list {
+    @include flex(row);
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.participant__rate-circle {
+    text-align: center;
 }

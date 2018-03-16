@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "hamburgers": "^0.9.1",
+    "jquery-knob": "^1.2.11",
     "normalize.css": "^4.2.0"
   },
   "main": "gulpfile.js",

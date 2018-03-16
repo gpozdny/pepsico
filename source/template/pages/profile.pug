@@ -21,7 +21,7 @@ block content
                             button.btn--status.btn--assessment На оценке!
                         .profile__item-desc
                                 span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!    
-                    li.profile__item
+                    li.profile__item(id="presentation")
                         .profile__title-wrap
                             h2.profile__item-title 3. Презентация
                         .profile__item-wrap
@@ -53,5 +53,41 @@ block content
                     .profile__attachments-icon
                     span.profile__attachments-desc И прикрепите иллюстрацию
                 button(type="submit").profile__attachments-btn.btn--inactive Отправить
-            span.profile__modal-cross x        
+            span.profile__modal-cross x 
+    .profile__modals-presentation         
+        .profile__attachments-presentation
+            form(action="#").profile__attachments-form
+                .profile__attachments-title
+                    span.profile__attachments-text.title проект: digital 3.0
+                .profile__attachments-picture
+                label.profile__attachments-label
+                    input(type="file" name="pic" accept="image/*").profile__attachments-attach
+                    .profile__attachments-icon
+                    span.profile__attachments-desc Приложите фаил с подробным описанием (.DOCX, объем не ограничен!)
+                label.profile__attachments-label
+                    input(type="file" name="pic" accept="image/*").profile__attachments-attach
+                    .profile__attachments-icon
+                    span.profile__attachments-desc Прикрепите презентацию, с которой будете выступать в финале (.PPTX или .PDF)
+                button(type="submit").profile__attachments-btn.btn--inactive Отправить
+            span.profile__modal-cross x
+    .profile__modals-fail
+        .profile__fail
+            .profile__fail-title
+                    span.title.title--red вы не справились
+            .profile__fail-wrap
+                p.profile__fail-red Вы набрали недостаточно баллов для прохождения в финал по направлению
+                span.profile__fail-tag Маркетинг
+            ul.profile__fail-list
+                li.profile__fail-item
+                    span.profile__fail-reason недостаточно креативности
+                li.profile__fail-item
+                    span.profile__fail-reason низкая харизма
+            .profile__fail-wrap
+                p.profile__fail-text Вы ещё можете попробоватьсебя во втором выбранном вами направлении -
+                span.profile__fail-tag.profile__fail-tag--secondary продажи
+            .profile__fail-buttons
+                span.profile__fail-text Продолжим?
+                button.profile__fail-btn.btn--inactive.btn--active Да, продолжить!     
+                button.profile__fail-btn.btn--inactive.btn--white Нет, спасибо!
+        span.profile__modal-cross x             
     .profile__modals-overlay                 

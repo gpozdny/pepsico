@@ -11,14 +11,14 @@
 }
 
 // blur effect
-
 .blur {
     filter: blur(10px)
 }
 
 // attachments
-
-.profile__modals {
+.profile__modals,
+.profile__modals-presentation,
+.profile__modals-fail {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -28,7 +28,9 @@
     display: none;
 }
 
-.profile__attachments {
+.profile__attachments,
+.profile__attachments-presentation,
+.profile__fail {
     background-color: #fff;
     box-shadow: 0 2px 10px 0 #004c97;
     border-radius: 10px;
@@ -39,21 +41,21 @@
 
 .profile__attachments-form {
     @include flex(column);
-    // align-items: center;
     align-items: center;
 }
 
-.profile__attachments-title {
+.profile__attachments-title,
+.profile__fail-title {
     text-align: center;
 }
 
 .profile__attachments-attach {
     width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }
 
 .profile__attachments-input {
@@ -63,9 +65,9 @@
     border: solid 1px #c4c9cd;
     padding: 20px 15px;
     margin: 20px 0;
-        &:focus {
-            border-color: $main-colour;
-        }
+    &:focus {
+        border-color: $main-colour;
+    }
 }
 
 .profile__attachments-label {
@@ -74,7 +76,8 @@
     width: 100%;
 }
 
-.profile__attachments-icon, .profile__attachments-desc {
+.profile__attachments-icon,
+.profile__attachments-desc {
     display: inline-block;
     vertical-align: middle;
 }
@@ -90,7 +93,7 @@
 }
 
 .profile__attachments-desc {
-    max-width: 300px;
+    max-width: 302px;
     font-size: 18px;
     line-height: 1;
 }
@@ -102,8 +105,79 @@
     font-size: 28px;
     cursor: pointer;
     color: $bottom-colour;
-        &:hover {
-            color: black;
-        }
+    &:hover {
+        color: black;
+    }
 }
 
+.profile__attachments-picture {
+    background-image: url('../img/pics/participants/project-pic.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+    width: 390px;
+    height: 120px;
+    margin: 30px 0;
+}
+
+// modal fail
+.profile__fail-title {
+    margin-bottom: 15px;
+}
+
+.profile__fail-wrap {
+    text-align: center;
+    line-height: 1.25;
+}
+
+.profile__fail-item {
+    position: relative;
+    padding-left: 30px;
+    &:before {
+        content: "•";
+        position: absolute;
+        left: 10px;
+        color: red;
+    }
+}
+
+.profile__fail-tag {
+    background-color: $bottom-colour;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding: 2px;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.profile__fail-list {
+    margin: 10px 0;
+}
+
+.profile__fail-reason {
+    color: red;
+}
+
+.profile__fail-tag--secondary {
+    background-color: $main-colour;
+}
+
+.profile__fail-buttons {
+    @include flex(column);
+    @include flex-align(center);
+    .profile__fail-text {
+        margin: 25px 0;
+    }
+}
+
+.profile__fail-btn {
+    width: 265px;
+}
+
+.profile__fail-btn {
+    &:last-child {
+        margin-top: 15px;
+    }
+}
