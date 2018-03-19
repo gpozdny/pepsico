@@ -63,12 +63,31 @@ $(document).ready(function () {
     });
     // jQuery Knob
 
-    $(".dial").knob({
+    // $(".dial").knob({
+    //     'min': 0,
+    //     'max': 10,
+    //     'rotation': "anticlockwise"
+    // });
+    let $dial = $(".dial");
+    $dial.knob({
         'min': 0,
         'max': 10,
         'rotation': "anticlockwise",
-        'change' : function (v) {
+        'change': function (v) {
             console.log(v);
-         }
+            let color;
+            if (v <= 4) {
+                color = '#E72E36';
+            } else if (v <= 7) {
+                color = '#F5913B';
+            } else {
+                color = '#009639';
+            }
+            $dial.trigger(
+                'configure', {
+                    "fgColor": color
+                }
+            );
+        }
     });
 });
