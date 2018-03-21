@@ -21,7 +21,7 @@ block content
                             button.btn--status.btn--assessment.profile__btn На оценке!
                         .profile__item-desc
                                 span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!    
-                    li.profile__item(id="presentation").profile__item--active
+                    li.profile__item(id="presentation").profile__item--inactive
                         .profile__title-wrap
                             h2.profile__item-title 3. Презентация
                         .profile__item-wrap
@@ -30,7 +30,7 @@ block content
                             button.btn--inactive.profile__btn До 13 апреля
                         .profile__item-desc
                             span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!
-                    li.profile__item(id="finals").profile__item--inactive
+                    li.profile__item(id="finals").profile__item--failed
                         .profile__title-wrap
                             h2.profile__item-title 4. Финалы
                         .profile__item-wrap
@@ -97,7 +97,7 @@ block content
                 span.profile__fail-tag.profile__fail-tag--secondary продажи
             .profile__fail-buttons
                 span.profile__fail-text Продолжим?
-                button.profile__fail-btn.btn--inactive.btn--active Да, продолжить!     
-                button.profile__fail-btn.btn--inactive.btn--white Нет, спасибо!
+                a(href="#").profile__fail-btn.btn--inactive.btn--active Да, продолжить!     
+                a(href="#").profile__fail-btn.btn--inactive.btn--white Нет, спасибо!
         span.profile__modal-cross x             
     .profile__modals-overlay                 

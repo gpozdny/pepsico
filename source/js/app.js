@@ -52,6 +52,7 @@ $(document).ready(function () {
         $(this).css("display", "none");
         $modal_briefing.css("display", "none");
         $modal_presentation.css("display", "none");
+        $modal_fail.css("display", "none");
         $wrapper.removeClass('blur');
 
     });
@@ -61,10 +62,34 @@ $(document).ready(function () {
         $overlay.css("display", "none");
         $modal_briefing.css("display", "none");
         $modal_presentation.css("display", "none");
+        $modal_fail.css("display", "none");
         $wrapper.removeClass('blur');
 
     });
 
+    function showFail(){
+        $overlay.css("display", "block");
+        $modal_fail.css("display", "block");
+        $wrapper.addClass('blur');
+    };
+
+    if($finals.is('.profile__item--failed')){
+        $finals.on('click', function(){
+            showFail();
+        })
+    };
+
+    if($presentation.is('.profile__item--failed')){
+        $presentation.on('click', function(){
+            showFail();
+        })
+    };
+
+    if($briefing.is('.profile__item--failed')){
+        $briefing.on('click', function(){
+            showFail();
+        })
+    };
 
     // items' backgrounds
 
