@@ -5,60 +5,60 @@ $(document).ready(function () {
     // filter dropdown
     $('.list__filter').click(function () {
 
-        let dropdown = $('.filter__dropdown');
-        let filter = $('.list__filter');
+        let $dropdown = $('.filter__dropdown');
+        let $filter = $('.list__filter');
 
-        dropdown.toggleClass("filter__dropdown--active");
-        filter.toggleClass("list__filter--active");
+        $dropdown.toggleClass("filter__dropdown--active");
+        $filter.toggleClass("list__filter--active");
 
     });
 
     // popups
 
-    let briefing = $('#briefing'),
-        presentation = $('#presentation'),
-        overlay = $('.profile__modals-overlay'),
-        modal_briefing = $('.profile__modals'),
-        modal_presentation = $('.profile__modals-presentation'),
-        cross = $('.profile__modal-cross'),
-        wrapper = $('.wrapper');
+    let $briefing = $('#briefing'),
+        $presentation = $('#presentation'),
+        $overlay = $('.profile__modals-overlay'),
+        $modal_briefing = $('.profile__modals'),
+        $modal_presentation = $('.profile__modals-presentation'),
+        $cross = $('.profile__modal-cross'),
+        $wrapper = $('.wrapper');
 
     // Бриф
-    briefing.click(function () {
+    $briefing.click(function () {
 
-        overlay.css("display", "block");
-        modal_briefing.css("display", "block");
-        wrapper.addClass('blur');
+        $overlay.css("display", "block");
+        $modal_briefing.css("display", "block");
+        $wrapper.addClass('blur');
 
     });
 
 
 
     // Презентация
-    presentation.click(function () {
+    $presentation.click(function () {
 
-        overlay.css("display", "block");
-        modal_presentation.css("display", "block");
-        wrapper.addClass('blur');
+        $overlay.css("display", "block");
+        $modal_presentation.css("display", "block");
+        $wrapper.addClass('blur');
 
     });
     // overlay & cross
 
-    overlay.click(function () {
+    $overlay.click(function () {
 
         $(this).css("display", "none");
-        modal_briefing.css("display", "none");
-        modal_presentation.css("display", "none");
-        wrapper.removeClass('blur');
+        $modal_briefing.css("display", "none");
+        $modal_presentation.css("display", "none");
+        $wrapper.removeClass('blur');
 
     });
 
-    cross.click(function () {
+    $cross.click(function () {
 
-        overlay.css("display", "none");
-        modal_briefing.css("display", "none");
-        modal_presentation.css("display", "none");
-        wrapper.removeClass('blur');
+        $overlay.css("display", "none");
+        $modal_briefing.css("display", "none");
+        $modal_presentation.css("display", "none");
+        $wrapper.removeClass('blur');
 
     });
     // jQuery Knob
@@ -90,4 +90,33 @@ $(document).ready(function () {
             );
         }
     });
+
+
+
+
+
 });
+// popups files
+
+let $inputName = $('.profile__attachments-input'),
+    $this = $(this),
+    $docx = $('#docx'),
+    $image = $('#image'),
+    $labelDocx = $('#labelDocx'),
+    $labelImage = $('#labelImage'),
+    $attchBtn = $('.profile__attachments-btn');
+
+
+function changeDocx() {
+    $docx.removeClass('hidden');
+    $docx.addClass('show');
+    $labelDocx.addClass('hidden');
+}
+
+function changeImage() {
+    $image.removeClass('hidden');
+    $image.addClass('show');
+    $labelImage.addClass('hidden');
+    $attchBtn.addClass('btn--active');
+}
+

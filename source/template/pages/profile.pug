@@ -43,13 +43,16 @@ block content
             form(action="#").profile__attachments-form
                 .profile__attachments-title
                     span.profile__attachments-text.title назовите свой проект
-                input.profile__attachments-input(type="text" placeholder="Введите название проекта")
-                label.profile__attachments-label
-                    input(type="file" name="pic" accept="image/*").profile__attachments-attach
+                input.profile__attachments-input(type="text" placeholder="Введите название проекта" required)
+                .profile__attachments__files
+                    .participant-info__files-docx(id="docx").hidden .DOCX
+                    .participant-info__files-presentation(id="image").hidden Image
+                label.profile__attachments-label(id='labelDocx')
+                    input(type="file" name="pic" onchange='changeDocx()' required).profile__attachments-attach
                     .profile__attachments-icon
                     span.profile__attachments-desc Приложите файл с описанием (.DOCX, максимум - 1 страница!)
-                label.profile__attachments-label
-                    input(type="file" name="pic" accept="image/*").profile__attachments-attach
+                label.profile__attachments-label(id='labelImage')
+                    input(type="file" name="pic" accept="image/*" onchange='changeImage()' required).profile__attachments-attach
                     .profile__attachments-icon
                     span.profile__attachments-desc И прикрепите иллюстрацию
                 button(type="submit").profile__attachments-btn.btn--inactive Отправить
@@ -61,7 +64,7 @@ block content
                     span.profile__attachments-text.title проект: digital 3.0
                 .profile__attachments-picture
                 label.profile__attachments-label
-                    input(type="file" name="pic" accept="image/*").profile__attachments-attach
+                    input(type="file" name="pic" accept="image/*" onchange='changeDocx()').profile__attachments-attach
                     .profile__attachments-icon
                     span.profile__attachments-desc Приложите фаил с подробным описанием (.DOCX, объем не ограничен!)
                 label.profile__attachments-label
