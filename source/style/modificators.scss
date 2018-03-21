@@ -83,7 +83,8 @@
 
 .profile__item--active {
 	.profile__btn {
-		background-color: #F5913B;
+        background-color: #F5913B;
+        cursor: pointer;
 	}
 	&:hover {
 			.profile__item-desc {

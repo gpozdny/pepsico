@@ -217,8 +217,11 @@
     margin-right: 20px;
 }
 
-#pptx {
+#pptx,
+#image
+ {
     margin: 0;
+    margin-bottom: 20px;
 }
 
 .participant-info__files-img {
