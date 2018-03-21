@@ -6,13 +6,28 @@
 }
 
 .profile {
-    margin-top: 260px;
+    margin-top: 150px;
     @include desktop {
         margin-top: 100px;
     }
     @include tablets {
         margin-top: 50px;
     }
+}
+
+.container--profile {
+    @include flex-align(center);
+}
+
+.profile__appointment-wrap {
+    margin-bottom: 40px;
+    
+}
+
+.profile__appointment {
+    color: #fff;
+    margin-bottom: 15px;
+    display: block;
 }
 
 .profile__item-title {

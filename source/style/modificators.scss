@@ -83,7 +83,7 @@
 
 .profile__item--active {
 	.profile__btn {
-        background-color: #F5913B;
+        background-color: $main-colour;
         cursor: pointer;
 	}
 	&:hover {
@@ -100,6 +100,13 @@
 	}
 }
 
+.profile__item--opinion {
+    .profile__btn {
+        background-color: #F5913B;
+    }
+    pointer-events: none;
+}
+
 .profile__item--inactive {
 	pointer-events: none;
 	.profile__btn {
@@ -112,4 +119,26 @@
 		background-color: #E72E36;
 		cursor: pointer;
 	}
+}
+
+// vissual condition
+
+.hidden {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.show {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.removed {
+    display: none;
+}
+
+.shown {
+    display: block;
 }

@@ -186,17 +186,6 @@
 }
 
 
-.hidden {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.show {
-    position: static;
-    opacity: 1;
-    pointer-events: auto;
-}
 
 .profile__attachments__files {
     display: flex;
@@ -210,16 +199,14 @@
 }
 
 #docx,
-#docxPresentation
- {
+#docxPresentation {
     margin: 0;
     margin-bottom: 20px;
     margin-right: 20px;
 }
 
 #pptx,
-#image
- {
+#image {
     margin: 0;
     margin-bottom: 20px;
 }
@@ -232,7 +219,7 @@
 }
 
 .profile__item-icon--idea-white {
-    &:hover{
+    &:hover {
         #briefingIcon {
             background-image: url('../img/pics/idea-white.png');
         }
@@ -243,7 +230,7 @@
     #finalsIcon {
         background-image: url('../img/pics/finals.png');
     }
-    &:hover{
+    &:hover {
         #finalsIcon {
             background-image: url('../img/pics/finals-white.png');
         }
@@ -272,3 +259,49 @@
         background-image: url('../img/pics/presentation.png');
     }
 }
+
+.profile__guide {
+    width: 100%;
+    margin-bottom: 15px;
+    @include flex(row);
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.profile__guide-icon {
+    background-image: url('../img/pics/file-download.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.profile__guide-link {
+    text-decoration: underline;
+    color: #f5913b;
+    font-size: 18px;
+    display: block;
+    position: relative;
+}
+
+.profile__error {
+    border-radius: 5px;
+    color: #e72e36;
+    position: relative;
+    background-color:rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: -50px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.profile__error-icon {
+    border: solid 1px #e72e36;
+    border-radius: 50%;
+    padding: 0 7px;
+    margin-right: 5px;
+}
+

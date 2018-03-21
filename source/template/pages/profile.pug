@@ -3,7 +3,11 @@ block content
     .wrapper.wrapper--profile-bg
         include ../sections/header
         main.profile
-            .container.container--profile-list
+            .container--column.container--profile
+                .profile__appointment-wrap
+                    span.profile__appointment Ваше направление
+                    .profile__title-wrap
+                            h2.profile__item-title Маркетинг
                 ul.profile__list
                     li.profile__item.profile__item--success 
                         .profile__title-wrap
@@ -21,7 +25,7 @@ block content
                             button.btn--status.btn--assessment.profile__btn На оценке!
                         .profile__item-desc
                                 span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!    
-                    li.profile__item(id="presentation").profile__item--inactive
+                    li.profile__item(id="presentation").profile__item--opinion
                         .profile__title-wrap
                             h2.profile__item-title 3. Презентация
                         .profile__item-wrap
@@ -39,11 +43,14 @@ block content
                             button.btn--inactive.profile__btn До 1 мая
                         .profile__item-desc
                             span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!                                     
-        .profile__progress-bar
-            .profile__progress-percentage
-            span.profile__progress-text Путь пройден на 50%
     .profile__modals
+        .profile__error.shown
+            span.profile__error-icon !
+            span.profile__error-text Ошибка при заполнении формы. Попробуйте еще раз.
         .profile__attachments
+            .profile__guide
+                a(href="#" download).profile__guide-link Ознакомьтесь с заданием
+                span.profile__guide-icon 
             form(action="#").profile__attachments-form
                 .profile__attachments-title
                     span.profile__attachments-text.title назовите свой проект
@@ -63,6 +70,9 @@ block content
             span.profile__modal-cross x 
     .profile__modals-presentation         
         .profile__attachments-presentation
+            .profile__guide
+                a(href="#" download).profile__guide-link Ознакомьтесь с заданием
+                span.profile__guide-icon
             form(action="#").profile__attachments-form
                 .profile__attachments-title
                     span.profile__attachments-text.title проект: digital 3.0
