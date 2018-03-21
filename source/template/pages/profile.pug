@@ -44,7 +44,7 @@ block content
                         .profile__item-desc
                             span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!                                     
     .profile__modals
-        .profile__error.shown
+        .profile__error.removed
             span.profile__error-icon !
             span.profile__error-text Ошибка при заполнении формы. Попробуйте еще раз.
         .profile__attachments
@@ -68,7 +68,10 @@ block content
                     span.profile__attachments-desc И прикрепите иллюстрацию
                 button(type="submit").profile__attachments-btn.btn--inactive Отправить
             span.profile__modal-cross x 
-    .profile__modals-presentation         
+    .profile__modals-presentation
+        .profile__error.removed
+            span.profile__error-icon !
+            span.profile__error-text Ошибка при заполнении формы. Попробуйте еще раз.         
         .profile__attachments-presentation
             .profile__guide
                 a(href="#" download).profile__guide-link Ознакомьтесь с заданием
