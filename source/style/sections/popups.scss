@@ -35,7 +35,7 @@
     box-shadow: 0 2px 10px 0 #004c97;
     border-radius: 10px;
     padding: 30px;
-    max-width: 450px;
+    width: 450px;
     position: relative;
 }
 
@@ -209,7 +209,63 @@
     pointer-events: none;
 }
 
-#docx {
+#docx,
+#docxPresentation
+ {
     margin: 0;
     margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+#pptx {
+    margin: 0;
+}
+
+.participant-info__files-img {
+    width: auto;
+    height: 60px;
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+}
+
+.profile__item-icon--idea-white {
+    &:hover{
+        #briefingIcon {
+            background-image: url('../img/pics/idea-white.png');
+        }
+    }
+}
+
+.profile__item-icon--finals-active {
+    #finalsIcon {
+        background-image: url('../img/pics/finals.png');
+    }
+    &:hover{
+        #finalsIcon {
+            background-image: url('../img/pics/finals-white.png');
+        }
+    }
+}
+
+.profile__item-icon--finals-success {
+    #finalsIcon {
+        background-image: url('../img/pics/finals.png');
+    }
+}
+
+.profile__item-icon--presentation-active {
+    #presentationIcon {
+        background-image: url('../img/pics/presentation.png');
+    }
+    &:hover {
+        #presentationIcon {
+            background-image: url('../img/pics/presentation-white.png');
+        }
+    }
+}
+
+.profile__item-icon--presentation-success {
+    #presentationIcon {
+        background-image: url('../img/pics/presentation.png');
+    }
 }

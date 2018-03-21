@@ -111,24 +111,24 @@
                 outline: 8px solid rgba(255, 255, 255, 0.2);
             }
         }
-        &:hover {
-            &:nth-of-type(2){
-                .profile__item-desc {
-                    opacity: 1;
-                    box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
-                }
-                .profile__item-wrap {
-                    background-color: #00AAE2;
-                }
-                .profile__item-icon {
-                    background-image: url('../img/pics/idea-white.png');
-                }
-                .profile__title-wrap {
-                    box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
-                }
-            }
+        // &:hover {
+        //     &:nth-of-type(2){
+        //         .profile__item-desc {
+        //             opacity: 1;
+        //             box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
+        //         }
+        //         .profile__item-wrap {
+        //             background-color: #00AAE2;
+        //         }
+        //         .profile__item-icon {
+        //             background-image: url('../img/pics/idea-white.png');
+        //         }
+        //         .profile__title-wrap {
+        //             box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
+        //         }
+        //     }
             
-        }
+        // }
         @include desktop {
             margin-right: 20px;;
             margin-bottom: 70px;

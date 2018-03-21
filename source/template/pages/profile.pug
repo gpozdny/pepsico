@@ -5,36 +5,40 @@ block content
         main.profile
             .container.container--profile-list
                 ul.profile__list
-                    li.profile__item
+                    li.profile__item.profile__item--success 
                         .profile__title-wrap
                             h2.profile__item-title 1. Видеоинтервью
                         .profile__item-wrap
                             .profile__item-icon
                         .profile__item-status
-                            button.btn--status Успешно!
-                    li.profile__item(id="briefing")
+                            button.btn--status.profile__btn Успешно!
+                    li.profile__item(id="briefing").profile__item--active
                         .profile__title-wrap
                             h2.profile__item-title 2. Бриф    
                         .profile__item-wrap
-                            .profile__item-icon.profile__item-icon--idea
+                            .profile__item-icon(id="briefingIcon").profile__item-icon--idea
                         .profile__item-status
-                            button.btn--status.btn--assessment На оценке!
+                            button.btn--status.btn--assessment.profile__btn На оценке!
                         .profile__item-desc
                                 span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!    
-                    li.profile__item(id="presentation")
+                    li.profile__item(id="presentation").profile__item--inactive
                         .profile__title-wrap
                             h2.profile__item-title 3. Презентация
                         .profile__item-wrap
-                            .profile__item-icon.profile__item-icon--presentation
+                            .profile__item-icon(id="presentationIcon").profile__item-icon--presentation
                         .profile__item-status
-                            button.btn--inactive До 13 апреля
-                    li.profile__item
+                            button.btn--inactive.profile__btn До 13 апреля
+                        .profile__item-desc
+                            span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!
+                    li.profile__item(id="finals").profile__item--inactive
                         .profile__title-wrap
                             h2.profile__item-title 4. Финалы
                         .profile__item-wrap
-                            .profile__item-icon.profile__item-icon--finals
+                            .profile__item-icon(id="finalsIcon").profile__item-icon--finals
                         .profile__item-status
-                            button.btn--inactive До 1 мая                                 
+                            button.btn--inactive.profile__btn До 1 мая
+                        .profile__item-desc
+                            span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!                                     
         .profile__progress-bar
             .profile__progress-percentage
             span.profile__progress-text Путь пройден на 50%
@@ -46,13 +50,13 @@ block content
                 input.profile__attachments-input(type="text" placeholder="Введите название проекта" required)
                 .profile__attachments__files
                     .participant-info__files-docx(id="docx").hidden .DOCX
-                    .participant-info__files-presentation(id="image").hidden Image
+                    img(src="", alt="Image" id="image").participant-info__files-img.hidden
                 label.profile__attachments-label(id='labelDocx')
-                    input(type="file" name="pic" onchange='changeDocx()' required).profile__attachments-attach
+                    input(type="file" name="pic" onchange='changeDocx()' required accept=".doc, .docx").profile__attachments-attach
                     .profile__attachments-icon
                     span.profile__attachments-desc Приложите файл с описанием (.DOCX, максимум - 1 страница!)
                 label.profile__attachments-label(id='labelImage')
-                    input(type="file" name="pic" accept="image/*" onchange='changeImage()' required).profile__attachments-attach
+                    input(type="file" name="pic" accept="image/*" onchange='changeImage(); previewFile();' id="imgInput" required).profile__attachments-attach
                     .profile__attachments-icon
                     span.profile__attachments-desc И прикрепите иллюстрацию
                 button(type="submit").profile__attachments-btn.btn--inactive Отправить
@@ -63,12 +67,15 @@ block content
                 .profile__attachments-title
                     span.profile__attachments-text.title проект: digital 3.0
                 .profile__attachments-picture
-                label.profile__attachments-label
-                    input(type="file" name="pic" accept="image/*" onchange='changeDocx()').profile__attachments-attach
+                .profile__attachments__files
+                    .participant-info__files-docx(id="docxPresentation").hidden .DOCX
+                    .participant-info__files-docx(id="pptx").hidden .PPTX
+                label.profile__attachments-label(id='labelDesc')
+                    input(type="file" name="pic" accept=".doc, .docx" onchange='changeDesc()' required).profile__attachments-attach
                     .profile__attachments-icon
                     span.profile__attachments-desc Приложите фаил с подробным описанием (.DOCX, объем не ограничен!)
-                label.profile__attachments-label
-                    input(type="file" name="pic" accept="image/*").profile__attachments-attach
+                label.profile__attachments-label(id='labelPresentation')
+                    input(type="file" name="pic" accept=".pptx, .pdf" onchange='changePresentation()' required).profile__attachments-attach
                     .profile__attachments-icon
                     span.profile__attachments-desc Прикрепите презентацию, с которой будете выступать в финале (.PPTX или .PDF)
                 button(type="submit").profile__attachments-btn.btn--inactive Отправить
