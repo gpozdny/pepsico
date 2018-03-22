@@ -73,23 +73,10 @@ $(document).ready(function () {
         $wrapper.addClass('blur');
     };
 
-    if($finals.is('.profile__item--failed')){
-        $finals.on('click', function(){
-            showFail();
-        })
-    };
 
-    if($presentation.is('.profile__item--failed')){
-        $presentation.on('click', function(){
-            showFail();
-        })
-    };
-
-    if($briefing.is('.profile__item--failed')){
-        $briefing.on('click', function(){
-            showFail();
-        })
-    };
+    $('.profile__item--failed').on('click', function(){
+        showFail();
+    });
 
     // items' backgrounds
 
