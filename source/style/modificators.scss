@@ -9,7 +9,7 @@
 	font-weight: bold;
 	display: inline-block;
 	text-align: center;
-	z-index: 1;
+
 }
 
 .title--red {
@@ -28,7 +28,10 @@
 	border-radius: 30px;
 	transition:all .3s ease;
     cursor: not-allowed;
-    text-align: center;
+	text-align: center;
+	@include phones {
+		padding: 15px 40px;
+	}
 }
 
 .btn--status {
