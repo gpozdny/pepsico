@@ -29,14 +29,32 @@
     left: 60%;
     bottom: 30%;
     margin-right: 40px;
+    max-width: 470px;
     @include desktop {
-        position: static;
+        position: relative;
+        left: initial;
+        bottom: initial;
         margin: 0;
+    }
+    @include phones {
+        max-width: 400px;
+        padding: 30px 60px;
     }
 }
 
 .form__auth {
     color: white;
+    @include flex(column);
+    @include flex-align(center);
+
+}
+
+.form__inputs-wrap {
+    width: 100%;
+    margin-bottom: 10px;
+        input {
+            width: 100%;
+        }
 }
 
 .form__desc {
@@ -51,7 +69,6 @@
 .form__password {
     opacity: 0.8;
     color: $text-colour;
-    min-width: 320px;
     border-radius: 5px;
     background-color: #ffffff;
     padding: 10px 15px;

@@ -2,7 +2,12 @@
     background-image: url('../img/pics/profile-bg.jpg');
     background-size: cover;
     background-position: center;
-    
+    @include phones {
+        background-image: url('../img/pics/go.png'), url('../img/pics/bg-mobile.png');
+        background-size: contain, cover;
+        background-position: 100% 6%, center;
+        background-repeat: no-repeat;
+    }
 }
 
 .profile {
@@ -21,7 +26,10 @@
 
 .profile__appointment-wrap {
     margin-bottom: 40px;
-    
+    text-align: center;
+    @include phones {
+        display: none;
+    }
 }
 
 .profile__appointment {
@@ -44,7 +52,7 @@
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
-    &:before   {
+    &:before {
         content: '';
         position: absolute;
         width: 10px;
@@ -54,17 +62,17 @@
         bottom: 50%;
         margin-bottom: -23px;
         left: -20px;
-}
+    }
     @include desktop {
         @include flex-align(center);
-        &:after, &:before {
+        &:after,
+        &:before {
             display: none;
         }
     }
-    
 }
 
-.profile__item-desc  {
+.profile__item-desc {
     display: flex;
     position: absolute;
     height: 385px;
@@ -78,7 +86,6 @@
     background-color: #fff;
     opacity: 0;
     transition: opacity 0.2s ease-in;
-
     @include desktop {
         height: 350px;
     }
@@ -97,68 +104,77 @@
     align-items: center;
     cursor: pointer;
     position: relative;
+    &:after {
+        content: '';
+        width: 110px;
+        background-color: #fff;
+        position: absolute;
+        height: 4px;
+        right: -110px;
+        bottom: 50%;
+        margin-bottom: -20px;
+        outline: 8px solid rgba(255, 255, 255, 0.2);
+    }
+    &:last-child {
         &:after {
+            display: none;
+            @include phones {
+                display: block;
+            }
+        }
+    }
+    &:first-child {
+        &:before {
             content: '';
-            width: 110px;
-            background-color: #fff;
-            position: absolute;
             height: 4px;
-            right: -110px;
+            width: 50px;
+            position: absolute;
+            left: -20px;
             bottom: 50%;
             margin-bottom: -20px;
+            background-color: #fff;
             outline: 8px solid rgba(255, 255, 255, 0.2);
         }
-        &:last-child {
+    }
+    @include desktop {
+        margin-right: 20px;
+        ;
+        margin-bottom: 72px;
+        &:after,
+        &:before {
+            display: none;
+        }
+        @include phones {
+            &:first-child {
+                &:after {
+                    display: block;
+                    height: 80px;
+                    width: 4px;
+                    right: 50%;
+                    margin-right: -4px;
+                    top: -20px;
+                }
+            }
+            margin-right: 0;
             &:after {
-                display: none;
+                display: block;
+                height: 210px;
+                width: 4px;
+                right: 50%;
+                top: -100px;
+                margin-right: -4px;
             }
         }
-        &:first-child {
-            &:before{
-                content: '';
-                height: 4px;
-                width: 50px;
-                position: absolute;
-                left: -20px;
-                bottom: 50%;
-                margin-bottom: -20px;
-                background-color: #fff;
-                outline: 8px solid rgba(255, 255, 255, 0.2);
-            }
-        }
-        // &:hover {
-        //     &:nth-of-type(2){
-        //         .profile__item-desc {
-        //             opacity: 1;
-        //             box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
-        //         }
-        //         .profile__item-wrap {
-        //             background-color: #00AAE2;
-        //         }
-        //         .profile__item-icon {
-        //             background-image: url('../img/pics/idea-white.png');
-        //         }
-        //         .profile__title-wrap {
-        //             box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
-        //         }
-        //     }
-            
-        // }
-        @include desktop {
-            margin-right: 20px;;
-            margin-bottom: 70px;
-            &:after, &:before {
-                display: none;
-            }
-        }
+    }
 }
 
 .profile__title-wrap {
     position: relative;
-    background-color:$main-colour;
+    background-color: $main-colour;
     padding: 5px 10px;
     margin-bottom: 20px;
     transition: all 0.2s ease-in;
+    z-index: 1;
 }
 
 .profile__item-wrap {
@@ -172,7 +188,6 @@
     align-items: center;
     z-index: 1;
     transition: all 0.2s ease-in;
-
 }
 
 .profile__item-icon {
@@ -204,27 +219,4 @@
     justify-content: center;
     margin-top: -30px;
     z-index: 2;
-}
-
-.profile__progress-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color:#0E85C7;
-    @include flex(row);
-    align-items: center;
-}
-
-.profile__progress-percentage {
-    width: 50%;
-    height: 30px;
-    background-color: $main-colour;
-}
-
-.profile__progress-text {
-    color: white;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: 20px;
 }
