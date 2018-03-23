@@ -3,16 +3,26 @@
 $(document).ready(function () {
 
     // filter dropdown
-    $('.list__filter').click(function () {
+    let $dropdown = $('.filter__dropdown'),
+        $filter = $('.list__filter'),
+        $overlayMentor = $('.mentor__overlay'),
+        $filterIcon = $('.list__filter');
 
-        let $dropdown = $('.filter__dropdown');
-        let $filter = $('.list__filter');
-
-        $dropdown.toggleClass("filter__dropdown--active");
-        $filter.toggleClass("list__filter--active");
-
+    $filter.click(function () {
+        toggleFilter();
     });
 
+    $overlayMentor.on('click', function () {
+        toggleFilter();
+    });
+    
+    function toggleFilter() {
+        $overlayMentor.toggleClass('shown');
+        $dropdown.toggleClass("filter__dropdown--active");
+        $filter.toggleClass("list__filter--active");
+    }
+
+    
     // popups
 
     let $briefing = $('#briefing'),
@@ -67,14 +77,14 @@ $(document).ready(function () {
 
     });
 
-    function showFail(){
+    function showFail() {
         $overlay.css("display", "block");
         $modal_fail.css("display", "block");
         $wrapper.addClass('blur');
     };
 
 
-    $('.profile__item--failed').on('click', function(){
+    $('.profile__item--failed').on('click', function () {
         showFail();
     });
 
@@ -124,6 +134,8 @@ $(document).ready(function () {
                 }
             );
         }
+
+
     });
 
 
