@@ -1,7 +1,7 @@
 .wrapper--profile-bg {
     background-image: url('../img/pics/profile-bg.jpg');
     background-size: cover;
-    background-position: center;
+    background-position:top center;
     @include phones {
         background-image: url('../img/pics/go.png'), url('../img/pics/bg-mobile.png');
         background-size: contain, cover;
@@ -11,7 +11,7 @@
 }
 
 .profile {
-    margin-top: 150px;
+    margin-top: 10%;
     @include desktop {
         margin-top: 100px;
     }

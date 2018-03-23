@@ -169,3 +169,17 @@
     padding: 0 7px;
     margin-right: 5px;
 }
+
+.participant--active { // chosen participant
+    background-color: $main-colour;
+        .participant__icon {
+            color: $main-colour;
+        }
+        .participant__left {
+            background-color: #fff;
+        }
+        .participant__time,
+        .participant__name {
+            color: white;
+        }
+}

@@ -15,7 +15,7 @@ $(document).ready(function () {
     $overlayMentor.on('click', function () {
         toggleFilter();
     });
-    
+
     function toggleFilter() {
         $overlayMentor.toggleClass('shown');
         $dropdown.toggleClass("filter__dropdown--active");
@@ -105,6 +105,13 @@ $(document).ready(function () {
     } else if ($presentation.is('.profile__item--success')) {
         $presentation.addClass('profile__item-icon--presentation-success')
     }
+    // participant list 
+
+    let $participant = $('.participant');
+
+        $participant.on('click', function(){
+            $(this).addClass("participant--active").siblings().removeClass("participant--active");
+        })
 
     // jQuery Knob
 
