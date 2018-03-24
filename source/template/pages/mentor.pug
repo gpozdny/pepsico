@@ -208,6 +208,6 @@ block content
                     .participant__assessment-title.title
                         span.participant__assessment-text Комментарий
                     form.participant__assessment-form(action="#" id="comment" method="get")
-                        input(type="text" placeholder="Оставьте ваш комментарий о работе").participant__assessment-input
-                        button.btn--inactive Отправить оценку
+                        input(type="text" placeholder="Оставьте ваш комментарий о работе" oninput="checkLength()").participant__assessment-input
+                        button.btn--inactive(id="btnMentor") Отправить оценку
 

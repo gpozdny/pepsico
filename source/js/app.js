@@ -82,11 +82,11 @@ $(document).ready(function () {
         showFail();
     });
 
-        // items' backgrounds
+    // items' backgrounds
 
-        if ($briefing.is('.profile__item--active')) {
-            $briefing.addClass('profile__item-icon--idea-white')
-        }
+    if ($briefing.is('.profile__item--active')) {
+        $briefing.addClass('profile__item-icon--idea-white')
+    }
 
     if ($finals.is('.profile__item--active')) {
         $finals.addClass('profile__item-icon--finals-active')
@@ -148,11 +148,6 @@ $(document).ready(function () {
 
 
     });
-
-
-
-
-
 });
 // popups files
 
@@ -210,4 +205,11 @@ function previewFile() {
     } else {
         preview.src = "";
     }
+};
+
+function checkLength() {
+    let $comment = $('.participant__assessment-input'),
+        $btnMentor = $('#btnMentor');
+        $btnMentor.toggleClass('btn--active', $comment.val().length !== 0); // preferable
+    
 };
