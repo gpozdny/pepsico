@@ -3,19 +3,30 @@
 }
 
 .content__left,
-.participant-info,
 .participant__assessment,
 .participant__assessment-comment
  {
     background-color: #fff;
 }
-
-.participant-info,
 .participant__assessment,
 .participant__assessment-comment {
     padding: 20px 20px;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+
+.participant-info {
+    margin-bottom: 10px;
+}
+
+.participant-info__left, .participant-info__right {
+    padding: 20px 20px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.participant-info__right--project {
+    margin-left: 10px;
 }
 
 .content {
@@ -24,7 +35,7 @@
 
 .content__left {
     // @include flex(column);
-    width: 30%;
+    width: 27%;
     // @include flex-align(center);
     border-right: 1px solid #d8d8d8;
     position: relative;
@@ -307,7 +318,7 @@
 
 .content__right {
     @include flex(column);
-    width: 70%;
+    width: 73%;
     margin-left: 10px;
     margin-top: 10px;
     padding-right: 30px;
@@ -320,6 +331,7 @@
 .participant-info__left {
     @include flex(row);
     width: 50%;
+    margin-right: 10px;
     padding-right: 20px;
     border-right: 1px solid #c4c9cd;
     @include desktop {
