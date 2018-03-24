@@ -27,6 +27,7 @@
     width: 30%;
     // @include flex-align(center);
     border-right: 1px solid #d8d8d8;
+    position: relative;
 }
 
 .list__title__wrap {
@@ -223,6 +224,12 @@
     width: 100%;
     max-height: 100vh;
     overflow: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    top: 69px;
+    min-height: 100%;
 }
 
 .participant {
@@ -303,7 +310,7 @@
     width: 70%;
     margin-left: 10px;
     margin-top: 10px;
-    padding-right: 60px;
+    padding-right: 30px;
 }
 
 .participant-info {
@@ -312,9 +319,16 @@
 
 .participant-info__left {
     @include flex(row);
-    padding-right: 40px;
+    width: 50%;
+    padding-right: 20px;
     border-right: 1px solid #c4c9cd;
-    ;
+    @include desktop {
+        padding-right: 10px; 
+    }
+}
+
+.participant-info__right {
+    width: 25%;
 }
 
 .participant-info__picture {
@@ -358,7 +372,7 @@
 
 .participant-info__right {
     @include flex(column);
-    padding-left: 40px;
+    padding-left: 20px;
 }
 
 .participant-info__project {
@@ -392,6 +406,9 @@
     font-size: 14px;
     font-weight: bold;
     margin-left: 30px;
+    @include laptop-l {
+        margin-left: 10px;
+    }
 }
 
 .participant-info__files-image {
@@ -518,4 +535,8 @@
     left: 0;
     z-index: 2;
     display: none;
+}
+
+.participant-info__files-presentation--project {
+    margin-left: 0;
 }
