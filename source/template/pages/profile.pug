@@ -9,23 +9,23 @@ block content
                     .profile__title-wrap
                             h2.profile__item-title Маркетинг
                 ul.profile__list
-                    li.profile__item.profile__item--success 
+                    li.profile__item(data-item="step").profile__item--success 
                         .profile__title-wrap
                             h2.profile__item-title 1. Видеоинтервью
                         .profile__item-wrap
                             .profile__item-icon
                         .profile__item-status
                             button.btn--status.profile__btn Успешно!
-                    li.profile__item(id="briefing").profile__item--active
+                    li.profile__item(id="briefing" data-item="step").profile__item--active
                         .profile__title-wrap
                             h2.profile__item-title 2. Бриф    
                         .profile__item-wrap
-                            .profile__item-icon(id="briefingIcon").profile__item-icon--idea
+                            .profile__item-icon(id="briefingIcon" data-item="step").profile__item-icon--idea
                         .profile__item-status
                             button.btn--status.btn--assessment.profile__btn На оценке!
                         .profile__item-desc
                                 span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!    
-                    li.profile__item(id="presentation").profile__item--opinion
+                    li.profile__item(id="presentation" data-item="step").profile__item--failed
                         .profile__title-wrap
                             h2.profile__item-title 3. Презентация
                         .profile__item-wrap
@@ -34,7 +34,7 @@ block content
                             button.btn--inactive.profile__btn До 13 апреля
                         .profile__item-desc
                             span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!
-                    li.profile__item(id="finals").profile__item--failed
+                    li.profile__item(id="finals" data-item="step").profile__item--failed
                         .profile__title-wrap
                             h2.profile__item-title 4. Финалы
                         .profile__item-wrap

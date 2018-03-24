@@ -71,20 +71,22 @@ $(document).ready(function () {
         }
     };
 
+
+
     function showFail() {
         $modal_fail.css("display", "block");
     };
 
     $('.profile__item--failed').on('click', function () {
+        $('.profile__modals-presentation, .profile__modals').css("display", "none");
         showFail();
     });
 
+        // items' backgrounds
 
-    // items' backgrounds
-
-    if ($briefing.is('.profile__item--active')) {
-        $briefing.addClass('profile__item-icon--idea-white')
-    }
+        if ($briefing.is('.profile__item--active')) {
+            $briefing.addClass('profile__item-icon--idea-white')
+        }
 
     if ($finals.is('.profile__item--active')) {
         $finals.addClass('profile__item-icon--finals-active')
@@ -104,7 +106,6 @@ $(document).ready(function () {
     $participant.on('click', function () {
         $(this).addClass("participant--active").siblings().removeClass("participant--active");
     })
-
     // jQuery Knob
 
     // $(".dial").knob({
@@ -113,6 +114,17 @@ $(document).ready(function () {
     //     'rotation': "anticlockwise"
     // });
     let $dial = $(".dial");
+
+    $dial.on('change', function () {
+        if ($(this).val() <= 4) {
+            $(this).css('color', '#E72E36');
+        } else if ($(this).val() <= 7) {
+            $(this).css('color', '#F5913B');
+        } else {
+            $(this).css('color', '#009639');
+        }
+    });
+
     $dial.knob({
         'min': 0,
         'max': 10,
