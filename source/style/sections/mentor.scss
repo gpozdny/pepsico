@@ -329,7 +329,7 @@
 }
 
 .participant-info__left {
-    @include flex(row);
+    @include flex(column);
     width: 50%;
     margin-right: 10px;
     padding-right: 20px;
@@ -337,6 +337,11 @@
     @include desktop {
         padding-right: 10px; 
     }
+}
+
+.participant-info__left-wrap {
+    @include flex(row);
+    flex-wrap: wrap;
 }
 
 .participant-info__right {
@@ -348,6 +353,10 @@
     height: auto;
     margin-right: 20px;
     border-radius: 10px;
+        img {
+            width: 180px;
+            height: auto;
+        }
 }
 
 .participant-info__desc,
@@ -380,6 +389,7 @@
 .participant-info__deadline {
     color: $main-colour;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .participant-info__right {

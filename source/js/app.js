@@ -148,6 +148,22 @@ $(document).ready(function () {
 
 
     });
+    $dial.on('input', function(v) {
+        //let v = $dial.val();
+        let val = Number( $(this).val() );
+        let color;
+        if (val <= 4) {
+            color = '#E72E36';
+        } else if (val <= 7) {
+            color = '#F5913B';
+        } else {
+            color = '#009639';
+        }
+        console.log(color);
+        $dial.trigger('change', {
+            "fgColor": color
+        });
+    });
 });
 // popups files
 
