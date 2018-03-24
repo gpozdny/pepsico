@@ -496,7 +496,7 @@
     @include flex(column);
     align-items: flex-end;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 9px;
 }
 
 .participant__assessment-input {
@@ -561,4 +561,38 @@
 
 .participant-info__files-presentation--project {
     margin-left: 0;
+}
+
+.participant__assessment-list,
+.participant__assessment-block  {
+    @include flex(column);
+
+}
+
+.participant__assessment-top {
+    margin: 15px 0;
+}
+
+.participant__assessment-wrap {
+    background-color: #EDEEF0;
+    font-size: 16px;
+    color: #2b2b2b;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.participant__assessment-name {
+    font-weight: bold;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.participant__assessment-date {
+    color: #c4c9cd;
+    vertical-align: middle;
+}
+
+.participant__assessment-comment--title {
+    color: $main-colour;
+    margin-top: 16px;
 }
