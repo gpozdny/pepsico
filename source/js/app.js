@@ -22,13 +22,13 @@ $(document).ready(function () {
         $filter.toggleClass("list__filter--active");
     }
 
-    
+
     // popups
 
-    let $briefing = $('#briefing'),
+    let $profileItem = $('.profile__item'),
+        $briefing = $('#briefing'),
         $presentation = $('#presentation'),
         $finals = $('#finals'),
-        $this = $(this),
         $overlay = $('.profile__modals-overlay'),
         $modal_briefing = $('.profile__modals'),
         $modal_presentation = $('.profile__modals-presentation'),
@@ -36,57 +36,49 @@ $(document).ready(function () {
         $cross = $('.profile__modal-cross'),
         $wrapper = $('.wrapper');
 
-    // Бриф
-    $briefing.click(function () {
+    $profileItem.on('click', function () {
+        $overlay.addClass('profile__modals-overlay--active');
+        $wrapper.addClass('blur');
+    });
 
-        $overlay.css("display", "block");
+    $briefing.on('click', function () {
         $modal_briefing.css("display", "block");
-        $wrapper.addClass('blur');
-
     });
 
-
-
-    // Презентация
-    $presentation.click(function () {
-
-        $overlay.css("display", "block");
+    $presentation.on('click', function () {
         $modal_presentation.css("display", "block");
-        $wrapper.addClass('blur');
-
     });
-    // overlay & cross
 
-    $overlay.click(function () {
+    // $finals.on('click', function () {
+    //     $modal_$finals.css("display", "block");
+    // });
 
-        $(this).css("display", "none");
-        $modal_briefing.css("display", "none");
-        $modal_presentation.css("display", "none");
-        $modal_fail.css("display", "none");
+    $cross.on('click', function () {
+        removeModals();
+    });
+
+    function removeModals() {
+        $('[data-modal]').css("display", "none");
+        $overlay.removeClass("profile__modals-overlay--active");
         $wrapper.removeClass('blur');
-
-    });
-
-    $cross.click(function () {
-
-        $overlay.css("display", "none");
-        $modal_briefing.css("display", "none");
-        $modal_presentation.css("display", "none");
-        $modal_fail.css("display", "none");
-        $wrapper.removeClass('blur');
-
-    });
-
-    function showFail() {
-        $overlay.css("display", "block");
-        $modal_fail.css("display", "block");
-        $wrapper.addClass('blur');
     };
 
+    // When the user clicks anywhere outside of the modal, close it
+    let modal = document.getElementById('modal');
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            removeModals();
+        }
+    };
+
+    function showFail() {
+        $modal_fail.css("display", "block");
+    };
 
     $('.profile__item--failed').on('click', function () {
         showFail();
     });
+
 
     // items' backgrounds
 
@@ -109,9 +101,9 @@ $(document).ready(function () {
 
     let $participant = $('.participant');
 
-        $participant.on('click', function(){
-            $(this).addClass("participant--active").siblings().removeClass("participant--active");
-        })
+    $participant.on('click', function () {
+        $(this).addClass("participant--active").siblings().removeClass("participant--active");
+    })
 
     // jQuery Knob
 

@@ -43,74 +43,75 @@ block content
                             button.btn--inactive.profile__btn До 1 мая
                         .profile__item-desc
                             span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!                                     
-    .profile__modals
-        .form__error.removed
-            span.form__error-icon !
-            span.form__error-text Ошибка при заполнении формы. Попробуйте еще раз.
-        .profile__attachments
-            .profile__guide
-                a(href="#" download).profile__guide-link Ознакомьтесь с заданием
-                span.profile__guide-icon 
-            form(action="#").profile__attachments-form
-                .profile__attachments-title
-                    span.profile__attachments-text.title назовите свой проект
-                input.profile__attachments-input(type="text" placeholder="Введите название проекта" required)
-                .profile__attachments__files
-                    .participant-info__files-docx(id="docx").hidden .DOCX
-                    img(src="", alt="Image" id="image").participant-info__files-img.hidden
-                label.profile__attachments-label(id='labelDocx')
-                    input(type="file" name="pic" onchange='changeDocx()' required accept=".doc, .docx").profile__attachments-attach
-                    .profile__attachments-icon
-                    span.profile__attachments-desc Приложите файл с описанием (.DOCX, максимум - 1 страница!)
-                label.profile__attachments-label(id='labelImage')
-                    input(type="file" name="pic" accept="image/*" onchange='changeImage(); previewFile();' id="imgInput" required).profile__attachments-attach
-                    .profile__attachments-icon
-                    span.profile__attachments-desc И прикрепите иллюстрацию
-                button(type="submit").profile__attachments-btn.btn--inactive Отправить
-            span.profile__modal-cross x 
-    .profile__modals-presentation
-        .profile__error.removed
-            span.profile__error-icon !
-            span.profile__error-text Ошибка при заполнении формы. Попробуйте еще раз.         
-        .profile__attachments-presentation
-            .profile__guide
-                a(href="#" download).profile__guide-link Ознакомьтесь с заданием
-                span.profile__guide-icon
-            form(action="#").profile__attachments-form
-                .profile__attachments-title
-                    span.profile__attachments-text.title проект: digital 3.0
-                .profile__attachments-picture
-                .profile__attachments__files
-                    .participant-info__files-docx(id="docxPresentation").hidden .DOCX
-                    .participant-info__files-docx(id="pptx").hidden .PPTX
-                label.profile__attachments-label(id='labelDesc')
-                    input(type="file" name="pic" accept=".doc, .docx" onchange='changeDesc()' required).profile__attachments-attach
-                    .profile__attachments-icon
-                    span.profile__attachments-desc Приложите фаил с подробным описанием (.DOCX, объем не ограничен!)
-                label.profile__attachments-label(id='labelPresentation')
-                    input(type="file" name="pic" accept=".pptx, .pdf" onchange='changePresentation()' required).profile__attachments-attach
-                    .profile__attachments-icon
-                    span.profile__attachments-desc Прикрепите презентацию, с которой будете выступать в финале (.PPTX или .PDF)
-                button(type="submit").profile__attachments-btn.btn--inactive Отправить
-            span.profile__modal-cross x
-    .profile__modals-fail
-        .profile__fail
-            .profile__fail-title
-                    span.title.title--red вы не справились
-            .profile__fail-wrap
-                p.profile__fail-red Вы набрали недостаточно баллов для прохождения в финал по направлению
-                span.profile__fail-tag Маркетинг
-            ul.profile__fail-list
-                li.profile__fail-item
-                    span.profile__fail-reason недостаточно креативности
-                li.profile__fail-item
-                    span.profile__fail-reason низкая харизма
-            .profile__fail-wrap
-                p.profile__fail-text Вы ещё можете попробоватьсебя во втором выбранном вами направлении -
-                span.profile__fail-tag.profile__fail-tag--secondary продажи
-            .profile__fail-buttons
-                span.profile__fail-text Продолжим?
-                a(href="#").profile__fail-btn.btn--inactive.btn--active Да, продолжить!     
-                a(href="#").profile__fail-btn.btn--inactive.btn--white Нет, спасибо!
-        span.profile__modal-cross x             
-    .profile__modals-overlay                 
+    .profile__modals-overlay(id='modal')
+        .profile__modals(id="briefModal" data-modal='brief')
+            .form__error.removed
+                span.form__error-icon !
+                span.form__error-text Ошибка при заполнении формы. Попробуйте еще раз.
+            .profile__attachments
+                .profile__guide
+                    a(href="#" download).profile__guide-link Ознакомьтесь с заданием
+                    span.profile__guide-icon 
+                form(action="#").profile__attachments-form
+                    .profile__attachments-title
+                        span.profile__attachments-text.title назовите свой проект
+                    input.profile__attachments-input(type="text" placeholder="Введите название проекта" required)
+                    .profile__attachments__files
+                        .participant-info__files-docx(id="docx").hidden .DOCX
+                        img(src="", alt="Image" id="image").participant-info__files-img.hidden
+                    label.profile__attachments-label(id='labelDocx')
+                        input(type="file" name="pic" onchange='changeDocx()' required accept=".doc, .docx").profile__attachments-attach
+                        .profile__attachments-icon
+                        span.profile__attachments-desc Приложите файл с описанием (.DOCX, максимум - 1 страница!)
+                    label.profile__attachments-label(id='labelImage')
+                        input(type="file" name="pic" accept="image/*" onchange='changeImage(); previewFile();' id="imgInput" required).profile__attachments-attach
+                        .profile__attachments-icon
+                        span.profile__attachments-desc И прикрепите иллюстрацию
+                    button(type="submit").profile__attachments-btn.btn--inactive Отправить
+                span.profile__modal-cross x 
+        .profile__modals-presentation(id="presentationModal" data-modal='presentation')
+            .profile__error.removed
+                span.profile__error-icon !
+                span.profile__error-text Ошибка при заполнении формы. Попробуйте еще раз.         
+            .profile__attachments-presentation
+                .profile__guide
+                    a(href="#" download).profile__guide-link Ознакомьтесь с заданием
+                    span.profile__guide-icon
+                form(action="#").profile__attachments-form
+                    .profile__attachments-title
+                        span.profile__attachments-text.title проект: digital 3.0
+                    .profile__attachments-picture
+                    .profile__attachments__files
+                        .participant-info__files-docx(id="docxPresentation").hidden .DOCX
+                        .participant-info__files-docx(id="pptx").hidden .PPTX
+                    label.profile__attachments-label(id='labelDesc')
+                        input(type="file" name="pic" accept=".doc, .docx" onchange='changeDesc()' required).profile__attachments-attach
+                        .profile__attachments-icon
+                        span.profile__attachments-desc Приложите фаил с подробным описанием (.DOCX, объем не ограничен!)
+                    label.profile__attachments-label(id='labelPresentation')
+                        input(type="file" name="pic" accept=".pptx, .pdf" onchange='changePresentation()' required).profile__attachments-attach
+                        .profile__attachments-icon
+                        span.profile__attachments-desc Прикрепите презентацию, с которой будете выступать в финале (.PPTX или .PDF)
+                    button(type="submit").profile__attachments-btn.btn--inactive Отправить
+                span.profile__modal-cross x
+        .profile__modals-fail(id="failfModal" data-modal='fail')
+            .profile__fail
+                .profile__fail-title
+                        span.title.title--red вы не справились
+                .profile__fail-wrap
+                    p.profile__fail-red Вы набрали недостаточно баллов для прохождения в финал по направлению
+                    span.profile__fail-tag Маркетинг
+                ul.profile__fail-list
+                    li.profile__fail-item
+                        span.profile__fail-reason недостаточно креативности
+                    li.profile__fail-item
+                        span.profile__fail-reason низкая харизма
+                .profile__fail-wrap
+                    p.profile__fail-text Вы ещё можете попробоватьсебя во втором выбранном вами направлении -
+                    span.profile__fail-tag.profile__fail-tag--secondary продажи
+                .profile__fail-buttons
+                    span.profile__fail-text Продолжим?
+                    a(href="#").profile__fail-btn.btn--inactive.btn--active Да, продолжить!     
+                    a(href="#").profile__fail-btn.btn--inactive.btn--white Нет, спасибо!
+                span.profile__modal-cross x             
+                    
