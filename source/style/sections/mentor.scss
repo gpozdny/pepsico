@@ -2,6 +2,12 @@
     background-color: $bg-colour;
 }
 
+@media screen and (max-width: 1325px) {
+    .wrapper--mentor {
+        width: 1325px;
+    }
+}
+
 .content__left,
 .participant__assessment,
 .participant__assessment-comment
