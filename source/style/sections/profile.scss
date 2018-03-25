@@ -20,7 +20,11 @@
     }
 }
 
-
+@media screen and (max-height: 780px) {
+    .profile {
+        margin-top: 5%;
+    }
+}
 
 .container--profile {
     @include flex-align(center);
