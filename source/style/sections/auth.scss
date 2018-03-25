@@ -26,6 +26,9 @@
 .title-logo {
     @include flex(column);
     justify-content: space-between;
+    @include desktop {
+        margin-bottom: 15px;
+    }
 }
 
 .logo-pic {
@@ -67,6 +70,7 @@
 }
 
 .form__auth {
+    position: relative;
     background-color: $main-colour;
     padding: 30px 75px;
     border-radius: 10px;

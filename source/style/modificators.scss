@@ -140,12 +140,27 @@
     color: #e72e36;
     position: relative;
     background-color:rgba(255, 255, 255, 0.5);
-    position: absolute;
-    top: -50px;
+    // position: absolute;
+    // top: -50px;
     font-size: 14px;
     width: 100%;
     text-align: center;
-    padding: 10px;
+	padding: 10px;
+		@include phones {
+			max-width: 315px;
+		}
+}
+
+.form__error--auth {
+	position: absolute;
+	top: -50px;
+	@include desktop {
+		padding: 5px;
+		top: -35px;
+	}
+	@include phones {
+		max-width: 100%;
+	}
 }
 
 .form__error-icon {
