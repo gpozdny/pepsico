@@ -108,11 +108,6 @@ $(document).ready(function () {
     })
     // jQuery Knob
 
-    // $(".dial").knob({
-    //     'min': 0,
-    //     'max': 10,
-    //     'rotation': "anticlockwise"
-    // });
     let $dial = $(".dial");
 
 
@@ -120,7 +115,7 @@ $(document).ready(function () {
         'min': 0,
         'max': 10,
         'rotation': "anticlockwise",
-        'release': function(v) {
+        'release': function (v) {
             let color;
             let dataHigh = $dial.data("high");
             let dataLow = $dial.data("low");
@@ -137,8 +132,8 @@ $(document).ready(function () {
             });
         }
     });
-    $dial.on('change', function(v) {
-        
+    $dial.on('change', function (v) {
+
     });
 });
 // popups files
@@ -202,6 +197,6 @@ function previewFile() {
 function checkLength() {
     let $comment = $('.participant__assessment-input'),
         $btnMentor = $('#btnMentor');
-        $btnMentor.toggleClass('btn--active', $comment.val().length !== 0); // preferable
-    
+    $btnMentor.toggleClass('btn--active', $comment.val().length !== 0); // preferable
+
 };

@@ -513,6 +513,7 @@
 .participant__rate {
     width: 100%;
     margin-top: 20px;
+    @include flex(column);
 }
 
 .participant__rate-list {
@@ -528,7 +529,17 @@
             margin: 0;
         }
 }
+.participant__assessment-text {
+    max-width: 1000px;
+}
 
+.participant__assessment-wrap {
+    width: 100%;
+}
+
+#btnAssestment {
+    align-self: flex-end;
+}
 .participant__rate-title {
     text-align: center;
     font-size: 18px;
