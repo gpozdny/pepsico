@@ -58,6 +58,7 @@
 .profile__list {
     @include flex(row);
     position: relative;
+    padding-bottom: 105px;
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
