@@ -115,54 +115,30 @@ $(document).ready(function () {
     // });
     let $dial = $(".dial");
 
-    $dial.on('change', function () {
-        if ($(this).val() <= 4) {
-            $(this).css('color', '#E72E36');
-        } else if ($(this).val() <= 7) {
-            $(this).css('color', '#F5913B');
-        } else {
-            $(this).css('color', '#009639');
-        }
-    });
 
     $dial.knob({
         'min': 0,
         'max': 10,
         'rotation': "anticlockwise",
-        'change': function (v) {
-            console.log(v);
+        'release': function(v) {
             let color;
-            if (v <= 4) {
+            let dataHigh = $dial.data("high");
+            let dataLow = $dial.data("low");
+            if (v <= dataLow) {
                 color = '#E72E36';
-            } else if (v <= 7) {
+            } else if (v < dataHigh) {
                 color = '#F5913B';
             } else {
                 color = '#009639';
             }
-            $dial.trigger(
-                'configure', {
-                    "fgColor": color
-                }
-            );
+            this.$.trigger('configure', {
+                "fgColor": color,
+                "inputColor": color
+            });
         }
-
-
     });
-    $dial.on('input', function(v) {
-        //let v = $dial.val();
-        let val = Number( $(this).val() );
-        let color;
-        if (val <= 4) {
-            color = '#E72E36';
-        } else if (val <= 7) {
-            color = '#F5913B';
-        } else {
-            color = '#009639';
-        }
-        console.log(color);
-        $dial.trigger('change', {
-            "fgColor": color
-        });
+    $dial.on('change', function(v) {
+        
     });
 });
 // popups files
