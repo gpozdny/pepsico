@@ -157,5 +157,21 @@ h1 {
 }
 
 
+// titles 
 
+.title {
+	color: white;
+    background-color:$main-colour;
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 20px;
+	font-weight: bold;
+	// display: inline-block;
+	text-align: center;
+
+}
+
+.title--red {
+	background-color:#E72E36;
+}
 

@@ -1,17 +1,56 @@
 .wrapper--auth-bg {
-    background-image: url('../img/pics/bg-1@2x.jpg');
+    background-image: url('../img/pics/auth.jpg');
     background-size: cover;
-    background-position: center -35px;
-    @include forK {
-        background-position: center;
-    }
+    background-position: top center;
+    justify-content: space-between;
+    padding: 0 100px;
+    @include flex(row);
     @include desktop {
+        @include flex(column);
         @include flex-align(center);
         background-image: url('../img/pics/rounds.png');
+        padding: 0 20px;
     }
-    @include laptop-l {
-        background-position: initial;
+}
+
+.title-logo,
+.form {
+    min-height: 100vh;
+    padding: 70px 0;
+    @include desktop {
+        min-height: auto;
+        padding: 10px 0;
     }
+}
+
+.title-logo {
+    @include flex(column);
+    justify-content: space-between;
+}
+
+.logo-pic {
+    width: 157px;
+    height: auto;
+}
+
+.title-logo__wrap  {
+    max-width: 580px;
+        img {
+            max-width: 580px;
+        }
+    @include desktop {
+        display: none;
+    } 
+}
+
+.title--auth {
+    font-size: 60px;
+    display: inline-block;
+    padding: 0px 10px;
+    padding-bottom: 0px;
+        &:last-child{
+            padding-top: 0px;
+        }
 }
 
 .form,
@@ -23,31 +62,22 @@
 }
 
 .form {
-    background-color: $main-colour;
-    padding: 30px 75px;
-    border-radius: 10px;
-    position: absolute;
-    left: 60%;
-    bottom: 30%;
-    margin-right: 40px;
-    max-width: 470px;
-    @include desktop {
-        position: relative;
-        left: initial;
-        bottom: initial;
-        margin: 0;
-    }
-    @include phones {
-        max-width: 400px;
-        padding: 30px 60px;
-    }
+    @include flex(column);
+    @include flex-align(center);
 }
 
 .form__auth {
+    background-color: $main-colour;
+    padding: 30px 75px;
+    border-radius: 10px;
     color: white;
     @include flex(column);
     @include flex-align(center);
-
+    max-width: 470px;
+    @include phones {
+        max-width: 400px;
+        padding: 30px 40px;
+    }
 }
 
 .form__inputs-wrap {

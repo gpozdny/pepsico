@@ -1,6 +1,11 @@
 extends ../_template
 block content
   .wrapper.wrapper--auth-bg
+      section.title-logo
+        a(href="#").logo
+          img(src="assets/img/pics/logo-go.png" alt="logo").logo-pic
+        .title-logo__wrap  
+          img(src="assets/img/pics/title-pic.png" alt="title")
       section.form
           form.form__auth(action="#" id="auth" method="post")
             .form__error.removed
@@ -17,6 +22,6 @@ block content
             //-   input.form__appointment-input(type="radio" name="appointment" value="sales" id="sales")
             //-   label.form__appointment-label(for="sales") Продажи
             button.form__auth-btn.btn--inactive(type='submit' form="auth") Войти в систему
-          .form__password-reset
-            span.form__password-desc Забыли пароль?
-            span.form__password-desc Восстановите его по <a class='form__reset-link' href='#'>ссылке</a>
+            .form__password-reset
+              span.form__password-desc Забыли пароль?
+              span.form__password-desc Восстановите его по <a class='form__reset-link' href='#'>ссылке</a>

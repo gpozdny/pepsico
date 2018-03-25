@@ -11,12 +11,12 @@
 }
 
 .profile {
-    margin-top: 10%;
+    margin-top: 160px;
 }
 
 @media screen and (max-height: 768px) {
     .profile {
-        margin-top: 5%;
+        margin-top: 50px;
     }
 }
 
@@ -25,7 +25,7 @@
         margin-top: 100px;
     }
     @include tablets {
-        margin-top: 50px;
+        margin-top: 75px;
     }
 }
 
@@ -69,8 +69,8 @@
         height: 10px;
         background-color: #fff;
         border-radius: 50%;
-        bottom: 50%;
-        margin-bottom: -23px;
+        bottom: 65%;
+        margin-bottom: -22px;
         left: -20px;
     }
     @include desktop {
