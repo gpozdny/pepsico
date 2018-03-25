@@ -70,9 +70,7 @@ $(document).ready(function () {
             removeModals();
         }
     };
-
-
-
+    
     function showFail() {
         $modal_fail.css("display", "block");
     };
@@ -110,7 +108,6 @@ $(document).ready(function () {
 
     let $dial = $(".dial");
 
-
     $dial.knob({
         'min': 0,
         'max': 10,
@@ -131,9 +128,6 @@ $(document).ready(function () {
                 "inputColor": color
             });
         }
-    });
-    $dial.on('change', function (v) {
-
     });
 });
 // popups files
@@ -198,12 +192,11 @@ function checkLength() {
     let $comment = $('.participant__assessment-input'),
         $btnMentor = $('#btnMentor');
 
-        $btnMentor.toggleClass('btn--active', $comment.val().length !== 0); // preferable
+    $btnMentor.toggleClass('btn--active', $comment.val().length !== 0); // preferable
 };
 
 function checkForm() {
     let $btnAuth = $('.form__auth-btn'),
         $authInputs = $('.form__login, .form__password');
     $btnAuth.toggleClass('btn--white', $authInputs.val().length !== 0); // preferable
-
-}
+};
