@@ -84,12 +84,6 @@
     }
 }
 
-.profile__attachments-icon,
-.profile__attachments-desc {
-    // display: inline-block;
-    // vertical-align: middle;
-}
-
 .profile__attachments-icon {
     background-image: url('../img/icons/plus.png');
     background-repeat: no-repeat;
@@ -101,7 +95,7 @@
     @include phones {
         margin-right: 10px;
         margin-bottom: 5px;
-        width: 18px;
+        // width: 18px;
         height: 18px;
     }
 }
