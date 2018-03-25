@@ -80,6 +80,14 @@
             display: none;
         }
     }
+    @include phones{
+        &:before {
+            display: block;
+            top: -26px;
+            left: 50%;
+            margin-left: -3px;
+        }
+    }
 }
 
 .profile__item-desc {
