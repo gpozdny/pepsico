@@ -2,6 +2,12 @@
     background-image: url('../img/pics/profile-bg.jpg');
     background-size: cover;
     background-position:top center;
+    @include desktop {
+        background-image: url('../img/pics/go.png'), url('../img/pics/rounds.png');
+        background-size: contain, cover;
+        background-repeat: no-repeat;
+        background-position: 100% 26%, center;
+    }
     @include phones {
         background-image: url('../img/pics/go.png'), url('../img/pics/bg-mobile.png');
         background-size: contain, cover;
