@@ -6,6 +6,7 @@
     left: 0;
     z-index: 2;
     position: fixed;
+    overflow: auto;
     background-color: rgba($color: #ffffff, $alpha: 0.6);
     display: none;
 }
