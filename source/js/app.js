@@ -197,6 +197,13 @@ function previewFile() {
 function checkLength() {
     let $comment = $('.participant__assessment-input'),
         $btnMentor = $('#btnMentor');
-    $btnMentor.toggleClass('btn--active', $comment.val().length !== 0); // preferable
 
+        $btnMentor.toggleClass('btn--active', $comment.val().length !== 0); // preferable
 };
+
+function checkForm() {
+    let $btnAuth = $('.form__auth-btn'),
+        $authInputs = $('.form__login, .form__password');
+    $btnAuth.toggleClass('btn--white', $authInputs.val().length !== 0); // preferable
+
+}
