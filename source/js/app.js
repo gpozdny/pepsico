@@ -18,8 +18,8 @@ $(document).ready(function () {
 
     function toggleFilter() {
         $overlayMentor.toggleClass('shown');
-        $dropdown.toggleClass("filter__dropdown--active");
-        $filter.toggleClass("list__filter--active");
+        $dropdown.toggleClass('filter__dropdown--active');
+        $filter.toggleClass('list__filter--active');
     }
 
 
@@ -70,7 +70,7 @@ $(document).ready(function () {
             removeModals();
         }
     };
-    
+
     function showFail() {
         $modal_fail.css("display", "block");
     };
