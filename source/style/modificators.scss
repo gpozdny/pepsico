@@ -154,6 +154,7 @@
 .form__error--auth {
 	position: absolute;
 	top: -50px;
+	left: 0;
 	@include desktop {
 		padding: 5px;
 		top: -35px;
@@ -166,7 +167,7 @@
 .form__error-icon {
     border: solid 1px #e72e36;
     border-radius: 50%;
-    padding: 0 7px;
+    padding: 1px 7px;
     margin-right: 5px;
 }
 
