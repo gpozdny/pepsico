@@ -10,6 +10,7 @@
 }
 
 .content__left,
+.participant,
 .participant__assessment,
 .participant__assessment-comment
  {
@@ -354,6 +355,7 @@
 
 .participant-info__right {
     width: 25%;
+    align-items: flex-start;
 }
 
 .participant-info__picture {
@@ -364,6 +366,7 @@
         img {
             width: 180px;
             height: auto;
+            border-radius: 10px;
         }
 }
 
@@ -538,7 +541,7 @@
         }
 }
 .participant__assessment-text {
-    max-width: 1000px;
+    // max-width: 10%;
 }
 
 .participant__assessment-wrap {
@@ -585,7 +588,7 @@
 .participant__assessment-list,
 .participant__assessment-block  {
     @include flex(column);
-
+    width: 100%;;
 }
 
 .participant__assessment-top {
@@ -614,4 +617,9 @@
 .participant__assessment-comment--title {
     color: $main-colour;
     margin-top: 16px;
+}
+
+.participant-info__project-title,
+.participant-info__project-name {
+    text-align: left;
 }

@@ -55,19 +55,19 @@ block content
                 form(action="#").profile__attachments-form
                     .profile__attachments-title
                         span.profile__attachments-text.title назовите свой проект
-                    input.profile__attachments-input(type="text" placeholder="Введите название проекта" required)
+                    input.profile__attachments-input(type="text" placeholder="Введите название проекта" required id="projectName" oninput="validateProject()")
                     .profile__attachments__files
                         .participant-info__files-docx(id="docx").hidden .DOCX
                         img(src="", alt="Image" id="image").participant-info__files-img.hidden
                     label.profile__attachments-label(id='labelDocx')
-                        input(type="file" name="pic" onchange='changeDocx()' required accept=".doc, .docx").profile__attachments-attach
+                        input(type="file" name="pic" onchange='changeDocx(); validateProject();' required accept=".doc, .docx" id="docxInput" ).profile__attachments-attach
                         .profile__attachments-icon
                         span.profile__attachments-desc Приложите файл с описанием (.DOCX, максимум - 1 страница!)
                     label.profile__attachments-label(id='labelImage')
-                        input(type="file" name="pic" accept="image/*" onchange='changeImage(); previewFile();' id="imgInput" required).profile__attachments-attach
+                        input(type="file" name="pic" accept="image/*" onchange='changeImage(); previewFile(); validateProject();' id="imgInput" required).profile__attachments-attach
                         .profile__attachments-icon
                         span.profile__attachments-desc И прикрепите иллюстрацию
-                    button(type="submit").profile__attachments-btn.btn--inactive Отправить
+                    button(type="submit" id="submitProject").profile__attachments-btn.btn--inactive Отправить
                 span.profile__modal-cross x 
         .profile__modals-presentation(id="presentationModal" data-modal='presentation')
             .form__error.removed
@@ -85,14 +85,14 @@ block content
                         .participant-info__files-docx(id="docxPresentation").hidden .DOCX
                         .participant-info__files-docx(id="pptx").hidden .PPTX
                     label.profile__attachments-label(id='labelDesc')
-                        input(type="file" name="pic" accept=".doc, .docx" onchange='changeDesc()' required).profile__attachments-attach
+                        input(type="file" name="pic" accept=".doc, .docx" onchange='changeDesc(); validatePresent();' required id="descInput").profile__attachments-attach
                         .profile__attachments-icon
                         span.profile__attachments-desc Приложите фаил с подробным описанием (.DOCX, объем не ограничен!)
                     label.profile__attachments-label(id='labelPresentation')
-                        input(type="file" name="pic" accept=".pptx, .pdf" onchange='changePresentation()' required).profile__attachments-attach
+                        input(type="file" name="pic" accept=".pptx, .pdf" onchange='changePresentation(); validatePresent();' required id="presentInput").profile__attachments-attach
                         .profile__attachments-icon
                         span.profile__attachments-desc Прикрепите презентацию, с которой будете выступать в финале (.PPTX или .PDF)
-                    button(type="submit").profile__attachments-btn.btn--inactive Отправить
+                    button(type="submit" id="submitPresent").profile__attachments-btn.btn--inactive Отправить
                 span.profile__modal-cross x
         .profile__modals-fail(id="failfModal" data-modal='fail')
             .profile__fail

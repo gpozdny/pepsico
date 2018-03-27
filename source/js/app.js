@@ -129,6 +129,12 @@ $(document).ready(function () {
             });
         }
     });
+    // brief + presentation width ! crutch !
+    let $projects = $('.participant-info__right');
+
+    if ($projects.length == 1) {
+        $projects.css("width", "50%");
+    } else $projects.css("width", "25%");
 });
 // popups files
 
@@ -155,7 +161,7 @@ function changeImage() {
     $image.removeClass('hidden');
     $image.addClass('show');
     $labelImage.addClass('hidden');
-    $attchBtn.addClass('btn--active');
+    // $attchBtn.addClass('btn--active');
 };
 
 function changeDesc() {
@@ -168,7 +174,7 @@ function changePresentation() {
     $pptx.removeClass('hidden');
     $pptx.addClass('show');
     $labelPresentation.addClass('hidden');
-    $attchBtn.addClass('btn--active');
+    // $attchBtn.addClass('btn--active');
 };
 
 function previewFile() {
@@ -187,6 +193,29 @@ function previewFile() {
         preview.src = "";
     }
 };
+
+// check forms
+
+function validateProject() {
+    let $doc = $('#docxInput'),
+        $img = $('#imgInput'),
+        $name = $('#projectName'),
+        $btn = $('#submitProject');
+
+    if ($doc.get(0).files.length !== 0 && $img.get(0).files.length !== 0 && $name.val().length !== 0) {
+        $btn.addClass('btn--active');
+    } 
+}
+
+function validatePresent() {
+    let $desc = $('#descInput'),
+        $presentation = $('#presentInput'),
+        $btnPresent = $('#submitPresent');
+    
+    if($desc.get(0).files.length !== 0 && $presentation.get(0).files.length !== 0){
+        $btnPresent.addClass('btn--active');
+    }
+}
 
 function checkLength() {
     let $comment = $('.participant__assessment-input'),
