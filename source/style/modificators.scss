@@ -107,7 +107,14 @@
 	}
 }
 
-.profile__item--failed {
+.profile__item--fail {
+	.profile__btn {
+		background-color: #E72E36;
+		cursor: pointer;
+	}
+}
+
+.profile__item--deadline {
 	.profile__btn {
 		background-color: #E72E36;
 		cursor: pointer;

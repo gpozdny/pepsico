@@ -25,7 +25,7 @@ block content
                             button.btn.profile__btn На оценке!
                         .profile__item-desc
                                 span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!    
-                    li.profile__item(id="presentation" data-item="step").profile__item--active
+                    li.profile__item(id="presentation" data-item="step").profile__item--deadline
                         .profile__title-wrap
                             h2.profile__item-title 3. Презентация
                         .profile__item-wrap
@@ -34,7 +34,7 @@ block content
                             button.btn.profile__btn До 13 апреля
                         .profile__item-desc
                             span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!
-                    li.profile__item(id="finals" data-item="step").profile__item--failed
+                    li.profile__item(id="finals" data-item="step").profile__item--fail
                         .profile__title-wrap
                             h2.profile__item-title 4. Финалы
                         .profile__item-wrap
@@ -113,5 +113,25 @@ block content
                     span.profile__fail-text Продолжим?
                     a(href="#").profile__fail-btn.btn.btn--active Да, продолжить!     
                     a(href="#").profile__fail-btn.btn.btn--white Нет, спасибо!
-                span.profile__modal-cross x             
+                span.profile__modal-cross x
+        .profile__modals-deadline(id="deadlineModal" data-modal='deadline')
+            .profile__fail
+                .profile__fail-title
+                        span.title.title--red deadline
+                .profile__fail-wrap
+                    p.profile__fail-red Вы не успели отправить свой проект на оценку в отведенное время
+                    //- span.profile__fail-tag Маркетинг
+                //- ul.profile__fail-list
+                //-     li.profile__fail-item
+                //-         span.profile__fail-reason недостаточно креативности
+                //-     li.profile__fail-item
+                //-         span.profile__fail-reason низкая харизма
+                //- .profile__fail-wrap
+                //-     p.profile__fail-text Вы ещё можете попробоватьсебя во втором выбранном вами направлении -
+                //-     span.profile__fail-tag.profile__fail-tag--secondary продажи
+                //- .profile__fail-buttons
+                //-     span.profile__fail-text Продолжим?
+                //-     a(href="#").profile__fail-btn.btn.btn--active Да, продолжить!     
+                //-     a(href="#").profile__fail-btn.btn.btn--white Нет, спасибо!
+                span.profile__modal-cross x                     
                     

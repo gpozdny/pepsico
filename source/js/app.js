@@ -33,6 +33,7 @@ $(document).ready(function () {
         $modal_briefing = $('.profile__modals'),
         $modal_presentation = $('.profile__modals-presentation'),
         $modal_fail = $('.profile__modals-fail'),
+        $modal_deadline = $('.profile__modals-deadline'),
         $cross = $('.profile__modal-cross'),
         $wrapper = $('.wrapper');
 
@@ -75,9 +76,18 @@ $(document).ready(function () {
         $modal_fail.css("display", "block");
     };
 
-    $('.profile__item--failed').on('click', function () {
+    function showDeadline() {
+        $modal_deadline.css("display", "block");
+    }
+
+    $('.profile__item--fail').on('click', function () {
         $('.profile__modals-presentation, .profile__modals').css("display", "none");
         showFail();
+    });
+
+    $('.profile__item--deadline').on('click', function () {
+        $('.profile__modals-presentation, .profile__modals').css("display", "none");
+        showDeadline();
     });
 
     // items' backgrounds
