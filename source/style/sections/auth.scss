@@ -18,7 +18,7 @@
     min-height: 100vh;
     padding: 70px 0;
     @include desktop {
-        min-height: auto;
+        min-height: initial;
         padding: 10px 0;
     }
 }
