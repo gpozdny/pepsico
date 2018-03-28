@@ -134,6 +134,9 @@
     @include desktop {
         margin-bottom: 5px;
     }
+    @include phones {
+        margin-bottom: 10px;
+    }
 }
 
 .profile__item {

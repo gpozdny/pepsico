@@ -248,7 +248,7 @@ block content
                                 span.participant__rate-title Уровень анализа
                                 .participant__rate-circle
                                     input(type="text" value="9" class="dial" data-width="150" data-thickness=".1" data-fgColor="#009639" data-low="4" data-high="8")
-                        button.btn--inactive.btn--active(id="btnAssestment") Отправить оценку                                        
+                        button.btn.btn--active(id="btnAssestment") Отправить оценку                                        
                 .participant__assessment-comment
                     .participant__assessment-title.title
                         span.participant__assessment-text Комментарии
@@ -269,5 +269,5 @@ block content
                     span.participant__assessment-comment--title Ваш комментарий
                     form.participant__assessment-form(action="#" id="comment" method="get")
                         input(type="text" placeholder="Оставьте ваш комментарий о работе" oninput="checkLength()").participant__assessment-input
-                        button.btn--inactive(id="btnMentor") Отправить комментарий
+                        button.btn.btn--inactive(id="btnMentor") Отправить комментарий
 

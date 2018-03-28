@@ -15,14 +15,14 @@ block content
                         .profile__item-wrap
                             .profile__item-icon
                         .profile__item-status
-                            button.btn--status.profile__btn Успешно!
+                            button.btn.profile__btn Успешно!
                     li.profile__item(id="briefing" data-item="step").profile__item--active
                         .profile__title-wrap
                             h2.profile__item-title 2. Бриф    
                         .profile__item-wrap
                             .profile__item-icon(id="briefingIcon" data-item="step").profile__item-icon--idea
                         .profile__item-status
-                            button.btn--status.btn--assessment.profile__btn На оценке!
+                            button.btn.profile__btn На оценке!
                         .profile__item-desc
                                 span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!    
                     li.profile__item(id="presentation" data-item="step").profile__item--active
@@ -31,7 +31,7 @@ block content
                         .profile__item-wrap
                             .profile__item-icon(id="presentationIcon").profile__item-icon--presentation
                         .profile__item-status
-                            button.btn--inactive.profile__btn До 13 апреля
+                            button.btn.profile__btn До 13 апреля
                         .profile__item-desc
                             span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!
                     li.profile__item(id="finals" data-item="step").profile__item--failed
@@ -40,7 +40,7 @@ block content
                         .profile__item-wrap
                             .profile__item-icon(id="finalsIcon").profile__item-icon--finals
                         .profile__item-status
-                            button.btn--inactive.profile__btn До 1 мая
+                            button.btn.profile__btn До 1 мая
                         .profile__item-desc
                             span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!                                     
     .profile__modals-overlay(id='modal')
@@ -67,7 +67,7 @@ block content
                         input(type="file" name="pic" accept="image/*" onchange='changeImage(); previewFile(); validateProject();' id="imgInput" required).profile__attachments-attach
                         .profile__attachments-icon
                         span.profile__attachments-desc И прикрепите иллюстрацию
-                    button(type="submit" id="submitProject").profile__attachments-btn.btn--inactive Отправить
+                    button(type="submit" id="submitProject").profile__attachments-btn.btn.btn--inactive Отправить
                 span.profile__modal-cross x 
         .profile__modals-presentation(id="presentationModal" data-modal='presentation')
             .form__error.removed
@@ -92,7 +92,7 @@ block content
                         input(type="file" name="pic" accept=".pptx, .pdf" onchange='changePresentation(); validatePresent();' required id="presentInput").profile__attachments-attach
                         .profile__attachments-icon
                         span.profile__attachments-desc Прикрепите презентацию, с которой будете выступать в финале (.PPTX или .PDF)
-                    button(type="submit" id="submitPresent").profile__attachments-btn.btn--inactive Отправить
+                    button(type="submit" id="submitPresent").profile__attachments-btn.btn.btn--inactive Отправить
                 span.profile__modal-cross x
         .profile__modals-fail(id="failfModal" data-modal='fail')
             .profile__fail
@@ -111,7 +111,7 @@ block content
                     span.profile__fail-tag.profile__fail-tag--secondary продажи
                 .profile__fail-buttons
                     span.profile__fail-text Продолжим?
-                    a(href="#").profile__fail-btn.btn--inactive.btn--active Да, продолжить!     
-                    a(href="#").profile__fail-btn.btn--inactive.btn--white Нет, спасибо!
+                    a(href="#").profile__fail-btn.btn.btn--active Да, продолжить!     
+                    a(href="#").profile__fail-btn.btn.btn--white Нет, спасибо!
                 span.profile__modal-cross x             
                     

@@ -15,13 +15,7 @@ block content
             .form__inputs-wrap
               input.form__login(placeholder='Ваш логин/e-mail' type='text' required)
               input.form__password(placeholder='Пароль' type='password' required oninput="checkForm()")
-            //- p.form__appointment-desc Ваше направление:
-            //- .form__appointment-wrap
-            //-   input.form__appointment-input(type="radio" name="appointment" value="Маркетинг" id="marketing")
-            //-   label.form__appointment-label(for="marketing") Маркетинг
-            //-   input.form__appointment-input(type="radio" name="appointment" value="sales" id="sales")
-            //-   label.form__appointment-label(for="sales") Продажи
-            button.form__auth-btn.btn--inactive(type='submit' form="auth") Войти в систему
+            button.form__auth-btn.btn.btn--inactive(type='submit' form="auth") Войти в систему
             .form__password-reset
               span.form__password-desc Забыли пароль?
               span.form__password-desc Восстановите его по <a class='form__reset-link' href='#'>ссылке</a>

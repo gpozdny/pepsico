@@ -2,21 +2,35 @@
 
 // buttons
 
-.btn--inactive {
+.btn {
 	font-size: 18px;
 	font-weight: bold;
-	color: white;
-	background-color: $bottom-colour;
 	padding: 15px 50px;
-	border: 2px solid white;
 	border-radius: 30px;
-	transition:all .3s ease;
-    cursor: not-allowed;
 	text-align: center;
 	max-width: 450px;
+	border: 2px solid white;
+	color: white;
+	transition:all .3s ease;
 	@include phones {
 		padding: 15px 20px;
 	}
+}
+
+.btn--inactive {
+	background-color: $bottom-colour;
+    cursor: not-allowed;
+}
+
+.btn--active {
+	background-color: $main-colour;
+	cursor: pointer;
+		&:hover {
+			box-shadow: 0 2px 4px 0 rgba(0, 76, 151, 0.5);
+		}
+		&:active {
+			background-color: #002568;
+		}
 }
 
 .btn--status {
@@ -35,17 +49,6 @@
 
 .btn--assessment {
 	background-color: #F5913B;
-}
-
-.btn--active {
-	background-color: $main-colour;
-	cursor: pointer;
-		&:hover {
-			box-shadow: 0 2px 4px 0 rgba(0, 76, 151, 0.5);
-		}
-		&:active {
-			background-color: #002568;
-		}
 }
 
 .btn--white {
