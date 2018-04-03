@@ -9,23 +9,25 @@ block content
                     .profile__title-wrap
                             h2.profile__item-title Маркетинг
                 ul.profile__list
-                    li.profile__item(data-item="step").profile__item--success 
+                    li.profile__item(data-item="step" id="interview" data-modal="success").profile__item--success.profile__item--description
                         .profile__title-wrap
                             h2.profile__item-title 1. Видеоинтервью
                         .profile__item-wrap
-                            .profile__item-icon
+                            .profile__item-icon(id="interviewIcon")
                         .profile__item-status
                             button.btn.profile__btn Успешно!
-                    li.profile__item(id="briefing" data-item="step").profile__item--active
+                        .profile__item-desc
+                                span.profile__item-info Ваша идея была высоко оценена менторами!   
+                    li.profile__item(id="briefing" data-item="step" data-modal="add-brief").profile__item--active.profile__item--description
                         .profile__title-wrap
                             h2.profile__item-title 2. Бриф    
                         .profile__item-wrap
-                            .profile__item-icon(id="briefingIcon" data-item="step").profile__item-icon--idea
+                            .profile__item-icon(id="briefingIcon").profile__item-icon--idea
                         .profile__item-status
                             button.btn.profile__btn На оценке!
                         .profile__item-desc
-                                span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!    
-                    li.profile__item(id="presentation" data-item="step").profile__item--deadline
+                                span.profile__item-info Отправьте краткое описание своей идеи с фокусом на выбранное направление стажировки   
+                    li.profile__item(id="presentation" data-item="step" data-modal="add-presentation").profile__item--active.profile__item--description
                         .profile__title-wrap
                             h2.profile__item-title 3. Презентация
                         .profile__item-wrap
@@ -33,18 +35,18 @@ block content
                         .profile__item-status
                             button.btn.profile__btn До 13 апреля
                         .profile__item-desc
-                            span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!
-                    li.profile__item(id="finals" data-item="step").profile__item--fail
+                            span.profile__item-info Спасибо за вашу идею! К сожалению, в рамках конкурсного отбора, она оказалась слабее
+                    li.profile__item(id="finals" data-item="step" data-modal="fail").profile__item--fail.profile__item--description
                         .profile__title-wrap
                             h2.profile__item-title 4. Финалы
                         .profile__item-wrap
                             .profile__item-icon(id="finalsIcon").profile__item-icon--finals
                         .profile__item-status
-                            button.btn.profile__btn До 1 мая
+                            button.btn.profile__btn четвертый этап lel
                         .profile__item-desc
                             span.profile__item-info Прикрепите название проекта и слайды для выступления в финале!                                     
     .profile__modals-overlay(id='modal')
-        .profile__modals(id="briefModal" data-modal='brief')
+        .profile__modals(id="briefModal" data-popup='brief')
             .form__error.removed
                 span.form__error-icon !
                 span.form__error-text Ошибка при заполнении формы. Попробуйте еще раз.
@@ -69,7 +71,7 @@ block content
                         span.profile__attachments-desc И прикрепите иллюстрацию
                     button(type="submit" id="submitProject").profile__attachments-btn.btn.btn--inactive Отправить
                 span.profile__modal-cross x 
-        .profile__modals-presentation(id="presentationModal" data-modal='presentation')
+        .profile__modals-presentation(id="presentationModal" data-popup='presentation')
             .form__error.removed
                 span.form__error-icon !
                 span.form__error-text Ошибка при заполнении формы. Попробуйте еще раз.         
@@ -94,7 +96,7 @@ block content
                         span.profile__attachments-desc Прикрепите презентацию, с которой будете выступать в финале (.PPTX или .PDF)
                     button(type="submit" id="submitPresent").profile__attachments-btn.btn.btn--inactive Отправить
                 span.profile__modal-cross x
-        .profile__modals-fail(id="failfModal" data-modal='fail')
+        .profile__modals-fail(id="failfModal" data-popup='fail')
             .profile__fail
                 .profile__fail-title
                         span.title.title--red вы не справились
@@ -112,26 +114,20 @@ block content
                 .profile__fail-buttons
                     span.profile__fail-text Продолжим?
                     a(href="#").profile__fail-btn.btn.btn--active Да, продолжить!     
-                    a(href="#").profile__fail-btn.btn.btn--white Нет, спасибо!
+                    a(href="#" id='btn-no').profile__fail-btn.btn.btn--white Нет, спасибо!
                 span.profile__modal-cross x
-        .profile__modals-deadline(id="deadlineModal" data-modal='deadline')
+        .profile__modals-deadline(id="deadlineModal" data-popup='deadline')
             .profile__fail
                 .profile__fail-title
                         span.title.title--red deadline
                 .profile__fail-wrap
                     p.profile__fail-red Вы не успели отправить свой проект на оценку в отведенное время
-                    //- span.profile__fail-tag Маркетинг
-                //- ul.profile__fail-list
-                //-     li.profile__fail-item
-                //-         span.profile__fail-reason недостаточно креативности
-                //-     li.profile__fail-item
-                //-         span.profile__fail-reason низкая харизма
-                //- .profile__fail-wrap
-                //-     p.profile__fail-text Вы ещё можете попробоватьсебя во втором выбранном вами направлении -
-                //-     span.profile__fail-tag.profile__fail-tag--secondary продажи
-                //- .profile__fail-buttons
-                //-     span.profile__fail-text Продолжим?
-                //-     a(href="#").profile__fail-btn.btn.btn--active Да, продолжить!     
-                //-     a(href="#").profile__fail-btn.btn.btn--white Нет, спасибо!
-                span.profile__modal-cross x                     
+                span.profile__modal-cross x
+        .profile__modals-placeholder(id="placeholder" data-popup='placeholder')
+            .profile__fail
+                .profile__fail-title
+                        span.title.title--red placeholder
+                .profile__fail-wrap
+                    p.profile__fail-red there's no design for this modal
+                span.profile__modal-cross x                             
                     

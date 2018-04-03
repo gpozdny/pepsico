@@ -230,6 +230,14 @@
     border-radius: 10px;
 }
 
+.profile__item-icon--interview-white {
+    &:hover {
+        #interviewIcon {
+            background-image: url('../img/pics/interview-white.png');
+        }
+    }
+}
+
 .profile__item-icon--idea-white {
     &:hover {
         #briefingIcon {

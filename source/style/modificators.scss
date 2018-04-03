@@ -8,6 +8,7 @@
 	padding: 15px 50px;
 	border-radius: 30px;
 	text-align: center;
+	vertical-align: middle;
 	max-width: 450px;
 	border: 2px solid white;
 	color: white;
@@ -65,10 +66,31 @@
 		}
 }
 
+.profile__btn {
+	width: 200px;
+	padding: 20px 0;
+}
+
 // profile steps
 
+.profile__item--description {
+	&:hover {
+		.profile__item-desc {
+			opacity: 1;
+			box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
+		}
+		.profile__item-wrap {
+			background-color: #00AAE2;
+		}
+		.profile__title-wrap {
+			box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
+		}
+}
+}
+
+
 .profile__item--success {
-	pointer-events: none;
+	// pointer-events: none;
 		.profile__btn {
 			background-color: #009639;;
 		}
@@ -78,18 +100,6 @@
 	.profile__btn {
         background-color: $main-colour;
         cursor: pointer;
-	}
-	&:hover {
-			.profile__item-desc {
-				opacity: 1;
-				box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
-			}
-			.profile__item-wrap {
-				background-color: #00AAE2;
-			}
-			.profile__title-wrap {
-				box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
-			}
 	}
 }
 

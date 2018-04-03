@@ -259,12 +259,12 @@
     width: 100%;
     &:hover {
         background-color: $main-colour;
-        .participant__icon {
-            color: $main-colour;
-        }
-        .participant__left {
-            background-color: #fff;
-        }
+        // .participant__icon {
+        //     color: $main-colour;
+        // }
+        // .participant__left {
+        //     background-color: #fff;
+        // }
         .participant__time,
         .participant__name {
             color: white;
@@ -278,19 +278,20 @@
 }
 
 .participant__left {
+    display: inline-block;
     height: 40px;
     width: 40px;
-    background-color: $main-colour;
     border-radius: 10px;
     display: flex;
     @include flex-align(center);
     margin-right: 20px;
+    background-image: url('../img/pics/marketing.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .participant__icon {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
+    display: inline-block;
 }
 
 .participant__middle {

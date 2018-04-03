@@ -26,6 +26,7 @@ $(document).ready(function () {
     // popups
 
     let $profileItem = $('.profile__item'),
+        $interview = $('#interview'),
         $briefing = $('#briefing'),
         $presentation = $('#presentation'),
         $finals = $('#finals'),
@@ -34,32 +35,75 @@ $(document).ready(function () {
         $modal_presentation = $('.profile__modals-presentation'),
         $modal_fail = $('.profile__modals-fail'),
         $modal_deadline = $('.profile__modals-deadline'),
+        $placeholder = $('#placeholder'),
         $cross = $('.profile__modal-cross'),
+        $btnNo = $('#btn-no'),
         $wrapper = $('.wrapper');
 
-    $profileItem.on('click', function () {
-        $overlay.addClass('profile__modals-overlay--active');
-        $wrapper.addClass('blur');
-    });
+    // $profileItem.on('click', function () {
+    //     $overlay.addClass('profile__modals-overlay--active');
+    //     $wrapper.addClass('blur');
+    // });
 
-    $briefing.on('click', function () {
-        $modal_briefing.css("display", "block");
-    });
+    // $briefing.on('click', function () {
+    //     $modal_briefing.css("display", "block");
+    // });
 
-    $presentation.on('click', function () {
-        $modal_presentation.css("display", "block");
-    });
+    // $presentation.on('click', function () {
+    //     $modal_presentation.css("display", "block");
+    // });
 
     // $finals.on('click', function () {
     //     $modal_$finals.css("display", "block");
     // });
 
+    function addBlurredOverlay() {
+        $overlay.addClass('profile__modals-overlay--active');
+        $wrapper.addClass('blur');
+    }
+
+    $('[data-modal]').on('click', function () {
+        let $this = $(this),
+            $dataType = $this.data('modal');
+
+        removeModals();
+        addBlurredOverlay();
+
+        console.log($dataType);
+
+        switch ($dataType) {
+            case 'add-brief':
+                $modal_briefing.css("display", "block");
+                break;
+            case 'add-presentation':
+                $modal_presentation.css("display", "block");
+                break;
+            case 'fail':
+                $modal_fail.css("display", "block");
+                break;
+            case 'deadline':
+                $modal_deadline.css("display", "block");
+                break;
+            case 'success':
+                $placeholder.css("display", "block");
+                break;
+            case 'final':
+                $placeholder.css("display", "block");
+                break;
+        }
+
+    });
+
     $cross.on('click', function () {
         removeModals();
     });
 
+    $btnNo.on('click', function () {
+        removeModals();
+    });
+
     function removeModals() {
-        $('[data-modal]').css("display", "none");
+        $('[data-popup]').css("display", "none");
         $overlay.removeClass("profile__modals-overlay--active");
         $wrapper.removeClass('blur');
     };
@@ -72,41 +116,41 @@ $(document).ready(function () {
         }
     };
 
-    function showFail() {
-        $modal_fail.css("display", "block");
-    };
+    // function showFail() {
+    //     $modal_fail.css("display", "block");
+    // };
 
-    function showDeadline() {
-        $modal_deadline.css("display", "block");
-    }
+    // function showDeadline() {
+    //     $modal_deadline.css("display", "block");
+    // }
 
-    $('.profile__item--fail').on('click', function () {
-        $('.profile__modals-presentation, .profile__modals').css("display", "none");
-        showFail();
-    });
+    // $('.profile__item--fail').on('click', function () {
+    //     $('.profile__modals-presentation, .profile__modals').css("display", "none");
+    //     showFail();
+    // });
 
-    $('.profile__item--deadline').on('click', function () {
-        $('.profile__modals-presentation, .profile__modals').css("display", "none");
-        showDeadline();
-    });
+    // $('.profile__item--deadline').on('click', function () {
+    //     $('.profile__modals-presentation, .profile__modals').css("display", "none");
+    //     showDeadline();
+    // });
 
     // items' backgrounds
+    if ($interview.is('.profile__item--description')) {
+        $interview.addClass('profile__item-icon--interview-white')
+    }
 
-    if ($briefing.is('.profile__item--active')) {
+    if ($briefing.is('.profile__item--description')) {
         $briefing.addClass('profile__item-icon--idea-white')
     }
 
-    if ($finals.is('.profile__item--active')) {
+    if ($finals.is('.profile__item--description')) {
         $finals.addClass('profile__item-icon--finals-active')
-    } else if ($finals.is('.profile__item--success')) {
-        $finals.addClass('profile__item-icon--finals-success')
     }
 
-    if ($presentation.is('.profile__item--active')) {
+    if ($presentation.is('.profile__item--description')) {
         $presentation.addClass('profile__item-icon--presentation-active')
-    } else if ($presentation.is('.profile__item--success')) {
-        $presentation.addClass('profile__item-icon--presentation-success')
     }
+
     // participant list 
 
     let $participant = $('.participant');
@@ -139,6 +183,11 @@ $(document).ready(function () {
             });
         }
     });
+    // disable ENTER on input
+    $dial.keypress(function (e) {
+        if (e.which == 13) e.preventDefault();
+    });
+
     // brief + presentation width ! crutch !
     let $projects = $('.participant-info__right');
 
@@ -214,15 +263,15 @@ function validateProject() {
 
     if ($doc.get(0).files.length !== 0 && $img.get(0).files.length !== 0 && $name.val().length !== 0) {
         $btn.addClass('btn--active');
-    } 
+    }
 }
 
 function validatePresent() {
     let $desc = $('#descInput'),
         $presentation = $('#presentInput'),
         $btnPresent = $('#submitPresent');
-    
-    if($desc.get(0).files.length !== 0 && $presentation.get(0).files.length !== 0){
+
+    if ($desc.get(0).files.length !== 0 && $presentation.get(0).files.length !== 0) {
         $btnPresent.addClass('btn--active');
     }
 }
