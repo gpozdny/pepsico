@@ -304,12 +304,15 @@
 }
 
 .participant__tag {
+    height: 17px;
+    width: 40px;
+    display: inline-block;
+    line-height: 17px;
     cursor: pointer;
     font-size: 10px;
     background-color: #C4C9CD;
     color: white;
     text-align: center;
-    padding: 2px 5px;
     border-radius: 20px;
 }
 
@@ -384,13 +387,14 @@
 .participant-info__surname {
     color: $main-colour;
     font-size: 20px;
-    font-weight: bold;
+    font-family: 'Gotham-bold';
 }
 
 .participant-info__city,
 .participant-info__education {
     margin-bottom: 15px;
     color: $text-colour;
+    font-family: 'Gotham Book';
 }
 
 .participant-info__city-label,
@@ -399,8 +403,8 @@
 }
 
 .participant-info__deadline {
+    font-family: 'Gotham-bold';
     color: $main-colour;
-    font-weight: bold;
     margin-top: 10px;
 }
 
@@ -416,6 +420,7 @@
 .participant-info__files-text {
     margin: 20px 0;
     color: $text-colour;
+    font-family: 'Gotham Book';
 }
 
 .participant-info__files {
@@ -496,6 +501,7 @@
 
 .participant__assessment-info {
     color: $text-colour;
+    font-family: 'Gotham Book';
 }
 
 .participant__assessment-comment {
@@ -556,7 +562,7 @@
     text-align: center;
     font-size: 18px;
     color: $main-colour;
-    font-weight: bold;
+    font-family: 'Gotham-bold';
     max-width: 195px;
     min-height: 50px;
     margin-bottom: 15px;
@@ -602,10 +608,12 @@
     color: #2b2b2b;
     padding: 10px 15px;
     border-radius: 10px;
+        p {
+            font-family: 'Gotham Book';
+        }
 }
 
 .participant__assessment-name {
-    font-weight: bold;
     margin-right: 15px;
     vertical-align: middle;
 }

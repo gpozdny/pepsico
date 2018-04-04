@@ -68,7 +68,7 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	font-family: 'Gotham Pro', sans-serif;
+	font-family: 'Gotham', sans-serif;
 	position: relative;
 	background-color: #00ABE3;
 }
@@ -164,9 +164,8 @@ h1 {
     background-color:$main-colour;
     text-transform: uppercase;
     padding: 5px;
-    font-size: 20px;
-	font-weight: bold;
-	// display: inline-block;
+	font-size: 20px;
+	font-family: 'Gotham-bold';
 	text-align: center;
 
 }

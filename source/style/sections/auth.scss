@@ -94,10 +94,10 @@
 
 .form__desc {
     font-size: 20px;
-    font-weight: bold;
     max-width: 302px;
     text-align: center;
     margin-bottom: 29px;
+    font-family: 'Gotham-bold';
 }
 
 .form__login,
@@ -148,6 +148,7 @@
 .form__password-desc {
     color: white;
     text-align: center;
+    font-family: 'Gotham Book';
 }
 
 .form__reset-link {

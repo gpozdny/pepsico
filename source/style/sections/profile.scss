@@ -53,6 +53,7 @@
 
 .profile__appointment-wrap {
     margin-bottom: 40px;
+    font-family: 'Gotham';
     text-align: center;
     @include phones {
         display: none;
@@ -70,6 +71,7 @@
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;
+    font-family: 'Gotham-bold';
     margin: 0;
 }
 
@@ -130,10 +132,11 @@
 
 .profile__item-info {
     margin-bottom: 20px;
+    font-family: 'Gotham Book';
     min-height: 50px;
     max-width: 250px;
     line-height: 1;
-    font-size: rem(14px);
+    font-size: rem(15px);
     text-align: center;
     @include desktop {
         margin-bottom: 5px;

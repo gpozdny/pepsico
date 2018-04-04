@@ -27,7 +27,7 @@
     position: relative;
     border-right: 2px solid white;
         span {
-            font-weight: bold;
+            font-family: 'Gotham-bold';
             color: #fff;
         }
     margin-right: 20px;
@@ -39,7 +39,7 @@
 }
 
 .header__logout {
-    font-weight: bold;
+    font-family: 'Gotham-bold';
     color: rgba(255, 255, 255, 0.5);
     
 }

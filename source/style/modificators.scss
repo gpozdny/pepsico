@@ -1,10 +1,7 @@
-
-
 // buttons
-
 .btn {
 	font-size: 18px;
-	font-weight: bold;
+	font-family: 'Gotham-bold';
 	padding: 15px 50px;
 	border-radius: 30px;
 	text-align: center;
@@ -12,7 +9,7 @@
 	max-width: 450px;
 	border: 2px solid white;
 	color: white;
-	transition:all .3s ease;
+	transition: all .3s ease;
 	@include phones {
 		padding: 15px 20px;
 	}
@@ -20,18 +17,18 @@
 
 .btn--inactive {
 	background-color: $bottom-colour;
-    cursor: not-allowed;
+	cursor: not-allowed;
 }
 
 .btn--active {
 	background-color: $main-colour;
 	cursor: pointer;
-		&:hover {
-			box-shadow: 0 2px 4px 0 rgba(0, 76, 151, 0.5);
-		}
-		&:active {
-			background-color: #002568;
-		}
+	&:hover {
+		box-shadow: 0 2px 4px 0 rgba(0, 76, 151, 0.5);
+	}
+	&:active {
+		background-color: #002568;
+	}
 }
 
 .btn--status {
@@ -53,26 +50,28 @@
 }
 
 .btn--white {
-	background-color:#fff;
+	background-color: #fff;
 	color: $main-colour;
-    border-color: $main-colour;
+	border-color: $main-colour;
 	cursor: pointer;
-		&:hover {
-			box-shadow: 0 2px 4px 0 rgba(0, 76, 151, 0.5);
-		}
-		&:active {
-			background-color: #002568;
-			color: white;
-		}
+	&:hover {
+		box-shadow: 0 2px 4px 0 rgba(0, 76, 151, 0.5);
+	}
+	&:active {
+		background-color: #002568;
+		color: white;
+	}
 }
 
 .profile__btn {
 	width: 200px;
-	padding: 20px 0;
+	height: 60px;
+	line-height: 60px;
+	padding: 0;
+	font-family: 'Gotham-bold';
 }
 
 // profile steps
-
 .profile__item--description {
 	&:hover {
 		.profile__item-desc {
@@ -85,29 +84,29 @@
 		.profile__title-wrap {
 			box-shadow: 0 4px 4px 2px rgba(0, 76, 151, 0.5);
 		}
+	}
 }
-}
-
 
 .profile__item--success {
 	// pointer-events: none;
-		.profile__btn {
-			background-color: #009639;;
-		}
+	.profile__btn {
+		background-color: #009639;
+		;
+	}
 }
 
 .profile__item--active {
 	.profile__btn {
-        background-color: $main-colour;
-        cursor: pointer;
+		background-color: $main-colour;
+		cursor: pointer;
 	}
 }
 
 .profile__item--opinion {
-    .profile__btn {
-        background-color: #F5913B;
-    }
-    pointer-events: none;
+	.profile__btn {
+		background-color: #F5913B;
+	}
+	pointer-events: none;
 }
 
 .profile__item--inactive {
@@ -132,43 +131,40 @@
 }
 
 // vissual condition
-
 .hidden {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
 }
 
 .show {
-    position: static;
-    opacity: 1;
-    pointer-events: auto;
+	position: static;
+	opacity: 1;
+	pointer-events: auto;
 }
 
 .removed {
-    display: none;
+	display: none;
 }
 
 .shown {
-    display: block;
+	display: block;
 }
 
 // form error
-
 .form__error {
-    border-radius: 5px;
-    color: #e72e36;
-    position: relative;
-    background-color:rgba(255, 255, 255, 0.5);
-    // position: absolute;
-    // top: -50px;
-    font-size: 14px;
-    width: 100%;
-    text-align: center;
+	border-radius: 5px;
+	color: #e72e36;
+	position: relative;
+	background-color: rgba(255, 255, 255, 0.5); // position: absolute;
+	// top: -50px;
+	font-size: 14px;
+	width: 100%;
+	text-align: center;
 	padding: 10px;
-		@include phones {
-			max-width: 315px;
-		}
+	@include phones {
+		max-width: 315px;
+	}
 }
 
 .form__error--auth {
@@ -185,30 +181,30 @@
 }
 
 .form__error-icon {
-    border: solid 1px #e72e36;
-    border-radius: 50%;
+	border: solid 1px #e72e36;
+	border-radius: 50%;
 	display: inline-block;
 	height: 20px;
 	width: 20px;
-    margin-right: 5px;
+	margin-right: 5px;
 }
 
-.participant--active { // chosen participant
-    background-color: $main-colour;
-        .participant__icon {
-            color: $main-colour;
-        }
-        .participant__left {
-            background-color: #fff;
-        }
-        .participant__time,
-        .participant__name {
-            color: white;
-        }
+.participant--active {
+	// chosen participant
+	background-color: $main-colour;
+	.participant__icon {
+		color: $main-colour;
+	}
+	.participant__left {
+		background-color: #fff;
+	}
+	.participant__time,
+	.participant__name {
+		color: white;
+	}
 }
-
 
 // blur effect
 .blur {
-    filter: blur(10px)
+	filter: blur(10px)
 }
