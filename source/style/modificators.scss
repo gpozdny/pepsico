@@ -18,11 +18,13 @@
 .btn--inactive {
 	background-color: $bottom-colour;
 	cursor: not-allowed;
+	pointer-events: none;
 }
 
 .btn--active {
 	background-color: $main-colour;
 	cursor: pointer;
+	pointer-events: initial;
 	&:hover {
 		box-shadow: 0 2px 4px 0 rgba(0, 76, 151, 0.5);
 	}
@@ -50,6 +52,7 @@
 }
 
 .btn--white {
+	pointer-events: initial;
 	background-color: #fff;
 	color: $main-colour;
 	border-color: $main-colour;
@@ -169,11 +172,11 @@
 
 .form__error--auth {
 	position: absolute;
-	top: -50px;
+	top: -70px;
 	left: 0;
 	@include desktop {
 		padding: 5px;
-		top: -35px;
+		top: -50px;
 	}
 	@include phones {
 		max-width: 100%;
@@ -206,5 +209,5 @@
 
 // blur effect
 .blur {
-	filter: blur(10px)
+	filter: blur(5px);
 }

@@ -28,11 +28,13 @@
 
 .profile__attachments,
 .profile__attachments-presentation,
-.profile__fail {
+.profile__fail,
+.profile__success,
+.profile__finals {
     background-color: #fff;
     box-shadow: 0 2px 10px 0 #004c97;
     border-radius: 10px;
-    padding: 30px;
+    padding: 28px;
     width: 450px;
     position: relative;
     @include tablets {
@@ -50,7 +52,8 @@
 }
 
 .profile__attachments-title,
-.profile__fail-title {
+.profile__finals-title,
+.profile__success-title{
     text-align: center;
 }
 
@@ -138,16 +141,12 @@
 }
 
 // modal fail
-.profile__fail-title {
-    margin-bottom: 15px;
-}
-
-.profile__fail-wrap {
+.profile__modals-wrap  {
     text-align: center;
     line-height: 1.25;
 }
 
-.profile__fail-item {
+.profile__modals-item {
     position: relative;
     padding-left: 30px;
     &:before {
@@ -158,16 +157,17 @@
     }
 }
 
-.profile__fail-tag {
+.profile__modals-tag {
     background-color: $bottom-colour;
     text-transform: uppercase;
     color: #ffffff;
     padding: 2px;
     display: inline-block;
     font-size: 18px;
+    font-family: 'Gotham';
 }
 
-.profile__fail-list {
+.profile__modals-list {
     margin: 10px 0;
 }
 
@@ -179,7 +179,8 @@
     background-color: $main-colour;
 }
 
-.profile__fail-buttons {
+.profile__fail-buttons,
+.profile__modals-buttons {
     @include flex(column);
     @include flex-align(center);
     .profile__fail-text {
@@ -187,7 +188,7 @@
     }
 }
 
-.profile__fail-btn {
+.profile__fail-btn, {
     width: 270px;
 }
 
@@ -308,5 +309,20 @@
     position: relative;
 }
 
+.profile__modals-center {
+    text-align: center;
+}
 
+.profile__modals-text {
+    font-family: 'Gotham Book';
+    line-height: 1.25;
+}
 
+.profile__modals-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile__modals-buttons {
+    margin-top: 20px;
+}

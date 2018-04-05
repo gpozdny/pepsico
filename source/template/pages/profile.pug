@@ -36,7 +36,7 @@ block content
                             button.btn.profile__btn До 13 апреля
                         .profile__item-desc
                             span.profile__item-info Спасибо за вашу идею! К сожалению, в рамках конкурсного отбора, она оказалась слабее
-                    li.profile__item(id="finals" data-item="step" data-modal="fail").profile__item--fail.profile__item--description
+                    li.profile__item(id="finals" data-item="step" data-modal="final").profile__item--fail.profile__item--description
                         .profile__title-wrap
                             h2.profile__item-title 4. Финалы
                         .profile__item-wrap
@@ -64,11 +64,11 @@ block content
                     label.profile__attachments-label(id='labelDocx')
                         input(type="file" name="pic" onchange='changeDocx(); validateProject();' required accept=".doc, .docx" id="docxInput" ).profile__attachments-attach
                         .profile__attachments-icon
-                        span.profile__attachments-desc Приложите файл с описанием (.DOCX, максимум - 1 страница!)
+                        span.profile__attachments-desc.profile__modals-text Приложите файл с описанием (.DOCX, максимум - 1 страница!)
                     label.profile__attachments-label(id='labelImage')
                         input(type="file" name="pic" accept="image/*" onchange='changeImage(); previewFile(); validateProject();' id="imgInput" required).profile__attachments-attach
                         .profile__attachments-icon
-                        span.profile__attachments-desc И прикрепите иллюстрацию
+                        span.profile__attachments-desc.profile__modals-text И прикрепите иллюстрацию
                     button(type="submit" id="submitProject").profile__attachments-btn.btn.btn--inactive Отправить
                 span.profile__modal-cross x 
         .profile__modals-presentation(id="presentationModal" data-popup='presentation')
@@ -89,45 +89,70 @@ block content
                     label.profile__attachments-label(id='labelDesc')
                         input(type="file" name="pic" accept=".doc, .docx" onchange='changeDesc(); validatePresent();' required id="descInput").profile__attachments-attach
                         .profile__attachments-icon
-                        span.profile__attachments-desc Приложите фаил с подробным описанием (.DOCX, объем не ограничен!)
+                        span.profile__attachments-desc.profile__modals-text Приложите фаил с подробным описанием (.DOCX, объем не ограничен!)
                     label.profile__attachments-label(id='labelPresentation')
                         input(type="file" name="pic" accept=".pptx, .pdf" onchange='changePresentation(); validatePresent();' required id="presentInput").profile__attachments-attach
                         .profile__attachments-icon
-                        span.profile__attachments-desc Прикрепите презентацию, с которой будете выступать в финале (.PPTX или .PDF)
+                        span.profile__attachments-desc.profile__modals-text Прикрепите презентацию, с которой будете выступать в финале (.PPTX или .PDF)
                     button(type="submit" id="submitPresent").profile__attachments-btn.btn.btn--inactive Отправить
                 span.profile__modal-cross x
         .profile__modals-fail(id="failfModal" data-popup='fail')
             .profile__fail
-                .profile__fail-title
+                .profile__modals-title
                         span.title.title--red вы не справились
-                .profile__fail-wrap
-                    p.profile__fail-red Вы набрали недостаточно баллов для прохождения в финал по направлению
-                    span.profile__fail-tag Маркетинг
-                ul.profile__fail-list
-                    li.profile__fail-item
+                .profile__modals-wrap
+                    p.profile__fail-red.profile__modals-text Вы набрали недостаточно баллов для прохождения в финал по направлению
+                    span.profile__modals-tag Маркетинг
+                ul.profile__modals-list
+                    li.profile__modals-item
                         span.profile__fail-reason недостаточно креативности
-                    li.profile__fail-item
+                    li.profile__modals-item
                         span.profile__fail-reason низкая харизма
-                .profile__fail-wrap
-                    p.profile__fail-text Вы ещё можете попробоватьсебя во втором выбранном вами направлении -
-                    span.profile__fail-tag.profile__fail-tag--secondary продажи
+                .profile__modals-wrap
+                    p.profile__fail-text.profile__modals-text Вы ещё можете попробоватьсебя во втором выбранном вами направлении -
+                    span.profile__modals-tag.profile__fail-tag--secondary продажи
                 .profile__fail-buttons
                     span.profile__fail-text Продолжим?
                     a(href="#").profile__fail-btn.btn.btn--active Да, продолжить!     
-                    a(href="#" id='btn-no').profile__fail-btn.btn.btn--white Нет, спасибо!
+                    a(href="#").profile__fail-btn.btn.btn--white.btn-close Нет, спасибо!
                 span.profile__modal-cross x
         .profile__modals-deadline(id="deadlineModal" data-popup='deadline')
             .profile__fail
-                .profile__fail-title
+                .profile__modals-title
                         span.title.title--red deadline
-                .profile__fail-wrap
-                    p.profile__fail-red Вы не успели отправить свой проект на оценку в отведенное время
+                .profile__modals-wrap
+                    p.profile__fail-red.profile__modals-text Вы не успели отправить свой проект на оценку в отведенное время
                 span.profile__modal-cross x
         .profile__modals-placeholder(id="placeholder" data-popup='placeholder')
             .profile__fail
-                .profile__fail-title
+                .profile__modals-title
                         span.title.title--red placeholder
-                .profile__fail-wrap
+                .profile__modals-wrap
                     p.profile__fail-red there's no design for this modal
                 span.profile__modal-cross x                             
-                    
+        .profile__modals-success(id="successModal" data-popup='success')
+            .profile__success
+                .profile__modals-title
+                        span.title отличная идея!
+                .profile__modals-wrap
+                    p.profile__modals-text Вы набрали достаточно баллов для прохождения на следующий этап по направлению:
+                    span.profile__modals-tag Маркетинг
+                p.profile__modals-text.profile__modals-center Над чем еще нужно поработать:     
+                ul.profile__modals-list
+                    li.profile__modals-item
+                        span.profile__fail-reason недостаточно креативности
+                    li.profile__modals-item
+                        span.profile__fail-reason низкая харизма
+                .profile__modals-wrap
+                    p.profile__modals-text Учтите это при подготовке расширенного описания вашей идеи и презентации.
+                .profile__modals-buttons
+                    a(href="#").profile__continue-btn.btn.btn--active.btn-close Продолжить!
+                span.profile__modal-cross x
+        .profile__modals-finals(id="finalsModal" data-popup='final')
+            .profile__finals
+                .profile__modals-title
+                        span.title.title вы в финале!
+                p.profile__modals-text.profile__modals-center Поздравляем! В течение семи дней Вы получите приглашение с указанием даты и времени финального этапа. Не пропустите его!        
+                .profile__modals-buttons
+                    a(href="#").profile__continue-btn.btn.btn--active.btn-close Продолжить!
+                span.profile__modal-cross x                    

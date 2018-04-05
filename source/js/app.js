@@ -35,9 +35,11 @@ $(document).ready(function () {
         $modal_presentation = $('.profile__modals-presentation'),
         $modal_fail = $('.profile__modals-fail'),
         $modal_deadline = $('.profile__modals-deadline'),
+        $modal_finals = $('#finalsModal'),
+        $modal_success = $('#successModal'),
         $placeholder = $('#placeholder'),
         $cross = $('.profile__modal-cross'),
-        $btnNo = $('#btn-no'),
+        $btnClose = $('.btn-close'),
         $wrapper = $('.wrapper');
 
     // $profileItem.on('click', function () {
@@ -85,10 +87,10 @@ $(document).ready(function () {
                 $modal_deadline.css("display", "block");
                 break;
             case 'success':
-                $placeholder.css("display", "block");
+                $modal_success.css("display", "block");
                 break;
             case 'final':
-                $placeholder.css("display", "block");
+                $modal_finals.css("display", "block");
                 break;
         }
 
@@ -98,7 +100,7 @@ $(document).ready(function () {
         removeModals();
     });
 
-    $btnNo.on('click', function () {
+    $btnClose.on('click', function () {
         removeModals();
     });
 
@@ -220,7 +222,6 @@ function changeImage() {
     $image.removeClass('hidden');
     $image.addClass('show');
     $labelImage.addClass('hidden');
-    // $attchBtn.addClass('btn--active');
 };
 
 function changeDesc() {
@@ -233,7 +234,6 @@ function changePresentation() {
     $pptx.removeClass('hidden');
     $pptx.addClass('show');
     $labelPresentation.addClass('hidden');
-    // $attchBtn.addClass('btn--active');
 };
 
 function previewFile() {
