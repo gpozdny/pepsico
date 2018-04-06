@@ -60,7 +60,10 @@ block content
                     input.profile__attachments-input(type="text" placeholder="Введите название проекта" required id="projectName" oninput="validateProject()")
                     .profile__attachments__files
                         .participant-info__files-docx(id="docx").hidden .DOCX
-                        img(src="", alt="Image" id="image").participant-info__files-img.hidden
+                            span.participant-info__files-delete(data-close="docx")
+                        .participant-info__files-wrap(id="imageWrap").hidden     
+                            img(src="", alt="Image" id="image").participant-info__files-img
+                            span.participant-info__files-delete(data-close="img")
                     label.profile__attachments-label(id='labelDocx')
                         input(type="file" name="pic" onchange='changeDocx(); validateProject();' required accept=".doc, .docx" id="docxInput" ).profile__attachments-attach
                         .profile__attachments-icon
@@ -85,7 +88,9 @@ block content
                     .profile__attachments-picture
                     .profile__attachments__files
                         .participant-info__files-docx(id="docxPresentation").hidden .DOCX
+                            span.participant-info__files-delete(data-close="description")
                         .participant-info__files-docx(id="pptx").hidden .PPTX
+                            span.participant-info__files-delete(data-close="presentation")
                     label.profile__attachments-label(id='labelDesc')
                         input(type="file" name="pic" accept=".doc, .docx" onchange='changeDesc(); validatePresent();' required id="descInput").profile__attachments-attach
                         .profile__attachments-icon

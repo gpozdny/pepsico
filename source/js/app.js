@@ -42,23 +42,6 @@ $(document).ready(function () {
         $btnClose = $('.btn-close'),
         $wrapper = $('.wrapper');
 
-    // $profileItem.on('click', function () {
-    //     $overlay.addClass('profile__modals-overlay--active');
-    //     $wrapper.addClass('blur');
-    // });
-
-    // $briefing.on('click', function () {
-    //     $modal_briefing.css("display", "block");
-    // });
-
-    // $presentation.on('click', function () {
-    //     $modal_presentation.css("display", "block");
-    // });
-
-    // $finals.on('click', function () {
-    //     $modal_$finals.css("display", "block");
-    // });
-
     function addBlurredOverlay() {
         $overlay.addClass('profile__modals-overlay--active');
         $wrapper.addClass('blur');
@@ -117,24 +100,6 @@ $(document).ready(function () {
             removeModals();
         }
     };
-
-    // function showFail() {
-    //     $modal_fail.css("display", "block");
-    // };
-
-    // function showDeadline() {
-    //     $modal_deadline.css("display", "block");
-    // }
-
-    // $('.profile__item--fail').on('click', function () {
-    //     $('.profile__modals-presentation, .profile__modals').css("display", "none");
-    //     showFail();
-    // });
-
-    // $('.profile__item--deadline').on('click', function () {
-    //     $('.profile__modals-presentation, .profile__modals').css("display", "none");
-    //     showDeadline();
-    // });
 
     // items' backgrounds
     if ($interview.is('.profile__item--description')) {
@@ -200,39 +165,109 @@ $(document).ready(function () {
 // popups files
 
 let $inputName = $('.profile__attachments-input'),
-    $this = $(this),
+    $imgInput = $('#imgInput'),
+    $docxInput = $('#docxInput'),
+    $descInput = $('#descInput'),
+    $presentInput = $('#presentInput'),
     $docxPresentation = $('#docxPresentation'),
     $pptx = $('#pptx'),
     $docx = $('#docx'),
-    $image = $('#image'),
+    $image = $('#imageWrap'),
     $labelDocx = $('#labelDocx'),
     $labelImage = $('#labelImage'),
     $labelPresentation = $('#labelPresentation'),
     $labelDesc = $('#labelDesc'),
     $attchBtn = $('.profile__attachments-btn');
 
+// delete attachments
+
+$('[data-close]').on('click', function () {
+    let $this = $(this),
+        $dataType = $this.data('close');
+
+    console.log($dataType);
+    switch ($dataType) {
+        case 'docx':
+            deleteDocx();
+            validateProject();
+            break;
+        case 'img':
+            deleteImg();
+            validateProject();
+            break;
+        case 'description':
+            deleteDescription();
+            validatePresent();
+            break;
+        case 'presentation':
+            deletePresentation();
+            validatePresent();
+            break;
+    }
+
+});
+
+function deleteDocx() {
+    $docxInput.wrap('<form>').closest('form').get(0).reset();
+    $docxInput.unwrap();
+    $docx.removeClass('show');
+    $docx.addClass('hidden');
+    $labelDocx.removeClass('hidden');
+    $labelDocx.addClass('show');
+};
+
+function deleteImg() {
+    $imgInput.wrap('<form>').closest('form').get(0).reset();
+    $imgInput.unwrap();
+    $image.removeClass('show');
+    $image.addClass('hidden');
+    $labelImage.removeClass('hidden');
+    $labelImage.addClass('show');
+};
+
+function deleteDescription() {
+    $descInput.wrap('<form>').closest('form').get(0).reset();
+    $descInput.unwrap();
+    $docxPresentation.removeClass('show');
+    $docxPresentation.addClass('hidden');
+    $labelDesc.removeClass('hidden');
+    $labelDesc.addClass('show');
+};
+
+function deletePresentation() {
+    $imgInput.wrap('<form>').closest('form').get(0).reset();
+    $imgInput.unwrap();
+    $pptx.removeClass('show');
+    $pptx.addClass('hidden');
+    $labelPresentation.removeClass('hidden');
+    $labelPresentation.addClass('show');
+};
 
 function changeDocx() {
     $docx.removeClass('hidden');
     $docx.addClass('show');
+    $labelDocx.removeClass('show');
     $labelDocx.addClass('hidden');
 };
 
 function changeImage() {
     $image.removeClass('hidden');
     $image.addClass('show');
+    $labelImage.removeClass('show');
     $labelImage.addClass('hidden');
 };
 
 function changeDesc() {
     $docxPresentation.removeClass('hidden');
     $docxPresentation.addClass('show');
+    $labelDesc.removeClass('show');
     $labelDesc.addClass('hidden');
 };
 
 function changePresentation() {
     $pptx.removeClass('hidden');
     $pptx.addClass('show');
+    $labelPresentation.removeClass('show');
     $labelPresentation.addClass('hidden');
 };
 
@@ -263,8 +298,8 @@ function validateProject() {
 
     if ($doc.get(0).files.length !== 0 && $img.get(0).files.length !== 0 && $name.val().length !== 0) {
         $btn.addClass('btn--active');
-    }
-}
+    } else $btn.removeClass('btn--active');
+};
 
 function validatePresent() {
     let $desc = $('#descInput'),
@@ -273,8 +308,8 @@ function validatePresent() {
 
     if ($desc.get(0).files.length !== 0 && $presentation.get(0).files.length !== 0) {
         $btnPresent.addClass('btn--active');
-    }
-}
+    } else $btnPresent.removeClass('btn--active');
+};
 
 function checkLength() {
     let $comment = $('.participant__assessment-input'),
