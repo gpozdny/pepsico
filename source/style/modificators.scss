@@ -221,11 +221,13 @@
 	background-position: center center, bottom right;
 		&:after {
 			content: 'Для начала оценки выберите участника в списке слева';
+			text-align: center;
+			max-width: 380px;
 			font-size: 24px;
 			line-height: 1;
 			position: absolute;
 			color: #c4c9cd;
 			top: 40%;
-			left: 40%;
+			left: 45%;
 		}
 }
