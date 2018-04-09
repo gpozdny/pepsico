@@ -211,3 +211,21 @@
 .blur {
 	filter: blur(5px);
 }
+
+// mentor profile not chosen
+
+.not-choosen {
+	background-image: url('../img/pics/circles-mentor.svg'), url('../img/pics/go-grey.svg');
+	background-repeat: no-repeat;
+	background-size: cover, 600px 300px;
+	background-position: center center, bottom right;
+		&:after {
+			content: 'Для начала оценки выберите участника в списке слева';
+			font-size: 24px;
+			line-height: 1;
+			position: absolute;
+			color: #c4c9cd;
+			top: 40%;
+			left: 40%;
+		}
+}
