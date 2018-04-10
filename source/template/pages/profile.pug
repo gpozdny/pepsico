@@ -9,7 +9,7 @@ block content
                     .profile__title-wrap
                             h2.profile__item-title Маркетинг
                 ul.profile__list
-                    li.profile__item(data-item="step" id="interview" data-modal="success").profile__item--success.profile__item--description
+                    li.profile__item(data-item="step" id="interview" data-modal="deadline").profile__item--success.profile__item--description
                         .profile__title-wrap
                             h2.profile__item-title 1. Видеоинтервью
                         .profile__item-wrap
@@ -124,9 +124,11 @@ block content
         .profile__modals-deadline(id="deadlineModal" data-popup='deadline')
             .profile__fail
                 .profile__modals-title
-                        span.title.title--red deadline
+                        span.title.title--red Неудача!
                 .profile__modals-wrap
-                    p.profile__fail-red.profile__modals-text Вы не успели отправить свой проект на оценку в отведенное время
+                    p.profile__fail-red.profile__modals-text К сожалению, Вы не успели подать свою идею по направлению <span class="profile__modals-tag">МАРКЕТИНГ</span> вовремя. Ждем вас в следующем году! 
+                .profile__modals-buttons
+                    button.profile__continue-btn.btn.btn--active.btn-close Закрыть
                 span.profile__modal-cross x
         .profile__modals-placeholder(id="placeholder" data-popup='placeholder')
             .profile__fail

@@ -42,11 +42,10 @@
 }
 
 .content__left {
-    // @include flex(column);
     width: 27%;
-    // @include flex-align(center);
     border-right: 1px solid #d8d8d8;
     position: relative;
+    min-height: 80vh;
 }
 
 .list__title__wrap {
