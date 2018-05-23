@@ -6,6 +6,7 @@ $text-colour: #2b2b2b;
 $bottom-colour: #C4C9CD;
 $bg-colour: #EFF2F5;
 $stripe-colour: rgba(24, 24, 24, 0.1);
+$red-text: #e72e36;
 
 // adjustments
 
@@ -20,6 +21,7 @@ $stripe-colour: rgba(24, 24, 24, 0.1);
 @import 'sections/profile';
 @import 'sections/mentor';
 @import 'sections/popups';
+@import 'sections/analytics';
 
 // fonts
 

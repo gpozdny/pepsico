@@ -1,0 +1,151 @@
+extends ../_template
+block content
+    .wrapper--analytics
+        include ../sections/header
+        .container--analytics
+            section.range
+                .range__col.column
+                    span.range__period Период
+                    .range__rate
+                        label.range__label 
+                            span c 
+                            input(type="date").range__input
+                        label.range__label
+                            span по 
+                            input(type="date").range__input
+            section.users.analytics-sections
+                .users__col.column
+                    .users__header
+                        span.heading Воронка участников
+                        .users__wrap
+                            .users__selector.text.text
+                                input(list="users" name="users").input--analytics
+                                datalist(id="users")
+                                    option(value="Все направления")
+                                    option(value="placeholder")
+                            .users__selector.text
+                                input(list="users" name="users").input--analytics
+                                datalist(id="users")
+                                    option(value="Все направления")
+                                    option(value="placeholder")
+                    .users__charts
+                        .users__container
+                            .users__wrapper
+                                .users__chart
+                                .ratio.users__ratio
+                                    span.rate 100%
+                            .users__info
+                                span.text Прошли видеоинтервью
+                            .users__numbers
+                                .users__icon
+                                span.users__text.text 1200
+                                span.users__text.text--red.text -25%
+                        .users__container
+                            .users__wrapper
+                                .users__chart
+                                .ratio.users__ratio
+                                    span.rate 100%
+                            .users__info
+                                span.text Прошли видеоинтервью
+                            .users__numbers
+                                .users__icon
+                                span.users__text.text 1200
+                                span.users__text.text--red.text -25%
+                        .users__container
+                            .users__wrapper
+                                .users__chart
+                                .ratio.users__ratio
+                                    span.rate 100%
+                            .users__info
+                                span.text Прошли видеоинтервью
+                            .users__numbers
+                                .users__icon
+                                span.users__text.text 1200
+                                span.users__text.text--red.text -25%
+                        .users__container
+                            .users__wrapper
+                                .users__chart
+                                .ratio.users__ratio
+                                    span.rate 100%
+                            .users__info
+                                span.text Прошли видеоинтервью
+                            .users__numbers
+                                .users__icon
+                                span.users__text.text 1200
+                                span.users__text.text--red.text -25%
+                        .users__container
+                            .users__wrapper
+                                .users__chart
+                                .ratio.users__ratio
+                                    span.rate 100%
+                            .users__info
+                                span.text Прошли видеоинтервью
+                            .users__numbers
+                                .users__icon
+                                span.users__text.text 1200
+                                span.users__text.text--red.text -25%
+                .users__col.column
+                    .users__header
+                        span.heading Менторы
+                        .users__wrap
+                            .users__selector.text
+                                input(list="mentors" name="mentors").input--analytics
+                                datalist(id="mentors")
+                                    option(value="Все менторы")
+                                    option(value="placeholder")
+                    .mentors
+                        .mentors__container.text
+                            .ratio
+                                span.rate 4000
+                            span.mentors__info Оценивал брифов: основной стрим             
+                        .mentors__container.text
+                            .ratio
+                                span.rate 4000
+                            span.mentors__info Оценивал брифов: основной стрим                  
+                        .mentors__container.text
+                            .ratio
+                                span.rate 4000
+                            span.mentors__info Оценивал брифов: основной стрим
+                        .mentors__container.text
+                            .ratio
+                                span.rate 4000
+                            span.mentors__info Оценивал брифов: основной стрим
+            section.info.analytics-sections
+                .info__col.column
+                    .users__header
+                        span.heading Города
+                    .info__chart
+                .info__col.column
+                    .users__header
+                        span.heading Вуз
+                        .users__wrap
+                            .users__selector.text
+                                input(list="universities" name="universities").input--analytics
+                                datalist(id="universities")
+                                    option(value="Первое образование")
+                                    option(value="placeholder")
+                    .info__chart
+                .info__col.column
+                    .users__header
+                        span.heading Специальность
+                        .users__wrap
+                            .users__selector.text
+                                input(list="branch" name="branch").input--analytics
+                                datalist(id="branch")
+                                    option(value="Первое образование")
+                                    option(value="placeholder")
+                    .info__chart
+            section.stream.analytics-sections
+                .stream__col.column
+                    span.heading Направления (Основной стрим)
+                    .stream__chart
+                .stream__col.column
+                    span.heading Направления (Дополнительный стрим)
+                    .stream__chart                       
+
+
+
+
+
+
+
