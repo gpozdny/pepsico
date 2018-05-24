@@ -161,6 +161,267 @@ $(document).ready(function () {
     if ($projects.length == 1) {
         $projects.css("width", "50%");
     } else $projects.css("width", "25%");
+
+    // analytics
+
+    // cities
+    var ctx = $("#cities");
+
+    var citiesChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["Москва", "Санкт-Петербург", "Ростов-на-Дону", "Воронеж", "Прочее"],
+            datasets: [{
+                label: '# of Votes',
+                data: [13, 19, 3, 5, 2],
+                backgroundColor: [
+                    '#004C97',
+                    '#0085CA',
+                    '#00AAE2',
+                    '#3CBEE9',
+                    '#C4C9CD'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutoutPercentage: 75,
+            tooltips: {
+                backgroundColor: '#FFF',
+                bodyFontColor: '#00aae2',
+                bodyFontSize: 12,
+                bodyFontFamily: 'Gotham-bold',
+                borderColor: 'rgba(0, 0, 0, 0.2)',
+                borderWidth: 1,
+                displayColors: false
+            },
+            legend: {
+                responsive: true,
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: '#2b2b2b',
+                    fontSize: 12,
+                    // fontFamily: 'Gotham Book',
+                    padding: 10,
+                    usePointStyle: true
+                }
+            }
+        }
+    });
+    // universities
+    var ctx2 = $("#univer");
+
+    var univerDoughnutChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: ["МГУ", "МГИМО", "СПбГУ", "ЮФО", "Прочие"],
+            datasets: [{
+                label: '# of Votes',
+                data: [13, 19, 3, 5, 2],
+                backgroundColor: [
+                    '#004C97',
+                    '#0085CA',
+                    '#00AAE2',
+                    '#3CBEE9',
+                    '#C4C9CD'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutoutPercentage: 75,
+            tooltips: {
+                backgroundColor: '#FFF',
+                bodyFontColor: '#00aae2',
+                bodyFontSize: 12,
+                bodyFontFamily: 'Gotham-bold',
+                borderColor: 'rgba(0, 0, 0, 0.2)',
+                borderWidth: 1,
+                displayColors: false
+            },
+            legend: {
+                responsive: true,
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: '#2b2b2b',
+                    fontSize: 12,
+                    // fontFamily: 'Gotham Book',
+                    padding: 10,
+                    usePointStyle: true
+                }
+            }
+        }
+    });
+    // branches 
+
+    var ctx3 = $("#branches");
+
+    var branchesChart = new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+            labels: ["Маркетинг", "Менеджмент", "Интернет-маркетинг", "SММ", "Прочие"],
+            datasets: [{
+                label: '# of Votes',
+                data: [13, 19, 3, 5, 2],
+                backgroundColor: [
+                    '#004C97',
+                    '#0085CA',
+                    '#00AAE2',
+                    '#3CBEE9',
+                    '#C4C9CD'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutoutPercentage: 75,
+            tooltips: {
+                backgroundColor: '#FFF',
+                bodyFontColor: '#00aae2',
+                bodyFontSize: 12,
+                bodyFontFamily: 'Gotham-bold',
+                borderColor: 'rgba(0, 0, 0, 0.2)',
+                borderWidth: 1,
+                displayColors: false
+            },
+            legend: {
+                responsive: true,
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: '#2b2b2b',
+                    fontSize: 12,
+                    padding: 10,
+                    usePointStyle: true
+                }
+            }
+        }
+    });
+    // main-stream
+
+    var ctx4 = $("#main-stream");
+
+    var mainChart = new Chart(ctx4, {
+        type: 'doughnut',
+        data: {
+            labels: ["Иследования и разработки",
+                "Коммерциализация инноваций",
+                "Интернет-маркетинг",
+                "Коммерческий отдел (Мск)", "Коммерческий отдел (Спб)",
+                "Коммерческий отдел (РнД)",
+                "Маркетинг",
+                "Планирование цепей поставок",
+                "Управление мастер-данными",
+                "Финансы",
+                "R&D"
+            ],
+            datasets: [{
+                label: '# of Votes',
+                data: [13, 19, 3, 5, 2, 4, 6, 8, 9, 9, 5],
+                backgroundColor: [
+                    '#004C97',
+                    '#0085CA',
+                    '#00AAE2',
+                    '#3CBEE9',
+                    '#EF6530',
+                    '#F5913B',
+                    '#009639',
+                    '#78BE20',
+                    '#FFCC3D',
+                    '#E72E36',
+                    '#C4C9CD'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutoutPercentage: 75,
+            tooltips: {
+                backgroundColor: '#FFF',
+                bodyFontColor: '#00aae2',
+                bodyFontSize: 12,
+                bodyFontFamily: 'Gotham-bold',
+                borderColor: 'rgba(0, 0, 0, 0.2)',
+                borderWidth: 1,
+                displayColors: false
+            },
+            legend: {
+                responsive: true,
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: '#2b2b2b',
+                    fontSize: 12,
+                    padding: 10,
+                    usePointStyle: true
+                }
+            }
+        }
+    });
+
+    //secondary stream
+
+    var ctx5 = $("#secondary-stream");
+
+    var secondaryChart = new Chart(ctx5, {
+        type: 'doughnut',
+        data: {
+            labels: ["Иследования и разработки",
+                "Коммерциализация инноваций",
+                "Интернет-маркетинг",
+                "Коммерческий отдел (Мск)", "Коммерческий отдел (Спб)",
+                "Коммерческий отдел (РнД)",
+                "Маркетинг",
+                "Планирование цепей поставок",
+                "Управление мастер-данными",
+                "Финансы",
+                "R&D"
+            ],
+            datasets: [{
+                label: '# of Votes',
+                data: [13, 19, 3, 5, 2, 4, 6, 8, 9, 9, 5],
+                backgroundColor: [
+                    '#004C97',
+                    '#0085CA',
+                    '#00AAE2',
+                    '#3CBEE9',
+                    '#EF6530',
+                    '#F5913B',
+                    '#009639',
+                    '#78BE20',
+                    '#FFCC3D',
+                    '#E72E36',
+                    '#C4C9CD'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutoutPercentage: 75,
+            tooltips: {
+                backgroundColor: '#FFF',
+                bodyFontColor: '#00aae2',
+                bodyFontSize: 12,
+                bodyFontFamily: 'Gotham-bold',
+                borderColor: 'rgba(0, 0, 0, 0.2)',
+                borderWidth: 1,
+                displayColors: false
+            },
+            legend: {
+                responsive: true,
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: '#2b2b2b',
+                    fontSize: 12,
+                    padding: 10,
+                    usePointStyle: true
+                }
+            }
+        }
+    });
 });
 // popups files
 

@@ -11,6 +11,9 @@
     padding-left: 5px;
     border-radius: 4px;
     border: solid 1px #c4c9cd;
+        @include desktop {
+            width: 150px;
+        }
 }
 
 .heading {
@@ -18,6 +21,9 @@
     font-size: 20px;
     color: $main-colour;
     margin-bottom: 25px;
+        @include desktop {
+            font-size: 14px;
+        }
 }
 
 .text {
@@ -28,6 +34,9 @@
         color: $red-text;
         font-weight: bold;
     }
+        @include desktop {
+            font-size: 10px;
+        }
 }
 
 .ratio {
@@ -47,7 +56,7 @@
 
 // containers
 .wrapper--analytics {
-    min-width: 940px;
+    min-width: 1024px;
 }
 
 .container--analytics {
@@ -104,6 +113,7 @@
     &__header {
         @include flex(row);
         justify-content: space-between;
+        align-items: baseline;
     }
     &__wrap {
         @include flex(row);
@@ -178,6 +188,21 @@
                 max-width: 102px;
             }
     }
+    &__numbers {
+        text-align: center;
+            span + span {
+                margin-left: 5px;
+            }
+    }
+    &__icon {
+        display: inline-block;
+        vertical-align: middle;
+        width: 16px;
+        height: 16px;
+        background-image: url('../img/icons/users.svg');
+        background-repeat: no-repeat;
+        margin-right: 5px;
+    }
 }
 
 .mentors {
@@ -188,12 +213,38 @@
     }
     &__container {
         width: calc(25% - 15px);
+
     }
     &__info {
         width: 100%;
         text-align: center;
         display: inline-block;
         max-width: 120px;
+    }
+    &__wrapper {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        height: 200px;
+        width: 100%;
+        @include flex-align(flex-end);
+        margin-bottom: 20px;
+    }
+    &__chart {
+        transition: all 0.5s;
+        width: 100%;
+        height: 200px;
+        background-color: $main-colour;
+    }
+    &__ratio {
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+    &__stream {
+        text-align: center;
     }
 }
 

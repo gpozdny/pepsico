@@ -19,15 +19,13 @@ block content
                         span.heading Воронка участников
                         .users__wrap
                             .users__selector.text.text
-                                input(list="users" name="users").input--analytics
-                                datalist(id="users")
-                                    option(value="Все направления")
-                                    option(value="placeholder")
+                                select.input--analytics
+                                    option(value="Все направления") Все направления
+                                    option(value="placeholder") placeholder
                             .users__selector.text
-                                input(list="users" name="users").input--analytics
-                                datalist(id="users")
-                                    option(value="Все направления")
-                                    option(value="placeholder")
+                                select.input--analytics
+                                    option(value="Все направления") Все направления
+                                    option(value="placeholder") placeholder
                     .users__charts
                         .users__container
                             .users__wrapper
@@ -46,7 +44,7 @@ block content
                                 .ratio.users__ratio
                                     span.rate 100%
                             .users__info
-                                span.text Прошли видеоинтервью
+                                span.text Отправили бриф
                             .users__numbers
                                 .users__icon
                                 span.users__text.text 1200
@@ -57,7 +55,7 @@ block content
                                 .ratio.users__ratio
                                     span.rate 100%
                             .users__info
-                                span.text Прошли видеоинтервью
+                                span.text Прошли на этап презентация
                             .users__numbers
                                 .users__icon
                                 span.users__text.text 1200
@@ -68,7 +66,7 @@ block content
                                 .ratio.users__ratio
                                     span.rate 100%
                             .users__info
-                                span.text Прошли видеоинтервью
+                                span.text Отправили презентацию
                             .users__numbers
                                 .users__icon
                                 span.users__text.text 1200
@@ -79,7 +77,7 @@ block content
                                 .ratio.users__ratio
                                     span.rate 100%
                             .users__info
-                                span.text Прошли видеоинтервью
+                                span.text Прошли в финал
                             .users__numbers
                                 .users__icon
                                 span.users__text.text 1200
@@ -89,59 +87,73 @@ block content
                         span.heading Менторы
                         .users__wrap
                             .users__selector.text
-                                input(list="mentors" name="mentors").input--analytics
-                                datalist(id="mentors")
-                                    option(value="Все менторы")
-                                    option(value="placeholder")
+                                select.input--analytics
+                                    option(value="Все направления") Все направления
+                                    option(value="placeholder") placeholder
                     .mentors
-                        .mentors__container.text
-                            .ratio
-                                span.rate 4000
-                            span.mentors__info Оценивал брифов: основной стрим             
-                        .mentors__container.text
-                            .ratio
-                                span.rate 4000
-                            span.mentors__info Оценивал брифов: основной стрим                  
-                        .mentors__container.text
-                            .ratio
-                                span.rate 4000
-                            span.mentors__info Оценивал брифов: основной стрим
-                        .mentors__container.text
-                            .ratio
-                                span.rate 4000
-                            span.mentors__info Оценивал брифов: основной стрим
+                        .mentors__container
+                            .mentors__wrapper
+                                .mentors__chart
+                                .ratio.mentors__ratio
+                                    span.rate 4000
+                            .mentors__stream.text        
+                                span.mentors__info Оценивал брифов: основной стрим             
+                        .mentors__container
+                            .mentors__wrapper
+                                .mentors__chart
+                                .ratio.mentors__ratio
+                                    span.rate 4000
+                            .mentors__stream.text        
+                                span.mentors__info Оценивал презентации: основной стрим                  
+                        .mentors__container
+                            .mentors__wrapper
+                                .mentors__chart
+                                .ratio.mentors__ratio
+                                    span.rate 4000
+                            .mentors__stream.text        
+                                span.mentors__info Оценивал брифов: дополнительный стрим
+                        .mentors__container
+                            .mentors__wrapper
+                                .mentors__chart
+                                .ratio.mentors__ratio
+                                    span.rate 4000
+                            .mentors__stream.text        
+                                span.mentors__info Оценивал презентации: дополнительный стрим
             section.info.analytics-sections
                 .info__col.column
                     .users__header
                         span.heading Города
                     .info__chart
+                        canvas(id="cities")
                 .info__col.column
                     .users__header
                         span.heading Вуз
                         .users__wrap
                             .users__selector.text
-                                input(list="universities" name="universities").input--analytics
-                                datalist(id="universities")
-                                    option(value="Первое образование")
-                                    option(value="placeholder")
+                                select.input--analytics
+                                    option(value="Все направления") Все направления
+                                    option(value="placeholder") placeholder
                     .info__chart
+                        canvas(id="univer")
                 .info__col.column
                     .users__header
                         span.heading Специальность
                         .users__wrap
                             .users__selector.text
-                                input(list="branch" name="branch").input--analytics
-                                datalist(id="branch")
-                                    option(value="Первое образование")
-                                    option(value="placeholder")
+                                select.input--analytics
+                                    option(value="Все направления") Все направления
+                                    option(value="placeholder") placeholder
                     .info__chart
+                        canvas(id="branches")
             section.stream.analytics-sections
                 .stream__col.column
                     span.heading Направления (Основной стрим)
                     .stream__chart
+                        canvas(id="main-stream")
                 .stream__col.column
                     span.heading Направления (Дополнительный стрим)
-                    .stream__chart                       
+                    .stream__chart
+                        canvas(id="secondary-stream")                       
 
 
 
