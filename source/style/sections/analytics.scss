@@ -76,6 +76,8 @@
     @include flex(column);
 }
 
+
+
 //sections
 .range {
     width: 100%;
@@ -258,4 +260,22 @@
     &__col {
         width: calc(50% - 10px);
     }
+}
+
+// modificators
+
+.blue75 {
+    background-color: #1F66B1;
+}
+
+.blue50 {
+    background-color: #0085CA;
+}
+
+.blue35 {
+    background-color: #2698D3;
+}
+
+.blue15 {
+    background-color: #00AAE2;
 }

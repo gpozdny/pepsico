@@ -9,10 +9,10 @@ block content
                     .range__rate
                         label.range__label 
                             span c 
-                            input(type="date").range__input
+                            input(type="date" onchange="getData()" id="test").range__input
                         label.range__label
                             span по 
-                            input(type="date").range__input
+                            input(type="date" onchange="getData()").range__input
             section.users.analytics-sections
                 .users__col.column
                     .users__header
@@ -29,15 +29,15 @@ block content
                     .users__charts
                         .users__container
                             .users__wrapper
-                                .users__chart
+                                .users__chart(id="chart")
                                 .ratio.users__ratio
-                                    span.rate 100%
+                                    span.rate(id="chartRate") 100%
                             .users__info
                                 span.text Прошли видеоинтервью
                             .users__numbers
                                 .users__icon
-                                span.users__text.text 1200
-                                span.users__text.text--red.text -25%
+                                span.users__text.text(id="users") 1200
+                                span.users__text.text--red.text(id="odds") -25%
                         .users__container
                             .users__wrapper
                                 .users__chart

@@ -584,3 +584,51 @@ function checkForm() {
         $authInputs = $('.form__login, .form__password');
     $btnAuth.toggleClass('btn--white', $authInputs.val().length !== 0); // preferable
 };
+
+////////
+
+
+function getData() {
+    let input = $(".range__input").val();
+    
+    return console.log(input);
+}
+
+let chart = $('#chart'),
+    chartRate = $('#chartRate'),
+    users = $('#users'),
+    usersOdds = $('#odds');
+
+$.ajax({ 
+    type: 'GET', 
+    url: 'assets/json/params.json', 
+    data: { get_param: 'value' }, 
+    dataType:'json',
+    success: function (data) { 
+
+        let height = data.percent + "%",
+            passed = data.passed,
+            odds = data.odds;
+
+        if(data.percent < 90 && data.percent >= 75){
+            chart.addClass("blue75");
+        } else if(data.percent < 75 && data.percent >= 50){
+            chart.addClass("blue50");
+        } else if(data.percent < 50 && data.percent >= 35){
+            chart.addClass("blue35");
+        } else {
+            chart.addClass("blue15");
+        }
+
+        chart.css("height", height);
+
+        chartRate.text(height);
+
+        users.text(passed);
+
+        usersOdds.text(odds);
+
+        console.log(height, passed, odds)
+
+    }
+});
