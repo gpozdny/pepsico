@@ -590,45 +590,100 @@ function checkForm() {
 
 function getData() {
     let input = $(".range__input").val();
-    
+
     return console.log(input);
 }
 
-let chart = $('#chart'),
+// participators
+
+let chart = $('.users__chart'),
     chartRate = $('#chartRate'),
     users = $('#users'),
-    usersOdds = $('#odds');
+    usersOdds = $('#odds'),
+    chartInterview = chart[0],
+    chartBrief = chart[1],
+    chartInterviewSent = chart[2],
+    chartInterviewSuccess = chart[3],
+    chartInterviewFinals = chart[4];
 
-$.ajax({ 
-    type: 'GET', 
-    url: 'assets/json/params.json', 
-    data: { get_param: 'value' }, 
-    dataType:'json',
-    success: function (data) { 
 
-        let height = data.percent + "%",
-            passed = data.passed,
-            odds = data.odds;
+// chart.forEach(function (element) {
+//     console.log(element);
+// })
 
-        if(data.percent < 90 && data.percent >= 75){
-            chart.addClass("blue75");
-        } else if(data.percent < 75 && data.percent >= 50){
-            chart.addClass("blue50");
-        } else if(data.percent < 50 && data.percent >= 35){
-            chart.addClass("blue35");
-        } else {
-            chart.addClass("blue15");
-        }
 
-        chart.css("height", height);
 
-        chartRate.text(height);
+// console.log(chartInterview, chartBrief, chartInterviewSent, chartInterviewSuccess, chartInterviewFinals);
 
-        users.text(passed);
+$.ajax({
+    type: 'GET',
+    url: 'assets/json/params.json',
+    data: {
+        get_param: 'value'
+    },
+    dataType: 'json',
+    success: function (data) {
 
-        usersOdds.text(odds);
+        let interviewData = data.participators.interview,
+            height = interviewData.percent + "%",
+            passed = interviewData.passed,
+            odds = interviewData.odds;
+
+
+        // if(data.percent < 90 && data.percent >= 75){
+        //     chart.addClass("blue75");
+        // } else if(data.percent < 75 && data.percent >= 50){
+        //     chart.addClass("blue50");
+        // } else if(data.percent < 50 && data.percent >= 35){
+        //     chart.addClass("blue35");
+        // } else if(data.percent >= 90 && data.percent <= 100){
+        //     chart.addClass("blue35");
+        // }
+        // else {
+        //     chart.addClass("blue15");
+        // }
+
+        // chart.css("height", height);
+
+        // chartRate.text(height);
+
+        // users.text(passed);
+
+        // usersOdds.text(odds);
 
         console.log(height, passed, odds)
+
+    }
+});
+
+$.ajax({
+    type: 'GET',
+    url: 'assets/json/params.json',
+    data: {
+        get_param: 'value'
+    },
+    dataType: 'json',
+    success: function (data) {
+
+        // let interviewData =  data.participators.interview,
+        //     height = interviewData.percent + "%",
+        //     passed = interviewData.passed,
+        //     odds = interviewData.odds;
+
+        // if(data.percent < 90 && data.percent >= 75){
+        //     chart.addClass("blue75");
+        // } else if(data.percent < 75 && data.percent >= 50){
+        //     chart.addClass("blue50");
+        // } else if(data.percent < 50 && data.percent >= 35){
+        //     chart.addClass("blue35");
+        // } else if(data.percent >= 90 && data.percent <= 100){
+        //     chart.addClass("blue35");
+        // }
+        // else {
+        //     chart.addClass("blue15");
+        // }
+
+        // console.log(height, passed, odds)
 
     }
 });

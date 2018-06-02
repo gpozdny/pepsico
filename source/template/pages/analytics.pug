@@ -29,7 +29,7 @@ block content
                     .users__charts
                         .users__container
                             .users__wrapper
-                                .users__chart(id="chart")
+                                .users__chart(id="chart" data-chart='interview')
                                 .ratio.users__ratio
                                     span.rate(id="chartRate") 100%
                             .users__info
@@ -40,7 +40,7 @@ block content
                                 span.users__text.text--red.text(id="odds") -25%
                         .users__container
                             .users__wrapper
-                                .users__chart
+                                .users__chart(data-chart='brief')
                                 .ratio.users__ratio
                                     span.rate 100%
                             .users__info
@@ -51,7 +51,7 @@ block content
                                 span.users__text.text--red.text -25%
                         .users__container
                             .users__wrapper
-                                .users__chart
+                                .users__chart(data-chart='presentationSent')
                                 .ratio.users__ratio
                                     span.rate 100%
                             .users__info
@@ -62,7 +62,7 @@ block content
                                 span.users__text.text--red.text -25%
                         .users__container
                             .users__wrapper
-                                .users__chart
+                                .users__chart(data-chart='presentationSuccess')
                                 .ratio.users__ratio
                                     span.rate 100%
                             .users__info
@@ -73,7 +73,7 @@ block content
                                 span.users__text.text--red.text -25%
                         .users__container
                             .users__wrapper
-                                .users__chart
+                                .users__chart(data-chart='finals')
                                 .ratio.users__ratio
                                     span.rate 100%
                             .users__info
