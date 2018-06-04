@@ -28,19 +28,19 @@
     },
     "mentors": {
         "briefMain": {
-            "number": "4000",
+            "number": "3400",
             "percentage": "90"
         },
         "presentationMain": {
-            "number": "4000",
+            "number": "5500",
             "percentage": "80"
         },
         "briefSecondary": {
-            "number": "4000",
+            "number": "4440",
             "percentage": "70"
         },
         "presentationSecondary": {
-            "number": "4000",
+            "number": "40300",
             "percentage": "30"
         }
     }

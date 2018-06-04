@@ -585,7 +585,7 @@ function checkForm() {
     $btnAuth.toggleClass('btn--white', $authInputs.val().length !== 0); // preferable
 };
 
-////////
+//
 
 
 function getData() {
@@ -637,6 +637,8 @@ function getData() {
                     return "blue35";
                 } else if(percentage >= 90 && percentage <= 100){
                     return "blue100";
+                } else {
+                    return "blue15";
                 }
             }
         }
