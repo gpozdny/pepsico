@@ -9,114 +9,114 @@ block content
                     .range__rate
                         label.range__label 
                             span c 
-                            input(type="date" onchange="getData()" id="test").range__input
+                            input(type="date" onchange="getData()" id="test" value="2018-05-01").range__input.js-range-from
                         label.range__label
                             span по 
-                            input(type="date" onchange="getData()").range__input
+                            input(type="date" onchange="getData()" value="2018-05-01").range__input.js-range-to
             section.users.analytics-sections
                 .users__col.column
                     .users__header
                         span.heading Воронка участников
                         .users__wrap
                             .users__selector.text.text
-                                select.input--analytics
+                                select.input--analytics(onchange="getData()").js-user-selection
                                     option(value="Все направления") Все направления
                                     option(value="placeholder") placeholder
                             .users__selector.text
-                                select.input--analytics
+                                select.input--analytics(onchange="getData()").js-stream-selection
                                     option(value="Все направления") Все направления
                                     option(value="placeholder") placeholder
                     .users__charts
-                        .users__container
+                        .users__container(data-chart='interview')
                             .users__wrapper
-                                .users__chart(id="chart" data-chart='interview')
+                                .users__chart(id="chart").js-chart
                                 .ratio.users__ratio
-                                    span.rate(id="chartRate") 100%
+                                    span.rate.js-rate 100%
                             .users__info
                                 span.text Прошли видеоинтервью
                             .users__numbers
                                 .users__icon
                                 span.users__text.text(id="users") 1200
-                                span.users__text.text--red.text(id="odds") -25%
-                        .users__container
+                                span.users__text.text--red.text.js-odds -25%
+                        .users__container(data-chart='brief')
                             .users__wrapper
-                                .users__chart(data-chart='brief')
+                                .users__chart.js-chart
                                 .ratio.users__ratio
-                                    span.rate 100%
+                                    span.rate.js-rate 100%
                             .users__info
                                 span.text Отправили бриф
                             .users__numbers
                                 .users__icon
                                 span.users__text.text 1200
-                                span.users__text.text--red.text -25%
-                        .users__container
+                                span.users__text.text--red.text.js-odds -25%
+                        .users__container(data-chart='presentationSent')
                             .users__wrapper
-                                .users__chart(data-chart='presentationSent')
+                                .users__chart.js-chart
                                 .ratio.users__ratio
-                                    span.rate 100%
+                                    span.rate.js-rate 100%
                             .users__info
                                 span.text Прошли на этап презентация
                             .users__numbers
                                 .users__icon
-                                span.users__text.text 1200
-                                span.users__text.text--red.text -25%
-                        .users__container
+                                span.users__text.text.js-passed 1200
+                                span.users__text.text--red.text.js-odds -25%
+                        .users__container(data-chart='presentationPassed')
                             .users__wrapper
-                                .users__chart(data-chart='presentationSuccess')
+                                .users__chart.js-chart
                                 .ratio.users__ratio
-                                    span.rate 100%
+                                    span.rate.js-rate 100%
                             .users__info
                                 span.text Отправили презентацию
                             .users__numbers
                                 .users__icon
                                 span.users__text.text 1200
-                                span.users__text.text--red.text -25%
-                        .users__container
+                                span.users__text.text--red.text.js-odds -25%
+                        .users__container(data-chart='finals')
                             .users__wrapper
-                                .users__chart(data-chart='finals')
+                                .users__chart.js-chart
                                 .ratio.users__ratio
-                                    span.rate 100%
+                                    span.rate.js-rate 100%
                             .users__info
                                 span.text Прошли в финал
                             .users__numbers
                                 .users__icon
                                 span.users__text.text 1200
-                                span.users__text.text--red.text -25%
+                                span.users__text.text--red.text.js-odds -25%
                 .users__col.column
                     .users__header
                         span.heading Менторы
                         .users__wrap
                             .users__selector.text
-                                select.input--analytics
+                                select.input--analytics(onchange="getData()").js-mentor-selection
                                     option(value="Все направления") Все направления
                                     option(value="placeholder") placeholder
                     .mentors
-                        .mentors__container
+                        .mentors__container(data-chart='briefMain')
                             .mentors__wrapper
-                                .mentors__chart
+                                .mentors__chart.js-chart
                                 .ratio.mentors__ratio
-                                    span.rate 4000
+                                    span.rate.js-number 4000
                             .mentors__stream.text        
                                 span.mentors__info Оценивал брифов: основной стрим             
-                        .mentors__container
+                        .mentors__container(data-chart='presentationMain')
                             .mentors__wrapper
-                                .mentors__chart
+                                .mentors__chart.js-chart
                                 .ratio.mentors__ratio
-                                    span.rate 4000
+                                    span.rate.js-number 4000
                             .mentors__stream.text        
                                 span.mentors__info Оценивал презентации: основной стрим                  
-                        .mentors__container
+                        .mentors__container(data-chart='briefSecondary')
                             .mentors__wrapper
-                                .mentors__chart
+                                .mentors__chart.js-chart
                                 .ratio.mentors__ratio
-                                    span.rate 4000
+                                    span.rate.js-number 4000
                             .mentors__stream.text        
                                 span.mentors__info Оценивал брифов: дополнительный стрим
-                        .mentors__container
+                        .mentors__container(data-chart='presentationSecondary')
                             .mentors__wrapper
-                                .mentors__chart
+                                .mentors__chart.js-chart
                                 .ratio.mentors__ratio
-                                    span.rate 4000
+                                    span.rate.js-number 4000
                             .mentors__stream.text        
                                 span.mentors__info Оценивал презентации: дополнительный стрим
             section.info.analytics-sections
