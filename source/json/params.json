@@ -1,4 +1,4 @@
-[   
+{   
     "participators": {
         "interview": {
             "percentage": "100",
@@ -44,4 +44,4 @@
             "percentage": "30"
         }
     }
-]
+}
