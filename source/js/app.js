@@ -643,26 +643,3 @@ function getData() {
     });
 
 }
-
-// participators
-
-
-
-let chartInterview = $('[data-chart=interview]'),
-    chartBrief = $('[data-chart=brief]'),
-    chartInterviewSent = $('[data-chart=presentationSent]'),
-    chartInterviewSuccess = $('[data-chart=presentationSuccess]'),
-    chartInterviewFinals = $('[data-chart=finals]'),
-    btnTest = $('#data');
-
-
-btnTest.on('click', function () {
-    
-})
-// chart.forEach(function (element) {
-//     console.log(element);
-// })
-
-
-
-// console.log(chartInterview, chartBrief, chartInterviewSent, chartInterviewSuccess, chartInterviewFinals);
