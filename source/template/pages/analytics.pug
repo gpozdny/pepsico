@@ -19,11 +19,11 @@ block content
                         span.heading Воронка участников
                         .users__wrap
                             .users__selector.text.text
-                                select.input--analytics(onchange="getData()").js-user-selection
+                                select.input--analytics(onchange="getData(usersEvent)").js-user-selection
                                     option(value="Все направления") Все направления
                                     option(value="placeholder") placeholder
                             .users__selector.text
-                                select.input--analytics(onchange="getData()").js-stream-selection
+                                select.input--analytics(onchange="getData(usersEventStream)").js-stream-selection
                                     option(value="Все направления") Все направления
                                     option(value="placeholder") placeholder
                     .users__charts
@@ -87,7 +87,7 @@ block content
                         span.heading Менторы
                         .users__wrap
                             .users__selector.text
-                                select.input--analytics(onchange="getData()").js-mentor-selection
+                                select.input--analytics(onchange="getData(mentorsEvent)").js-mentor-selection
                                     option(value="Все направления") Все направления
                                     option(value="placeholder") placeholder
                     .mentors

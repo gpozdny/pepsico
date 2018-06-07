@@ -1,0 +1,29 @@
+{   
+    "participators": {
+        "interview": {
+            "percentage": 30,
+            "passed": 3330,
+            "odds": -45
+        },
+        "brief": {
+            "percentage": 75,
+            "passed": 1500,
+            "odds": -15
+        },
+        "presentationSent": {
+            "percentage": 30,
+            "passed": 1500,
+            "odds": -15
+        },
+        "presentationPassed": {
+            "percentage": 25,
+            "passed": 1500,
+            "odds": -15
+        },
+        "finals": {
+            "percentage": 85,
+            "passed": 1500,
+            "odds": -15
+        }
+    }
+}

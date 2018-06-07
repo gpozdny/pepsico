@@ -588,60 +588,86 @@ function checkForm() {
 //
 
 
-function getData() {
+let usersEvent = "users",
+    usersEventStream = "stream",
+    mentorsEvent = "mentors",
+    allData = "allData";
+
+getData(allData);
+
+function getData(type) {
+
+    console.log(type);
     let dateFrom = $(".js-range-from").val(),
         dateTo = $(".js-range-to").val(),
         userSelection = $(".js-user-selection").val(),
         mentorSelection = $(".js-mentor-selection").val(),
-        streamSelection = $(".js-stream-selection").val();
+        streamSelection = $(".js-stream-selection").val(),
+        allDataUrl = 'assets/json/params.json',
+        usersUrl = 'assets/json/chartsUsers.json',
+        mentorsUrl = 'assets/json/chartsMentor.json',
+        activeUrl = 'assets/json/params.json';
 
-    if(!dateFrom || !dateTo) {
+    if (!dateFrom || !dateTo) {
         return;
     }
 
-    $.ajax({
-        type: 'GET',
-        url: 'assets/json/params.json',
-        data: {
-            dateFrom: dateFrom,
-            dateTo: dateTo,
-            userSelection: userSelection,
-            mentorSelection: mentorSelection,
-            streamSelection: streamSelection
-        },
-        dataType: 'json',
-        success: function (data) {
-            ;(function renderData() {
-                for (let key in data) {
-                    console.info(data);
-                    for (let keyInner in data[key]) {
-                        let obj = data[key][keyInner];
-                        let $container = $(`[data-chart="${keyInner}"]`);
-                        $('.js-rate', $container).text(obj.percentage + '%');
+    if(type === "users"){
+        activeUrl = 'assets/json/chartsUsers.json';
+        usersData(activeUrl);
+    } else if (type === "mentors") {
+        activeUrl = 'assets/json/chartsMentor.json';
+        usersData(activeUrl);
+    } else if (type === "stream"){
+        activeUrl = 'assets/json/chartsUsersStream.json';
+        usersData(activeUrl);
+    }
 
-                        $('.js-chart', $container).css("height", obj.percentage + '%')
-                            .addClass(changedata(obj.percentage));
-                        $('.js-passed', $container).text(obj.passed);
-                        $('.js-odds', $container).text(obj.odds);
-                        $('.js-number', $container).text(obj.number);
+    usersData(activeUrl);
+    
+    function usersData(activeUrl){
+        $.ajax({
+            type: 'GET',
+            url: activeUrl,
+            data: {
+                dateFrom: dateFrom,
+                dateTo: dateTo,
+                userSelection: userSelection,
+                mentorSelection: mentorSelection,
+                streamSelection: streamSelection
+            },
+            dataType: 'json',
+            success: function (data) {;
+                (function renderData() {
+                    for (let key in data) {
+                        for (let keyInner in data[key]) {
+                            let obj = data[key][keyInner];
+                            let $container = $(`[data-chart="${keyInner}"]`);
+                            $('.js-rate', $container).text(obj.percentage + '%');
+    
+                            $('.js-chart', $container).css("height", obj.percentage + '%')
+                                .css("background-color", changedata(obj.percentage));
+                            $('.js-passed', $container).text(obj.passed);
+                            $('.js-odds', $container).text(obj.odds + '%');
+                            $('.js-number', $container).text(obj.number);
+                        }
+                    }
+                })(data);
+    
+                function changedata(percentage) {
+                    if (percentage < 90 && percentage >= 75) {
+                        return "#1F66B1";
+                    } else if (percentage < 75 && percentage >= 50) {
+                        return "#0085CA";
+                    } else if (percentage < 50 && percentage >= 35) {
+                        return "#2698D3";
+                    } else if (percentage >= 90 && percentage <= 100) {
+                        return "#004C97";
+                    } else if  (percentage <= 35) {
+                        return "#00AAE2";
                     }
                 }
-            })(data);
-
-            function changedata(percentage){
-                if(percentage < 90 && percentage >= 75){
-                    return "blue75";
-                } else if(percentage < 75 && percentage >= 50){
-                    return "blue50";
-                } else if(percentage < 50 && percentage >= 35){
-                    return "blue35";
-                } else if(percentage >= 90 && percentage <= 100){
-                    return "blue100";
-                } else {
-                    return "blue15";
-                }
             }
-        }
-    });
-
+        });
+    }
 }

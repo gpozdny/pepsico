@@ -1,0 +1,20 @@
+{   
+    "mentors": {
+        "briefMain": {
+            "number": 3400,
+            "percentage": 20
+        },
+        "presentationMain": {
+            "number": 5500,
+            "percentage": 50
+        },
+        "briefSecondary": {
+            "number": 4440,
+            "percentage": 75
+        },
+        "presentationSecondary": {
+            "number": 40300,
+            "percentage": 88
+        }
+    }
+}

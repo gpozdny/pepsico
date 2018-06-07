@@ -1,47 +1,47 @@
 {   
     "participators": {
         "interview": {
-            "percentage": "100",
-            "passed": "1500",
-            "odds": "-15%"
+            "percentage": 100,
+            "passed": 1500,
+            "odds": -15
         },
         "brief": {
-            "percentage": "75",
-            "passed": "1500",
-            "odds": "-15%"
+            "percentage": 75,
+            "passed": 1500,
+            "odds": -15
         },
         "presentationSent": {
-            "percentage": "50",
-            "passed": "1500",
-            "odds": "-15%"
+            "percentage": 50,
+            "passed": 1500,
+            "odds": -15
         },
         "presentationPassed": {
-            "percentage": "35",
-            "passed": "1500",
-            "odds": "-15%"
+            "percentage": 35,
+            "passed": 1500,
+            "odds": -15
         },
         "finals": {
-            "percentage": "15",
-            "passed": "1500",
-            "odds": "-15%"
+            "percentage": 15,
+            "passed": 1500,
+            "odds": -15
         }
     },
     "mentors": {
         "briefMain": {
-            "number": "3400",
-            "percentage": "90"
+            "number": 3400,
+            "percentage": 90
         },
         "presentationMain": {
-            "number": "5500",
-            "percentage": "80"
+            "number": 5500,
+            "percentage": 80
         },
         "briefSecondary": {
-            "number": "4440",
-            "percentage": "70"
+            "number": 4440,
+            "percentage": 70
         },
         "presentationSecondary": {
-            "number": "40300",
-            "percentage": "30"
+            "number": 40300,
+            "percentage": 30
         }
     }
 }
