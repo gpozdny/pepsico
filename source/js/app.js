@@ -162,433 +162,173 @@ $(document).ready(function () {
         $projects.css("width", "50%");
     } else $projects.css("width", "25%");
 
+
+    // popups files
+
+    let $inputName = $('.profile__attachments-input'),
+        $imgInput = $('#imgInput'),
+        $docxInput = $('#docxInput'),
+        $descInput = $('#descInput'),
+        $presentInput = $('#presentInput'),
+        $docxPresentation = $('#docxPresentation'),
+        $pptx = $('#pptx'),
+        $docx = $('#docx'),
+        $image = $('#imageWrap'),
+        $labelDocx = $('#labelDocx'),
+        $labelImage = $('#labelImage'),
+        $labelPresentation = $('#labelPresentation'),
+        $labelDesc = $('#labelDesc'),
+        $attchBtn = $('.profile__attachments-btn');
+
+    // delete attachments
+
+    $('[data-close]').on('click', function () {
+        let $this = $(this),
+            $dataType = $this.data('close');
+
+        console.log($dataType);
+        switch ($dataType) {
+            case 'docx':
+                deleteDocx();
+                validateProject();
+                break;
+            case 'img':
+                deleteImg();
+                validateProject();
+                break;
+            case 'description':
+                deleteDescription();
+                validatePresent();
+                break;
+            case 'presentation':
+                deletePresentation();
+                validatePresent();
+                break;
+        }
+
+    });
+
+    function deleteDocx() {
+        $docxInput.wrap('<form>').closest('form').get(0).reset();
+        $docxInput.unwrap();
+        $docx.removeClass('show');
+        $docx.addClass('hidden');
+        $labelDocx.removeClass('hidden');
+        $labelDocx.addClass('show');
+    };
+
+    function deleteImg() {
+        $imgInput.wrap('<form>').closest('form').get(0).reset();
+        $imgInput.unwrap();
+        $image.removeClass('show');
+        $image.addClass('hidden');
+        $labelImage.removeClass('hidden');
+        $labelImage.addClass('show');
+    };
+
+    function deleteDescription() {
+        $descInput.wrap('<form>').closest('form').get(0).reset();
+        $descInput.unwrap();
+        $docxPresentation.removeClass('show');
+        $docxPresentation.addClass('hidden');
+        $labelDesc.removeClass('hidden');
+        $labelDesc.addClass('show');
+    };
+
+    function deletePresentation() {
+        $imgInput.wrap('<form>').closest('form').get(0).reset();
+        $imgInput.unwrap();
+        $pptx.removeClass('show');
+        $pptx.addClass('hidden');
+        $labelPresentation.removeClass('hidden');
+        $labelPresentation.addClass('show');
+    };
+
+    function changeDocx() {
+        $docx.removeClass('hidden');
+        $docx.addClass('show');
+        $labelDocx.removeClass('show');
+        $labelDocx.addClass('hidden');
+    };
+
+    function changeImage() {
+        $image.removeClass('hidden');
+        $image.addClass('show');
+        $labelImage.removeClass('show');
+        $labelImage.addClass('hidden');
+    };
+
+    function changeDesc() {
+        $docxPresentation.removeClass('hidden');
+        $docxPresentation.addClass('show');
+        $labelDesc.removeClass('show');
+        $labelDesc.addClass('hidden');
+    };
+
+    function changePresentation() {
+        $pptx.removeClass('hidden');
+        $pptx.addClass('show');
+        $labelPresentation.removeClass('show');
+        $labelPresentation.addClass('hidden');
+    };
+
+    function previewFile() {
+
+        let preview = document.querySelector('#image');
+        let file = document.querySelector('#imgInput').files[0];
+        let reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    };
+
+    // check forms
+
+    function validateProject() {
+        let $doc = $('#docxInput'),
+            $img = $('#imgInput'),
+            $name = $('#projectName'),
+            $btn = $('#submitProject');
+
+        if ($doc.get(0).files.length !== 0 && $img.get(0).files.length !== 0 && $name.val().length !== 0) {
+            $btn.addClass('btn--active');
+        } else $btn.removeClass('btn--active');
+    };
+
+    function validatePresent() {
+        let $desc = $('#descInput'),
+            $presentation = $('#presentInput'),
+            $btnPresent = $('#submitPresent');
+
+        if ($desc.get(0).files.length !== 0 && $presentation.get(0).files.length !== 0) {
+            $btnPresent.addClass('btn--active');
+        } else $btnPresent.removeClass('btn--active');
+    };
+
+    function checkLength() {
+        let $comment = $('.participant__assessment-input'),
+            $btnMentor = $('#btnMentor');
+
+        $btnMentor.toggleClass('btn--active', $comment.val().length !== 0); // preferable
+    };
+
+    function checkForm() {
+        let $btnAuth = $('.form__auth-btn'),
+            $authInputs = $('.form__login, .form__password');
+        $btnAuth.toggleClass('btn--white', $authInputs.val().length !== 0); // preferable
+    };
+});
+
     // analytics
 
-    // cities
-    var ctx = $("#cities");
-
-    var citiesChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ["Москва", "Санкт-Петербург", "Ростов-на-Дону", "Воронеж", "Прочее"],
-            datasets: [{
-                label: '# of Votes',
-                data: [13, 19, 3, 5, 2],
-                backgroundColor: [
-                    '#004C97',
-                    '#0085CA',
-                    '#00AAE2',
-                    '#3CBEE9',
-                    '#C4C9CD'
-                ],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            cutoutPercentage: 75,
-            tooltips: {
-                backgroundColor: '#FFF',
-                bodyFontColor: '#00aae2',
-                bodyFontSize: 12,
-                bodyFontFamily: 'Gotham-bold',
-                borderColor: 'rgba(0, 0, 0, 0.2)',
-                borderWidth: 1,
-                displayColors: false
-            },
-            legend: {
-                responsive: true,
-                display: true,
-                position: 'right',
-                labels: {
-                    fontColor: '#2b2b2b',
-                    fontSize: 12,
-                    // fontFamily: 'Gotham Book',
-                    padding: 10,
-                    usePointStyle: true
-                }
-            }
-        }
-    });
-    // universities
-    var ctx2 = $("#univer");
-
-    var univerDoughnutChart = new Chart(ctx2, {
-        type: 'doughnut',
-        data: {
-            labels: ["МГУ", "МГИМО", "СПбГУ", "ЮФО", "Прочие"],
-            datasets: [{
-                label: '# of Votes',
-                data: [13, 19, 3, 5, 2],
-                backgroundColor: [
-                    '#004C97',
-                    '#0085CA',
-                    '#00AAE2',
-                    '#3CBEE9',
-                    '#C4C9CD'
-                ],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            cutoutPercentage: 75,
-            tooltips: {
-                backgroundColor: '#FFF',
-                bodyFontColor: '#00aae2',
-                bodyFontSize: 12,
-                bodyFontFamily: 'Gotham-bold',
-                borderColor: 'rgba(0, 0, 0, 0.2)',
-                borderWidth: 1,
-                displayColors: false
-            },
-            legend: {
-                responsive: true,
-                display: true,
-                position: 'right',
-                labels: {
-                    fontColor: '#2b2b2b',
-                    fontSize: 12,
-                    // fontFamily: 'Gotham Book',
-                    padding: 10,
-                    usePointStyle: true
-                }
-            }
-        }
-    });
-    // branches 
-
-    var ctx3 = $("#branches");
-
-    var branchesChart = new Chart(ctx3, {
-        type: 'doughnut',
-        data: {
-            labels: ["Маркетинг", "Менеджмент", "Интернет-маркетинг", "SММ", "Прочие"],
-            datasets: [{
-                label: '# of Votes',
-                data: [13, 19, 3, 5, 2],
-                backgroundColor: [
-                    '#004C97',
-                    '#0085CA',
-                    '#00AAE2',
-                    '#3CBEE9',
-                    '#C4C9CD'
-                ],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            cutoutPercentage: 75,
-            tooltips: {
-                backgroundColor: '#FFF',
-                bodyFontColor: '#00aae2',
-                bodyFontSize: 12,
-                bodyFontFamily: 'Gotham-bold',
-                borderColor: 'rgba(0, 0, 0, 0.2)',
-                borderWidth: 1,
-                displayColors: false
-            },
-            legend: {
-                responsive: true,
-                display: true,
-                position: 'right',
-                labels: {
-                    fontColor: '#2b2b2b',
-                    fontSize: 12,
-                    padding: 10,
-                    usePointStyle: true
-                }
-            }
-        }
-    });
-    // main-stream
-
-    var ctx4 = $("#main-stream");
-
-    var mainChart = new Chart(ctx4, {
-        type: 'doughnut',
-        data: {
-            labels: ["Иследования и разработки",
-                "Коммерциализация инноваций",
-                "Интернет-маркетинг",
-                "Коммерческий отдел (Мск)", "Коммерческий отдел (Спб)",
-                "Коммерческий отдел (РнД)",
-                "Маркетинг",
-                "Планирование цепей поставок",
-                "Управление мастер-данными",
-                "Финансы",
-                "R&D"
-            ],
-            datasets: [{
-                label: '# of Votes',
-                data: [13, 19, 3, 5, 2, 4, 6, 8, 9, 9, 5],
-                backgroundColor: [
-                    '#004C97',
-                    '#0085CA',
-                    '#00AAE2',
-                    '#3CBEE9',
-                    '#EF6530',
-                    '#F5913B',
-                    '#009639',
-                    '#78BE20',
-                    '#FFCC3D',
-                    '#E72E36',
-                    '#C4C9CD'
-                ],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            cutoutPercentage: 75,
-            tooltips: {
-                backgroundColor: '#FFF',
-                bodyFontColor: '#00aae2',
-                bodyFontSize: 12,
-                bodyFontFamily: 'Gotham-bold',
-                borderColor: 'rgba(0, 0, 0, 0.2)',
-                borderWidth: 1,
-                displayColors: false
-            },
-            legend: {
-                responsive: true,
-                display: true,
-                position: 'right',
-                labels: {
-                    fontColor: '#2b2b2b',
-                    fontSize: 12,
-                    padding: 10,
-                    usePointStyle: true
-                }
-            }
-        }
-    });
-
-    //secondary stream
-
-    var ctx5 = $("#secondary-stream");
-
-    var secondaryChart = new Chart(ctx5, {
-        type: 'doughnut',
-        data: {
-            labels: ["Иследования и разработки",
-                "Коммерциализация инноваций",
-                "Интернет-маркетинг",
-                "Коммерческий отдел (Мск)", "Коммерческий отдел (Спб)",
-                "Коммерческий отдел (РнД)",
-                "Маркетинг",
-                "Планирование цепей поставок",
-                "Управление мастер-данными",
-                "Финансы",
-                "R&D"
-            ],
-            datasets: [{
-                label: '# of Votes',
-                data: [13, 19, 3, 5, 2, 4, 6, 8, 9, 9, 5],
-                backgroundColor: [
-                    '#004C97',
-                    '#0085CA',
-                    '#00AAE2',
-                    '#3CBEE9',
-                    '#EF6530',
-                    '#F5913B',
-                    '#009639',
-                    '#78BE20',
-                    '#FFCC3D',
-                    '#E72E36',
-                    '#C4C9CD'
-                ],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            cutoutPercentage: 75,
-            tooltips: {
-                backgroundColor: '#FFF',
-                bodyFontColor: '#00aae2',
-                bodyFontSize: 12,
-                bodyFontFamily: 'Gotham-bold',
-                borderColor: 'rgba(0, 0, 0, 0.2)',
-                borderWidth: 1,
-                displayColors: false
-            },
-            legend: {
-                responsive: true,
-                display: true,
-                position: 'right',
-                labels: {
-                    fontColor: '#2b2b2b',
-                    fontSize: 12,
-                    padding: 10,
-                    usePointStyle: true
-                }
-            }
-        }
-    });
-});
-// popups files
-
-let $inputName = $('.profile__attachments-input'),
-    $imgInput = $('#imgInput'),
-    $docxInput = $('#docxInput'),
-    $descInput = $('#descInput'),
-    $presentInput = $('#presentInput'),
-    $docxPresentation = $('#docxPresentation'),
-    $pptx = $('#pptx'),
-    $docx = $('#docx'),
-    $image = $('#imageWrap'),
-    $labelDocx = $('#labelDocx'),
-    $labelImage = $('#labelImage'),
-    $labelPresentation = $('#labelPresentation'),
-    $labelDesc = $('#labelDesc'),
-    $attchBtn = $('.profile__attachments-btn');
-
-// delete attachments
-
-$('[data-close]').on('click', function () {
-    let $this = $(this),
-        $dataType = $this.data('close');
-
-    console.log($dataType);
-    switch ($dataType) {
-        case 'docx':
-            deleteDocx();
-            validateProject();
-            break;
-        case 'img':
-            deleteImg();
-            validateProject();
-            break;
-        case 'description':
-            deleteDescription();
-            validatePresent();
-            break;
-        case 'presentation':
-            deletePresentation();
-            validatePresent();
-            break;
-    }
-
-});
-
-function deleteDocx() {
-    $docxInput.wrap('<form>').closest('form').get(0).reset();
-    $docxInput.unwrap();
-    $docx.removeClass('show');
-    $docx.addClass('hidden');
-    $labelDocx.removeClass('hidden');
-    $labelDocx.addClass('show');
-};
-
-function deleteImg() {
-    $imgInput.wrap('<form>').closest('form').get(0).reset();
-    $imgInput.unwrap();
-    $image.removeClass('show');
-    $image.addClass('hidden');
-    $labelImage.removeClass('hidden');
-    $labelImage.addClass('show');
-};
-
-function deleteDescription() {
-    $descInput.wrap('<form>').closest('form').get(0).reset();
-    $descInput.unwrap();
-    $docxPresentation.removeClass('show');
-    $docxPresentation.addClass('hidden');
-    $labelDesc.removeClass('hidden');
-    $labelDesc.addClass('show');
-};
-
-function deletePresentation() {
-    $imgInput.wrap('<form>').closest('form').get(0).reset();
-    $imgInput.unwrap();
-    $pptx.removeClass('show');
-    $pptx.addClass('hidden');
-    $labelPresentation.removeClass('hidden');
-    $labelPresentation.addClass('show');
-};
-
-function changeDocx() {
-    $docx.removeClass('hidden');
-    $docx.addClass('show');
-    $labelDocx.removeClass('show');
-    $labelDocx.addClass('hidden');
-};
-
-function changeImage() {
-    $image.removeClass('hidden');
-    $image.addClass('show');
-    $labelImage.removeClass('show');
-    $labelImage.addClass('hidden');
-};
-
-function changeDesc() {
-    $docxPresentation.removeClass('hidden');
-    $docxPresentation.addClass('show');
-    $labelDesc.removeClass('show');
-    $labelDesc.addClass('hidden');
-};
-
-function changePresentation() {
-    $pptx.removeClass('hidden');
-    $pptx.addClass('show');
-    $labelPresentation.removeClass('show');
-    $labelPresentation.addClass('hidden');
-};
-
-function previewFile() {
-
-    let preview = document.querySelector('#image');
-    let file = document.querySelector('#imgInput').files[0];
-    let reader = new FileReader();
-
-    reader.onloadend = function () {
-        preview.src = reader.result;
-    }
-
-    if (file) {
-        reader.readAsDataURL(file);
-    } else {
-        preview.src = "";
-    }
-};
-
-// check forms
-
-function validateProject() {
-    let $doc = $('#docxInput'),
-        $img = $('#imgInput'),
-        $name = $('#projectName'),
-        $btn = $('#submitProject');
-
-    if ($doc.get(0).files.length !== 0 && $img.get(0).files.length !== 0 && $name.val().length !== 0) {
-        $btn.addClass('btn--active');
-    } else $btn.removeClass('btn--active');
-};
-
-function validatePresent() {
-    let $desc = $('#descInput'),
-        $presentation = $('#presentInput'),
-        $btnPresent = $('#submitPresent');
-
-    if ($desc.get(0).files.length !== 0 && $presentation.get(0).files.length !== 0) {
-        $btnPresent.addClass('btn--active');
-    } else $btnPresent.removeClass('btn--active');
-};
-
-function checkLength() {
-    let $comment = $('.participant__assessment-input'),
-        $btnMentor = $('#btnMentor');
-
-    $btnMentor.toggleClass('btn--active', $comment.val().length !== 0); // preferable
-};
-
-function checkForm() {
-    let $btnAuth = $('.form__auth-btn'),
-        $authInputs = $('.form__login, .form__password');
-    $btnAuth.toggleClass('btn--white', $authInputs.val().length !== 0); // preferable
-};
-
-//
-
-
-let usersEvent = "users",
+    let usersEvent = "users",
     usersEventStream = "stream",
     mentorsEvent = "mentors",
     allData = "allData";
@@ -612,20 +352,20 @@ function getData(type) {
         return;
     }
 
-    if(type === "users"){
+    if (type === "users") {
         activeUrl = 'assets/json/chartsUsers.json';
         usersData(activeUrl);
     } else if (type === "mentors") {
         activeUrl = 'assets/json/chartsMentor.json';
         usersData(activeUrl);
-    } else if (type === "stream"){
+    } else if (type === "stream") {
         activeUrl = 'assets/json/chartsUsersStream.json';
         usersData(activeUrl);
     }
 
     usersData(activeUrl);
-    
-    function usersData(activeUrl){
+
+    function usersData(activeUrl) {
         $.ajax({
             type: 'GET',
             url: activeUrl,
@@ -644,7 +384,7 @@ function getData(type) {
                             let obj = data[key][keyInner];
                             let $container = $(`[data-chart="${keyInner}"]`);
                             $('.js-rate', $container).text(obj.percentage + '%');
-    
+
                             $('.js-chart', $container).css("height", obj.percentage + '%')
                                 .css("background-color", changedata(obj.percentage));
                             $('.js-passed', $container).text(obj.passed);
@@ -653,7 +393,7 @@ function getData(type) {
                         }
                     }
                 })(data);
-    
+
                 function changedata(percentage) {
                     if (percentage < 90 && percentage >= 75) {
                         return "#1F66B1";
@@ -663,7 +403,7 @@ function getData(type) {
                         return "#2698D3";
                     } else if (percentage >= 90 && percentage <= 100) {
                         return "#004C97";
-                    } else if  (percentage <= 35) {
+                    } else if (percentage <= 35) {
                         return "#00AAE2";
                     }
                 }
@@ -671,3 +411,288 @@ function getData(type) {
         });
     }
 }
+
+let citiesNames,
+    citiesValues;
+
+getDataCircles();
+
+function getDataCircles(){
+    $.ajax({
+        type: 'GET',
+        url: 'assets/json/cities.json',
+        data: {
+        },
+        dataType: 'json',
+        success: function (data) {;
+            (function renderData() {
+                citiesNames = Object.keys(data.cities);
+                citiesValues = Object.values(data.cities);
+                renderCharts();
+            })(data);
+        }
+    });
+}
+
+   // cities
+
+function renderCharts(){
+    var ctx = $("#cities");
+
+    var citiesChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: citiesNames,
+            datasets: [{
+                label: '# of Votes',
+                data: citiesValues,
+                backgroundColor: [
+                    '#004C97',
+                    '#0085CA',
+                    '#00AAE2',
+                    '#3CBEE9',
+                    '#C4C9CD'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutoutPercentage: 75,
+            tooltips: {
+                backgroundColor: '#FFF',
+                bodyFontColor: '#00aae2',
+                bodyFontSize: 12,
+                bodyFontFamily: 'Gotham-bold',
+                borderColor: 'rgba(0, 0, 0, 0.2)',
+                borderWidth: 1,
+                displayColors: false
+            },
+            legend: {
+                responsive: true,
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: '#2b2b2b',
+                    fontSize: 12,
+                    // fontFamily: 'Gotham Book',
+                    padding: 10,
+                    usePointStyle: true
+                }
+            }
+        }
+    });
+     // universities
+   var ctx2 = $("#univer");
+
+   var univerDoughnutChart = new Chart(ctx2, {
+       type: 'doughnut',
+       data: {
+           labels: ["МГУ", "МГИМО", "СПбГУ", "ЮФО", "Прочие"],
+           datasets: [{
+               label: '# of Votes',
+               data: [13, 19, 3, 5, 2],
+               backgroundColor: [
+                   '#004C97',
+                   '#0085CA',
+                   '#00AAE2',
+                   '#3CBEE9',
+                   '#C4C9CD'
+               ],
+               borderWidth: 0
+           }]
+       },
+       options: {
+           cutoutPercentage: 75,
+           tooltips: {
+               backgroundColor: '#FFF',
+               bodyFontColor: '#00aae2',
+               bodyFontSize: 12,
+               bodyFontFamily: 'Gotham-bold',
+               borderColor: 'rgba(0, 0, 0, 0.2)',
+               borderWidth: 1,
+               displayColors: false
+           },
+           legend: {
+               responsive: true,
+               display: true,
+               position: 'right',
+               labels: {
+                   fontColor: '#2b2b2b',
+                   fontSize: 12,
+                   // fontFamily: 'Gotham Book',
+                   padding: 10,
+                   usePointStyle: true
+               }
+           }
+       }
+   });
+   // branches 
+
+   var ctx3 = $("#branches");
+
+   var branchesChart = new Chart(ctx3, {
+       type: 'doughnut',
+       data: {
+           labels: ["Маркетинг", "Менеджмент", "Интернет-маркетинг", "SММ", "Прочие"],
+           datasets: [{
+               label: '# of Votes',
+               data: [13, 19, 3, 5, 2],
+               backgroundColor: [
+                   '#004C97',
+                   '#0085CA',
+                   '#00AAE2',
+                   '#3CBEE9',
+                   '#C4C9CD'
+               ],
+               borderWidth: 0
+           }]
+       },
+       options: {
+           cutoutPercentage: 75,
+           tooltips: {
+               backgroundColor: '#FFF',
+               bodyFontColor: '#00aae2',
+               bodyFontSize: 12,
+               bodyFontFamily: 'Gotham-bold',
+               borderColor: 'rgba(0, 0, 0, 0.2)',
+               borderWidth: 1,
+               displayColors: false
+           },
+           legend: {
+               responsive: true,
+               display: true,
+               position: 'right',
+               labels: {
+                   fontColor: '#2b2b2b',
+                   fontSize: 12,
+                   padding: 10,
+                   usePointStyle: true
+               }
+           }
+       }
+   });
+   // main-stream
+
+   var ctx4 = $("#main-stream");
+
+   var mainChart = new Chart(ctx4, {
+       type: 'doughnut',
+       data: {
+           labels: ["Иследования и разработки",
+               "Коммерциализация инноваций",
+               "Интернет-маркетинг",
+               "Коммерческий отдел (Мск)", "Коммерческий отдел (Спб)",
+               "Коммерческий отдел (РнД)",
+               "Маркетинг",
+               "Планирование цепей поставок",
+               "Управление мастер-данными",
+               "Финансы",
+               "R&D"
+           ],
+           datasets: [{
+               label: '# of Votes',
+               data: [13, 19, 3, 5, 2, 4, 6, 8, 9, 9, 5],
+               backgroundColor: [
+                   '#004C97',
+                   '#0085CA',
+                   '#00AAE2',
+                   '#3CBEE9',
+                   '#EF6530',
+                   '#F5913B',
+                   '#009639',
+                   '#78BE20',
+                   '#FFCC3D',
+                   '#E72E36',
+                   '#C4C9CD'
+               ],
+               borderWidth: 0
+           }]
+       },
+       options: {
+           cutoutPercentage: 75,
+           tooltips: {
+               backgroundColor: '#FFF',
+               bodyFontColor: '#00aae2',
+               bodyFontSize: 12,
+               bodyFontFamily: 'Gotham-bold',
+               borderColor: 'rgba(0, 0, 0, 0.2)',
+               borderWidth: 1,
+               displayColors: false
+           },
+           legend: {
+               responsive: true,
+               display: true,
+               position: 'right',
+               labels: {
+                   fontColor: '#2b2b2b',
+                   fontSize: 12,
+                   padding: 10,
+                   usePointStyle: true
+               }
+           }
+       }
+   });
+
+   //secondary stream
+   
+   var ctx5 = $("#secondary-stream");
+
+   var secondaryChart = new Chart(ctx5, {
+       type: 'doughnut',
+       data: {
+           labels: ["Иследования и разработки",
+               "Коммерциализация инноваций",
+               "Интернет-маркетинг",
+               "Коммерческий отдел (Мск)", "Коммерческий отдел (Спб)",
+               "Коммерческий отдел (РнД)",
+               "Маркетинг",
+               "Планирование цепей поставок",
+               "Управление мастер-данными",
+               "Финансы",
+               "R&D"
+           ],
+           datasets: [{
+               label: '# of Votes',
+               data: [13, 19, 3, 5, 2, 4, 6, 8, 9, 9, 5],
+               backgroundColor: [
+                   '#004C97',
+                   '#0085CA',
+                   '#00AAE2',
+                   '#3CBEE9',
+                   '#EF6530',
+                   '#F5913B',
+                   '#009639',
+                   '#78BE20',
+                   '#FFCC3D',
+                   '#E72E36',
+                   '#C4C9CD'
+               ],
+               borderWidth: 0
+           }]
+       },
+       options: {
+           cutoutPercentage: 75,
+           tooltips: {
+               backgroundColor: '#FFF',
+               bodyFontColor: '#00aae2',
+               bodyFontSize: 12,
+               bodyFontFamily: 'Gotham-bold',
+               borderColor: 'rgba(0, 0, 0, 0.2)',
+               borderWidth: 1,
+               displayColors: false
+           },
+           legend: {
+               responsive: true,
+               display: true,
+               position: 'right',
+               labels: {
+                   fontColor: '#2b2b2b',
+                   fontSize: 12,
+                   padding: 10,
+                   usePointStyle: true
+               }
+           }
+       }
+   });
+}
+   

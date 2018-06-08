@@ -130,7 +130,7 @@ block content
                         span.heading Вуз
                         .users__wrap
                             .users__selector.text
-                                select.input--analytics
+                                select.input--analytics(onchange="getDataCircles()")
                                     option(value="Все направления") Все направления
                                     option(value="placeholder") placeholder
                     .info__chart
