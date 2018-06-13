@@ -412,15 +412,39 @@ function getData(type) {
     }
 }
 
+// JSON URLs
+
+let jsonURLs = {
+    cities: 'assets/json/cities.json',
+    universities: 'assets/json/universities.json',
+    specialities: 'assets/json/specialities.json',
+    branchesMain: 'assets/json/branchesMain.json',
+    branchesSecondary: 'assets/json/branchesSecondary.json'
+};
+
+// END
+
+// GET DATA
+
 let citiesNames,
-    citiesValues;
+    citiesValues,
+    universitiesNames,
+    universitiesValues,
+    specialitiesNames,
+    specialitiesValues,
+    branchesMainNames,
+    branchesMainValues,
+    branchesSecondaryNames,
+    branchesSecondaryValues;
+
 
 getDataCircles();
 
 function getDataCircles(){
+
     $.ajax({
         type: 'GET',
-        url: 'assets/json/cities.json',
+        url: jsonURLs.cities,
         data: {
         },
         dataType: 'json',
@@ -428,10 +452,63 @@ function getDataCircles(){
             (function renderData() {
                 citiesNames = Object.keys(data.cities);
                 citiesValues = Object.values(data.cities);
-                renderCharts();
             })(data);
         }
     });
+    $.ajax({
+        type: 'GET',
+        url: jsonURLs.universities,
+        data: {
+        },
+        dataType: 'json',
+        success: function (data) {;
+            (function renderData() {
+                universitiesNames = Object.keys(data.universities);
+                universitiesValues = Object.values(data.universities);
+            })(data);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: jsonURLs.specialities,
+        data: {
+        },
+        dataType: 'json',
+        success: function (data) {;
+            (function renderData() {
+                specialitiesNames = Object.keys(data.specialities);
+                specialitiesValues = Object.values(data.specialities);
+            })(data);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: jsonURLs.branchesMain,
+        data: {
+        },
+        dataType: 'json',
+        success: function (data) {;
+            (function renderData() {
+                branchesMainNames = Object.keys(data.branchesMain);
+                branchesMainValues = Object.values(data.branchesMain);
+            })(data);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: jsonURLs.branchesSecondary,
+        data: {
+        },
+        dataType: 'json',
+        success: function (data) {;
+            (function renderData() {
+                branchesSecondaryNames = Object.keys(data.branchesSecondary);
+                branchesSecondaryValues = Object.values(data.branchesSecondary);
+            })(data);
+            renderCharts();
+        }
+    });
+
 }
 
    // cities
@@ -487,10 +564,10 @@ function renderCharts(){
    var univerDoughnutChart = new Chart(ctx2, {
        type: 'doughnut',
        data: {
-           labels: ["МГУ", "МГИМО", "СПбГУ", "ЮФО", "Прочие"],
+           labels: universitiesNames,
            datasets: [{
                label: '# of Votes',
-               data: [13, 19, 3, 5, 2],
+               data: universitiesValues,
                backgroundColor: [
                    '#004C97',
                    '#0085CA',
@@ -533,10 +610,10 @@ function renderCharts(){
    var branchesChart = new Chart(ctx3, {
        type: 'doughnut',
        data: {
-           labels: ["Маркетинг", "Менеджмент", "Интернет-маркетинг", "SММ", "Прочие"],
+           labels: specialitiesNames,
            datasets: [{
                label: '# of Votes',
-               data: [13, 19, 3, 5, 2],
+               data: specialitiesValues,
                backgroundColor: [
                    '#004C97',
                    '#0085CA',
@@ -578,20 +655,10 @@ function renderCharts(){
    var mainChart = new Chart(ctx4, {
        type: 'doughnut',
        data: {
-           labels: ["Иследования и разработки",
-               "Коммерциализация инноваций",
-               "Интернет-маркетинг",
-               "Коммерческий отдел (Мск)", "Коммерческий отдел (Спб)",
-               "Коммерческий отдел (РнД)",
-               "Маркетинг",
-               "Планирование цепей поставок",
-               "Управление мастер-данными",
-               "Финансы",
-               "R&D"
-           ],
+           labels: branchesMainNames,
            datasets: [{
                label: '# of Votes',
-               data: [13, 19, 3, 5, 2, 4, 6, 8, 9, 9, 5],
+               data: branchesMainValues,
                backgroundColor: [
                    '#004C97',
                    '#0085CA',
@@ -640,20 +707,10 @@ function renderCharts(){
    var secondaryChart = new Chart(ctx5, {
        type: 'doughnut',
        data: {
-           labels: ["Иследования и разработки",
-               "Коммерциализация инноваций",
-               "Интернет-маркетинг",
-               "Коммерческий отдел (Мск)", "Коммерческий отдел (Спб)",
-               "Коммерческий отдел (РнД)",
-               "Маркетинг",
-               "Планирование цепей поставок",
-               "Управление мастер-данными",
-               "Финансы",
-               "R&D"
-           ],
+           labels: branchesSecondaryNames,
            datasets: [{
                label: '# of Votes',
-               data: [13, 19, 3, 5, 2, 4, 6, 8, 9, 9, 5],
+               data: branchesSecondaryValues,
                backgroundColor: [
                    '#004C97',
                    '#0085CA',
