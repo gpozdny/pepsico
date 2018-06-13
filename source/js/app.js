@@ -331,6 +331,8 @@ $(document).ready(function () {
     let usersEvent = "users",
     usersEventStream = "stream",
     mentorsEvent = "mentors",
+    universitiesEvent = "universities",
+    specialitiesEvent = "specialities",
     allData = "allData";
 
 getData(allData);
@@ -352,16 +354,16 @@ function getData(type) {
         return;
     }
 
-    if (type === "users") {
+    if (type === usersEvent) {
         activeUrl = 'assets/json/chartsUsers.json';
         usersData(activeUrl);
-    } else if (type === "mentors") {
+    } else if (type === mentorsEvent) {
         activeUrl = 'assets/json/chartsMentor.json';
         usersData(activeUrl);
-    } else if (type === "stream") {
+    } else if (type === usersEventStream) {
         activeUrl = 'assets/json/chartsUsersStream.json';
         usersData(activeUrl);
-    }
+    } 
 
     usersData(activeUrl);
 
@@ -386,7 +388,7 @@ function getData(type) {
                             $('.js-rate', $container).text(obj.percentage + '%');
 
                             $('.js-chart', $container).css("height", obj.percentage + '%')
-                                .css("background-color", changedata(obj.percentage));
+                                .css("background-color", changeData(obj.percentage));
                             $('.js-passed', $container).text(obj.passed);
                             $('.js-odds', $container).text(obj.odds + '%');
                             $('.js-number', $container).text(obj.number);
@@ -394,7 +396,7 @@ function getData(type) {
                     }
                 })(data);
 
-                function changedata(percentage) {
+                function changeData(percentage) {
                     if (percentage < 90 && percentage >= 75) {
                         return "#1F66B1";
                     } else if (percentage < 75 && percentage >= 50) {
@@ -417,7 +419,9 @@ function getData(type) {
 let jsonURLs = {
     cities: 'assets/json/cities.json',
     universities: 'assets/json/universities.json',
+    universitiesStreams: 'assets/json/universitiesStreams.json',
     specialities: 'assets/json/specialities.json',
+    specialitiesStream: 'assets/json/specialitiesStreams.json',
     branchesMain: 'assets/json/branchesMain.json',
     branchesSecondary: 'assets/json/branchesSecondary.json'
 };
@@ -440,7 +444,38 @@ let citiesNames,
 
 getDataCircles();
 
-function getDataCircles(){
+function getDataCircles(type){
+
+    // if(type === universitiesEvent){
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: jsonURLs.universitiesStreams,
+    //         data: {
+    //         },
+    //         dataType: 'json',
+    //         success: function (data) {;
+    //             (function renderData() {
+    //                 universitiesNames = Object.keys(data.universities);
+    //                 universitiesValues = Object.values(data.universities);
+    //             })(data);
+    //         }
+    //     });
+
+    // } else if (type === specialitiesEvent){
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: jsonURLs.specialitiesStream,
+    //         data: {
+    //         },
+    //         dataType: 'json',
+    //         success: function (data) {;
+    //             (function renderData() {
+    //                 specialitiesNames = Object.keys(data.specialities);
+    //                 specialitiesValues = Object.values(data.specialities);
+    //             })(data);
+    //         }
+    //     });
+    // }
 
     $.ajax({
         type: 'GET',
@@ -505,10 +540,10 @@ function getDataCircles(){
                 branchesSecondaryNames = Object.keys(data.branchesSecondary);
                 branchesSecondaryValues = Object.values(data.branchesSecondary);
             })(data);
-            renderCharts();
         }
     });
 
+    setTimeout(function(){ renderCharts(); }, 300);
 }
 
    // cities
@@ -551,7 +586,6 @@ function renderCharts(){
                 labels: {
                     fontColor: '#2b2b2b',
                     fontSize: 12,
-                    // fontFamily: 'Gotham Book',
                     padding: 10,
                     usePointStyle: true
                 }
@@ -603,6 +637,7 @@ function renderCharts(){
            }
        }
    });
+
    // branches 
 
    var ctx3 = $("#branches");

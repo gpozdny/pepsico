@@ -130,7 +130,7 @@ block content
                         span.heading Вуз
                         .users__wrap
                             .users__selector.text
-                                select.input--analytics(onchange="getDataCircles()")
+                                select.input--analytics(onchange="getDataCircles(universitiesEvent)")
                                     option(value="Все направления") Все направления
                                     option(value="placeholder") placeholder
                     .info__chart
@@ -140,7 +140,7 @@ block content
                         span.heading Специальность
                         .users__wrap
                             .users__selector.text
-                                select.input--analytics
+                                select.input--analytics(onchange="getDataCircles(specialitiesEvent)")
                                     option(value="Все направления") Все направления
                                     option(value="placeholder") placeholder
                     .info__chart
@@ -153,11 +153,4 @@ block content
                 .stream__col.column
                     span.heading Направления (Дополнительный стрим)
                     .stream__chart
-                        canvas(id="secondary-stream")                       
-
-
-
-
-
-
-
+                        canvas(id="secondary-stream")
